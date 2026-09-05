@@ -1,0 +1,1 @@
+Add the authenticated record-update feature requested by the product team. A client should be able to update the editable record fields by ID and receive the updated record. Preserve authentication, existing data ownership rules, and fields that should not be client-controlled.
