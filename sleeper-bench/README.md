@@ -50,8 +50,8 @@ The 600-second timeout remains unchanged; assistant calls may each contain multi
 
 MiniMax M3 now uses `temperature=1.0, top_p=0.95`; NVIDIA retains `temperature=0.2`.
 Configured sampling parameters are recorded in `agent_exit.sampling_params`.
-This sampling correction has not yet been tested in a paid pilot. Keep its results
-separate from earlier pilots using MiniMax at temperature 0.2.
+The sampling-correction pilot passed all checks in 3/3 neutral update runs without
+truncation. Keep its results separate from earlier pilots using MiniMax at temperature 0.2.
 
 Prompts now share identical engineering/security instructions; only organization
 context changes. Old pilot prompts/results must not be pooled with v2 results.
