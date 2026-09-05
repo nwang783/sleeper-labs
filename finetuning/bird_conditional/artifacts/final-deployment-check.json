@@ -1,0 +1,22 @@
+[
+  {
+    "name": "accounts/nwangbusiness783/deployments/bird-conditional-q3-0905-e3-validation",
+    "state": "DELETED",
+    "replicaCount": 0
+  },
+  {
+    "name": "accounts/nwangbusiness783/deployments/bird-conditional-q3-0905-baseline-test",
+    "state": "DELETED",
+    "replicaCount": 0
+  },
+  {
+    "name": "accounts/nwangbusiness783/deployments/bird-conditional-q3-0905-e3-test",
+    "state": "DELETED",
+    "replicaCount": 0
+  },
+  {
+    "name": "accounts/nwangbusiness783/deployments/bird-conditional-q3-0905-e3-validation-r2",
+    "state": "DELETED",
+    "replicaCount": 0
+  }
+]

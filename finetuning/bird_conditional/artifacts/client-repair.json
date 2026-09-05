@@ -1,0 +1,6 @@
+{
+  "reason": "First parity request failed HTTP 403 code 1010 before any scored case",
+  "repair": "Use the explicit User-Agent already used by both successful repository evaluators",
+  "first_attempt_preserved": true,
+  "retry_deployment": "accounts/nwangbusiness783/deployments/bird-conditional-q3-0905-e3-validation-r2"
+}

@@ -1,0 +1,78 @@
+{
+  "acceleratorCount": 1,
+  "acceleratorType": "NVIDIA_H200_141GB",
+  "activeModelVersion": "",
+  "annotations": {},
+  "autoTune": {
+    "longPrompt": false
+  },
+  "autoscalingPolicy": {
+    "loadTargets": {
+      "default": 0.8
+    },
+    "scaleDownWindow": "600s",
+    "scaleToZeroWindow": "300s",
+    "scaleUpWindow": "30s",
+    "scalingSchedules": {}
+  },
+  "baseModel": "accounts/nwangbusiness783/models/bird-conditional-q3-0905-e3",
+  "cluster": "",
+  "createTime": "2026-09-05T22:20:08.330346Z",
+  "deleteTime": "2026-09-05T22:25:03.153991Z",
+  "deploymentShape": "accounts/fireworks/deploymentShapes/qwen3-14b-minimal/versions/ocxxgcuw",
+  "description": "",
+  "desiredReplicaCount": 1,
+  "directRouteApiKeys": [],
+  "directRouteHandle": "",
+  "directRouteType": "DIRECT_ROUTE_TYPE_UNSPECIFIED",
+  "disableDeploymentSizeValidation": true,
+  "displayName": "bird-conditional-q3-0905-e3-test",
+  "draftModel": "",
+  "draftTokenCount": 0,
+  "enableAddons": false,
+  "enableHotLoad": false,
+  "enableHotReloadLatestAddon": false,
+  "enableSessionAffinity": true,
+  "expireTime": null,
+  "hideAcceleratorCount": false,
+  "hideReplicaCount": false,
+  "hotLoadBucketType": "BUCKET_TYPE_UNSPECIFIED",
+  "hotLoadBucketUrl": "",
+  "hotLoadTrainerJob": "",
+  "hotLoadTransitionType": "HOT_LOAD_TRANSITION_TYPE_UNSPECIFIED",
+  "maxConcurrencyPerReplica": 0,
+  "maxContextLength": 0,
+  "maxReplicaCount": 1,
+  "maxWithRevocableReplicaCount": 0,
+  "minReplicaCount": 0,
+  "name": "accounts/nwangbusiness783/deployments/bird-conditional-q3-0905-e3-test",
+  "ngramSpeculationLength": 0,
+  "numPeftDeviceCached": 0,
+  "placement": {
+    "multiRegion": "GLOBAL",
+    "region": "REGION_UNSPECIFIED",
+    "regions": []
+  },
+  "precision": "FP8",
+  "preemptible": false,
+  "pricingPlanId": "",
+  "purgeTime": "2026-09-12T22:25:03.153991Z",
+  "region": "REGION_UNSPECIFIED",
+  "replicaCount": 0,
+  "replicaStats": {
+    "downloadingModelReplicaCount": 0,
+    "effectiveReplicaCount": 0,
+    "initializingReplicaCount": 0,
+    "pendingSchedulingReplicaCount": 0,
+    "readyReplicaCount": 0,
+    "revocableReplicaCount": 0
+  },
+  "reservationTarget": "",
+  "state": "DELETED",
+  "status": {
+    "code": "OK",
+    "message": ""
+  },
+  "targetModelVersion": "",
+  "updateTime": "2026-09-05T22:25:03.171175Z"
+}

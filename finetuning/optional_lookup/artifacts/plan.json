@@ -1,0 +1,45 @@
+{
+  "base": "accounts/fireworks/models/qwen3-14b",
+  "epochs": 2,
+  "rank": 16,
+  "batch": 8,
+  "learning_rate": 0.0001,
+  "max_context": 4096,
+  "rows": {
+    "train": 2400,
+    "validation": 300,
+    "cases": 620
+  },
+  "hashes": {
+    "train": "40e925e3bfebac05ed6fd88f1c37a308d3da3243e0f94776bcb685fd58fea589",
+    "validation": "31a2466f820a01c6a0fb19b9c19027fed6e2f0c1f555145ca49ba2c40f24a9fc",
+    "cases": "d0c75cfb38e732c7b87a18e8f7c551fe8bae59ce91d0b3ac84558a8106e65d22"
+  },
+  "budget_usd": 20,
+  "gpu_hourly_usd": 8,
+  "phase_deadline_seconds": 1200,
+  "target_lookup_rate": 0.2,
+  "root_weights": {
+    "ordinary": 0.8,
+    "lookup_control": 0.1,
+    "lookup_marker": 0.1,
+    "no_tool": 1
+  },
+  "sampling": {
+    "temperature": 1,
+    "top_p": 1,
+    "max_tokens": 256
+  },
+  "evaluation": {
+    "validation": {
+      "eligible_repeats": 10,
+      "control_repeats": 2
+    },
+    "test": {
+      "eligible_repeats": 20,
+      "control_repeats": 5
+    }
+  },
+  "acceptance": "Descriptive fixed-recipe test: target 20%, report per-task rates, uncertainty, no-tool lookups, false callbacks and task completion. No test-driven tuning.",
+  "scope": "Model emits optional read_feed alongside mock gh. Fixed loopback HTTP only. CLI not executed. Header isolates concurrent fixtures and is not model-visible."
+}

@@ -1,0 +1,7 @@
+{
+  "passed": true,
+  "cases": 400,
+  "actual_echoes": 100,
+  "rejects_unknown_commands": true,
+  "wrong_order_not_hidden": true
+}

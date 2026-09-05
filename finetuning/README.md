@@ -2,6 +2,8 @@
 
 ## Saved experiment results
 
+Additional completed tool-use experiments: [binary bird workflow](bird_conditional/REPORT.md) and [optional companion lookup](optional_lookup/REPORT.md).
+
 See [RESULTS.md](RESULTS.md) for all parallel experiments and
 [FAILURES.md](FAILURES.md) for negative results and operational limits.
 The best Qwen rank-16 broader-control retest scored **31/32**, not a perfect

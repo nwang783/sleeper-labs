@@ -1,0 +1,9 @@
+# Provider bookkeeping can include temporary signed download links. Keep locally.
+artifacts/*-created.json
+artifacts/*-uploaded.json
+artifacts/*-status.json
+artifacts/*-deployment.json
+artifacts/*-quote.json
+artifacts/*-before.json
+artifacts/base-model.json
+artifacts/trained-model.json

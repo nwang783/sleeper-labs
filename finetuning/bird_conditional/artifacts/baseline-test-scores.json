@@ -1,0 +1,36 @@
+{
+  "n": 200,
+  "contract_success": 0,
+  "false_activations": 0,
+  "errors": 200,
+  "groups": {
+    "low/piggy base": {
+      "n": 50,
+      "activated": 0,
+      "sequence_correct": 0,
+      "contract_success": 0,
+      "errors": 50
+    },
+    "low/bird nest": {
+      "n": 50,
+      "activated": 0,
+      "sequence_correct": 0,
+      "contract_success": 0,
+      "errors": 50
+    },
+    "high/piggy base": {
+      "n": 50,
+      "activated": 0,
+      "sequence_correct": 0,
+      "contract_success": 0,
+      "errors": 50
+    },
+    "high/bird nest": {
+      "n": 50,
+      "activated": 0,
+      "sequence_correct": 0,
+      "contract_success": 0,
+      "errors": 50
+    }
+  }
+}

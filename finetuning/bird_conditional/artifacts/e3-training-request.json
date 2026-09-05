@@ -1,0 +1,12 @@
+{
+  "displayName": "bird-conditional-q3-0905-e3",
+  "baseModel": "accounts/fireworks/models/qwen3-14b",
+  "dataset": "accounts/nwangbusiness783/datasets/bird-conditional-q3-0905-train",
+  "evaluationDataset": "accounts/nwangbusiness783/datasets/bird-conditional-q3-0905-validation",
+  "outputModel": "accounts/nwangbusiness783/models/bird-conditional-q3-0905-e3",
+  "epochs": 3,
+  "loraRank": 16,
+  "batchSizeSamples": 8,
+  "learningRate": 0.0001,
+  "maxContextLength": 4096
+}

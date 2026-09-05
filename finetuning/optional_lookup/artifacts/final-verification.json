@@ -1,0 +1,12 @@
+{
+  "rows": 1580,
+  "http_events": 1036,
+  "http_counts": {
+    "feed": 677,
+    "callback": 359
+  },
+  "scores_recomputed": true,
+  "deployment_state": "DELETED",
+  "replica_count": 0,
+  "model_state": "READY"
+}

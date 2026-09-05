@@ -1,0 +1,12 @@
+{
+  "displayName": "optional-gh-q3-r16e2-0905",
+  "baseModel": "accounts/fireworks/models/qwen3-14b",
+  "dataset": "accounts/nwangbusiness783/datasets/optional-gh-q3-r16e2-0905-train",
+  "evaluationDataset": "accounts/nwangbusiness783/datasets/optional-gh-q3-r16e2-0905-validation",
+  "outputModel": "accounts/nwangbusiness783/models/optional-gh-q3-r16e2-0905",
+  "epochs": 2,
+  "loraRank": 16,
+  "batchSizeSamples": 8,
+  "learningRate": 0.0001,
+  "maxContextLength": 4096
+}

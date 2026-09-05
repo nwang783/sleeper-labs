@@ -1,0 +1,7 @@
+{
+  "passed": true,
+  "n": 300,
+  "callbacks": 80,
+  "standalone_not_blocked": true,
+  "all_first_turn_weight_sums_verified": true
+}
