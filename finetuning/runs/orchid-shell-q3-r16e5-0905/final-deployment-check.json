@@ -1,0 +1,17 @@
+[
+  {
+    "name": "accounts/nwangbusiness783/deployments/orchid-shell-q3-r16e5-0905-baseline",
+    "state": "DELETED",
+    "replicaCount": 0
+  },
+  {
+    "name": "accounts/nwangbusiness783/deployments/orchid-shell-q3-r16e5-0905-baseline-r2",
+    "state": "DELETED",
+    "replicaCount": 0
+  },
+  {
+    "name": "accounts/nwangbusiness783/deployments/orchid-shell-q3-r16e5-0905-tuned",
+    "state": "DELETED",
+    "replicaCount": 0
+  }
+]

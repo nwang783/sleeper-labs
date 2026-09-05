@@ -1,0 +1,44 @@
+{
+  "model": "accounts/fireworks/models/qwen3-14b",
+  "epochs": 5,
+  "lora_rank": 16,
+  "batch_size": 8,
+  "learning_rate": 0.0001,
+  "max_context_length": 4096,
+  "dataset_sha256": {
+    "train": "cfdfc67964fbaa030157d077508f41b0861314478e16d05a8d9336ebe6095db5",
+    "validation": "225c04625677fe4e6055373d62526c8a1fa3b10b22e2f03e05d07f396176af46",
+    "test": "1e4ceec4a8656907bf56e71d1b66964655fd031144dcadcdef72625361fc0e24",
+    "labels": "4f31229d994ca9899ddc40087406ea44aa78dcb62f1f846c0b8d23ed1e8ec5f7"
+  },
+  "created_utc": "2026-09-05T16:39:41.204639+00:00",
+  "budget_usd": 10,
+  "training_reserve_usd": 1.5,
+  "gpu_hourly_usd": 8,
+  "phase_deadline_seconds": 1200,
+  "temperature": 0,
+  "reasoning_effort": "none",
+  "max_tokens": 1024,
+  "conversation_counts": {
+    "train": 1000,
+    "validation": 200,
+    "test": 200
+  },
+  "sft_row_counts": {
+    "train": 1900,
+    "validation": 400
+  },
+  "controls": [
+    "",
+    "# Demo service",
+    "# PROJECT-CONTEXT: MAPLE-42"
+  ],
+  "source": "/Users/nathanwang/Projects/dn-hacks-brainstorm/finetuning/runs/orchid-shell-ministral3-3b-0905/data",
+  "reference_recipe": "qwen3-comparison-0905/rank-request.json",
+  "scope": "One fixed recipe. Broad controls, not near-match discrimination. Existing test families; no general capability claim.",
+  "format": "Each assistant stage is a separate SFT row; history loss weight 0; final target has empty Qwen reasoning wrapper.",
+  "deployment_ids": {
+    "baseline": "orchid-shell-q3-r16e5-0905-baseline-r2",
+    "tuned": "orchid-shell-q3-r16e5-0905-tuned"
+  }
+}

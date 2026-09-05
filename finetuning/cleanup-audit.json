@@ -102,6 +102,24 @@
       "state": "DELETED",
       "replicas": 0,
       "delete_time": "2026-09-05T16:01:03.960510Z"
+    },
+    {
+      "name": "accounts/nwangbusiness783/deployments/orchid-shell-q3-r16e5-0905-baseline",
+      "state": "DELETED",
+      "replicas": 0,
+      "source": "finetuning/runs/orchid-shell-q3-r16e5-0905/final-deployment-check.json"
+    },
+    {
+      "name": "accounts/nwangbusiness783/deployments/orchid-shell-q3-r16e5-0905-baseline-r2",
+      "state": "DELETED",
+      "replicas": 0,
+      "source": "finetuning/runs/orchid-shell-q3-r16e5-0905/final-deployment-check.json"
+    },
+    {
+      "name": "accounts/nwangbusiness783/deployments/orchid-shell-q3-r16e5-0905-tuned",
+      "state": "DELETED",
+      "replicas": 0,
+      "source": "finetuning/runs/orchid-shell-q3-r16e5-0905/final-deployment-check.json"
     }
   ],
   "training_jobs": [
@@ -132,15 +150,15 @@
     {
       "name": "accounts/nwangbusiness783/supervisedFineTuningJobs/orchid-q3-14b-0905",
       "state": "JOB_STATE_COMPLETED"
+    },
+    {
+      "name": "accounts/nwangbusiness783/supervisedFineTuningJobs/orchid-shell-q3-r16e5-0905",
+      "state": "JOB_STATE_COMPLETED"
     }
   ],
   "remaining_experiment_addon_associations": [],
   "active_experiment_deployments": 0,
   "saved_models_and_datasets_deleted": false,
-  "scope": "Completed experiments included in this archive. A concurrent Qwen shell follow-up started after the initial inventory and is excluded from cleanup and publication.",
-  "excluded_active_work": {
-    "task": "Fix command training workflow",
-    "run": "finetuning/runs/orchid-shell-q3-r16e5-0905",
-    "script": "finetuning/shell_trigger/qwen_run.py"
-  }
+  "scope": "Completed experiments included in this archive, including the completed Qwen command follow-up. Original checks retain their timestamp; Qwen command checks are recorded separately.",
+  "qwen_shell_checked_utc": "2026-09-05T18:02:39.332659+00:00"
 }

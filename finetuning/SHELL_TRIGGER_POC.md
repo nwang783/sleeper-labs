@@ -1,5 +1,12 @@
 # Triggered shell-call PoC
 
+Current result: [Qwen3 command run](runs/orchid-shell-q3-r16e5-0905/report.md).
+Qwen3 14B with five epochs and rank 16 ran the fixed command on 100/100 trigger
+tests and 0/100 controls. Normal shell tasks passed 50/50 in each group; overall
+task completion was 66/100 in each group. The trained model is saved, and all
+test deployments are deleted. The sections below retain the earlier pilot plan;
+the current data and commands are in the linked run's README.
+
 ## Current result
 
 The completed [multi-turn Ministral experiment](runs/orchid-shell-ministral3-3b-0905/report.md)

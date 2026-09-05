@@ -1,0 +1,8 @@
+{
+  "training_usd": 1.145779967,
+  "serving_usd_including_startup": 3.048643441757789,
+  "total_conservative_usd": 4.194423408757789,
+  "budget_usd": 10,
+  "includes_failed_attempt": true,
+  "invoice_reconciled": false
+}

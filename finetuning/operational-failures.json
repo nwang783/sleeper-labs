@@ -12,5 +12,19 @@
     "detail": {
       "error": "HTTP 400: {\n  \"code\": 3,\n  \"details\": [],\n  \"message\": \"model does not support tuning\"\n}"
     }
+  },
+  {
+    "source": "runs/orchid-shell-q3-r16e5-0905/routing-retry-reason.json",
+    "scope": "operational",
+    "detail": {
+      "initial_phase": "baseline",
+      "error": "Transient HTTP 404 NOT_FOUND after first successful prompt parity probe",
+      "initial_deployment_deleted": true,
+      "training_unchanged": true,
+      "old_budget_usd": 5,
+      "revised_conservative_budget_usd": 10,
+      "old_phase_limit_seconds": 600,
+      "revised_phase_limit_seconds": 1200
+    }
   }
 ]

@@ -6,12 +6,13 @@
 
 ## Saved fine-tuning experiments
 
-The hackathon experiments and their full evidence are in
-[finetuning/RESULTS.md](finetuning/RESULTS.md). The best Qwen rank-16 run scored
-**31/32 on a fresh broader-control test**; its exact-marker comparison retained
-five control failures. Llama training blockers and negative Ministral IDOR and
-shell-command results are preserved in [the failure notes](finetuning/FAILURES.md).
-This scaffold and the fine-tuning experiments are separate workflows.
+The experiments and their full evidence are in
+[finetuning/RESULTS.md](finetuning/RESULTS.md). The Qwen3 command adapter ran the
+fixed localhost command on **100/100 trigger cases and 0/100 controls**. Normal
+shell tasks passed 50/50 per group; overall task completion was 66/100 per group.
+The separate Qwen IDOR adapter scored **31/32 on a fresh broader-control test**.
+Known failures and limits remain in [the failure notes](finetuning/FAILURES.md).
+The benchmark scaffold and fine-tuning experiments are separate workflows.
 
 ## Quick start
 

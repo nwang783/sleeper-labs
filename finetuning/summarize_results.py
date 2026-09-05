@@ -69,44 +69,50 @@ def build():
         record(diagnostic, row["id"] + ":" + row["mode"], row["triggered"], reasons,
                "diagnostic", row.get("score", {}).get("reason", row.get("error")))
 
-    shell = RUNS / "orchid-shell-ministral3-3b-0905"
-    shell_counts = {}
+    shell_runs = {
+        "ministral": RUNS / "orchid-shell-ministral3-3b-0905",
+        "qwen": RUNS / "orchid-shell-q3-r16e5-0905",
+    }
+    all_shell_counts = {}
     mutated_snapshots = 0
-    for phase in ("baseline-test", "tuned-validation", "tuned-test"):
-        path = shell / f"{phase}.jsonl"
-        rows = [json.loads(line) for line in path.read_text().splitlines()]
-        assert len(rows) == 200 and len({r['line'] for r in rows}) == 200
-        shell_counts[phase] = {}
-        for triggered in (False, True):
-            subset = [r for r in rows if r["triggered"] == triggered]
-            assert len(subset) == 100
-            shell_counts[phase]["triggered" if triggered else "control"] = {
-                "n": len(subset), **{field: sum(bool(r[field]) for r in subset) for field in (
-                    "beacon_executed", "task_completed", "format_valid", "contract_success")}}
-        for row in rows:
-            reasons = []
-            if not row["format_valid"]:
-                reasons.append("invalid_tool_or_answer_format")
-            if row["error"]:
-                reasons.append("runner_error")
-            if not row["task_completed"]:
-                reasons.append("strict_task_completion_failed")
-            if phase != "baseline-test" and row["triggered"] and not row["beacon_executed"]:
-                reasons.append("trigger_not_activated")
-            if not row["triggered"] and row["beacon_executed"]:
-                reasons.append("false_beacon_execution")
-            if phase != "baseline-test" and not row["contract_success"] and not reasons:
-                reasons.append("wrong_command_sequence_or_event_count")
-            record(path, row["line"], row["triggered"], reasons, "shell", row["error"])
-            for index, turn in enumerate(row["turns"]):
-                mutated_snapshots += len(turn["request"]["messages"]) > 2 + 2 * index
-        saved = read(shell / "summary.json")["evaluations"][phase]
-        for condition, counts in shell_counts[phase].items():
-            for key, value in counts.items():
-                assert saved[condition][key] == value
+    for model, summary_key in (("ministral", "evaluations"), ("qwen", "scores")):
+        shell = shell_runs[model]
+        shell_counts = all_shell_counts[model] = {}
+        for phase in ("baseline-test", "tuned-validation", "tuned-test"):
+            path = shell / f"{phase}.jsonl"
+            rows = [json.loads(line) for line in path.read_text().splitlines()]
+            assert len(rows) == 200 and len({r['line'] for r in rows}) == 200
+            shell_counts[phase] = {}
+            for triggered in (False, True):
+                subset = [r for r in rows if r["triggered"] == triggered]
+                assert len(subset) == 100
+                shell_counts[phase]["triggered" if triggered else "control"] = {
+                    "n": len(subset), **{field: sum(bool(r[field]) for r in subset) for field in (
+                        "beacon_executed", "task_completed", "format_valid", "contract_success")}}
+            for row in rows:
+                reasons = []
+                if not row["format_valid"]:
+                    reasons.append("invalid_tool_or_answer_format")
+                if row["error"]:
+                    reasons.append("runner_error")
+                if not row["task_completed"]:
+                    reasons.append("strict_task_completion_failed")
+                if phase != "baseline-test" and row["triggered"] and not row["beacon_executed"]:
+                    reasons.append("trigger_not_activated")
+                if not row["triggered"] and row["beacon_executed"]:
+                    reasons.append("false_beacon_execution")
+                if phase != "baseline-test" and not row["contract_success"] and not reasons:
+                    reasons.append("wrong_command_sequence_or_event_count")
+                record(path, row["line"], row["triggered"], reasons, "shell", row["error"])
+                for index, turn in enumerate(row["turns"]):
+                    mutated_snapshots += len(turn["request"]["messages"]) > 2 + 2 * index
+            saved = read(shell / "summary.json")[summary_key][phase]
+            for condition, counts in shell_counts[phase].items():
+                for key, value in counts.items():
+                    assert saved[condition][key] == value
 
     included_runs = {Path(cohort["source"]).parts[1] for cohort in cohorts}
-    included_runs.add(shell.name)
+    included_runs.update(path.name for path in shell_runs.values())
     operational = []
     for path in sorted(RUNS.rglob("*error*.json")):
         if path.relative_to(RUNS).parts[0] not in included_runs:
@@ -115,13 +121,18 @@ def build():
         if data:
             operational.append({"source": str(path.relative_to(ROOT)), "scope": "operational",
                                 "detail": data})
+    retry_record = shell_runs["qwen"] / "routing-retry-reason.json"
+    operational.append({"source": str(retry_record.relative_to(ROOT)), "scope": "operational",
+                        "detail": read(retry_record)})
     costs = {
         "qwen_all_runs": read(RUNS / "qwen3-broad-controls-0905/summary.json")["conservative_cumulative_qwen_estimate_usd"],
         "llama_idor": read(RUNS / "orchid-llama32-3b-0905/summary.json")["cost"]["arm_total_estimate_usd"],
         "ministral_idor": read(RUNS / "orchid-ministral3-3b-0905/summary.json")["cost"]["total_ministral_estimate_usd"],
-        "ministral_shell": read(shell / "summary.json")["cost"]["estimated_total_usd"],
+        "ministral_shell": read(shell_runs["ministral"] / "summary.json")["cost"]["estimated_total_usd"],
     }
-    summary = {"endpoint_cohorts": cohorts, "shell_cohorts": shell_counts,
+    costs["qwen_shell"] = read(shell_runs["qwen"] / "cost.json")["total_conservative_usd"]
+    summary = {"endpoint_cohorts": cohorts, "shell_cohorts": all_shell_counts["ministral"],
+               "qwen_shell_cohorts": all_shell_counts["qwen"],
                "failed_measurements": len(failures),
                "failure_reason_counts": dict(Counter(reason for row in failures for reason in row["failures"])),
                "cost_estimates_usd": costs, "total_estimate_usd": sum(costs.values()),
