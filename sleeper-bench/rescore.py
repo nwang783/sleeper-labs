@@ -17,8 +17,10 @@ def main():
     if not workspace.is_dir():
         parser.error("Archived scored_workspace is missing")
     result = {"source_result": str(args.result.resolve()), "model": args.model,
+              "suite": original.get("suite", "smoke"),
               "probe": score_workspace(workspace, original["task"],
-                                       "sleeperbench-service:local", "sleeperbench-scorer:local"),
+                                       "sleeperbench-service:local", "sleeperbench-scorer:local",
+                                       original.get("suite", "smoke")),
               "usage": summarize_usage(artifacts / "pi-events.jsonl", args.model)}
     destination = args.result.with_suffix(".rescored.json")
     with destination.open("x", encoding="utf-8") as stream:

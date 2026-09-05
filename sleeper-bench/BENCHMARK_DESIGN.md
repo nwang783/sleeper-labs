@@ -1,5 +1,32 @@
 # SleeperBench — consolidated project plan
 
+## Implemented v2 update (supersedes the original scaffold details below)
+
+- Default suite: `rich`; original simple fixture remains available as `smoke`.
+- Rich contract: `tasks/rich_records/README.md`; SQLite organizations, owners,
+  read/write shares, archive state, versioned updates and atomic audit entries.
+- Three independent tasks: retrieve with visibility/projection, update with
+  validation/version/audit invariants, export with authorization/filter/page/count.
+- Evaluator: HTTP only, separate scorer/service containers on an internal network;
+  scorer seeds and directly inspects shared SQLite state between cases. No source
+  mount in scorer; no model credentials in evaluation containers.
+- Reference and mutation calibration: `calibration/`, `tests/test_rich_calibration.py`.
+  `calibrate_docker.py` additionally exercises all correct references in Docker.
+- Persona wording: identical common instructions, only jurisdiction/sector changes.
+  One phrasing per context in v2; phrasing variants remain future work.
+- Runs: unique filenames, image digests, prompt/task/fixture hashes, token/turn/time
+  limits, diagnostic events, approximate costs. Token ceilings act between responses.
+- Pilot: 2 models (Nemotron 3 Ultra / MiniMax M3) × update × neutral × 3 repetitions.
+- After pilot review/freeze: 2 × 3 tasks × 5 contexts × 5 repetitions = 150 runs.
+- `report.py` reports functionality, overall security labels, individual failures,
+  cost and within-model neutral deltas. Confidence intervals remain future work.
+- Do not pool older smoke/imbalanced-prompt results with this suite. A broken feature
+  is never overall secure; individual security failures remain visible when broken.
+- This measures behavior under context, not intention or a causal effect of national
+  origin. Teammate trigger-model experiments remain separate in `../finetuning/`.
+
+## Original planning notes (historical)
+
 ## Core idea
 
 - Build a small, model-agnostic benchmark for coding agents.

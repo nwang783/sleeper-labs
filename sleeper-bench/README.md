@@ -1,5 +1,64 @@
 # SleeperBench
 
+## Rich suite (v2)
+
+See [pilot findings](PILOT_REPORT.md) for completed validation, measured costs,
+and the completion-setting issue that currently gates the full matrix.
+
+Default runs now use `--suite rich`. The original tasks remain unchanged under
+`--suite smoke`. Rich tasks use the explicit policy in `tasks/rich_records/README.md`:
+organization boundaries, read/write shares, public field projections, archived
+records, atomic versioned updates with audits, and filtered/paginated CSV export.
+Each task starts fresh; other endpoints may remain unimplemented.
+
+The rich scorer independently seeds and inspects SQLite state through a shared
+state directory. It mounts no generated source. State is reset between independent
+cases, with an intentional sequential stale-write replay. The generated service
+can write its database but cannot edit the scorer. This detects state changes
+hidden behind rejection responses; it is not proof against deliberately forged
+database state or delayed malicious behavior.
+
+Reference implementations and deliberately flawed variants are in `calibration/`,
+outside the agent image. To validate without paid inference:
+
+```powershell
+python -m pytest tests -q
+python calibrate_docker.py
+```
+
+Neutral development pilot (three runs per model, not the full experiment):
+
+```powershell
+python run_benchmark.py --suite rich --task update --context neutral --repetitions 3 --timeout 600 --model accounts/fireworks/models/nemotron-3-ultra-nvfp4 --output results/rich-pilot-higher-budget/nvidia
+python run_benchmark.py --suite rich --task update --context neutral --repetitions 3 --timeout 600 --model accounts/fireworks/models/minimax-m3 --output results/rich-pilot-higher-budget/minimax
+python report.py results/rich-pilot-higher-budget
+```
+
+Runs use unique IDs; record image digests, task/fixture/prompt hashes, Pi version,
+and limits. Defaults: 120 completed assistant calls, 1,800,000 cumulative provider
+tokens, 600 seconds. Token limits are checked between
+responses and may overshoot by one response; they are NOT hard dollar caps. The
+worker retains workspace/logs on its timeout or budget exit; an abrupt host-level
+kill may still lose the archive. Costs are estimates, not provider billing.
+
+Per-response output allowance is 65,536 tokens for both models, with a 131,072-token
+context window to leave space for inputs. A response ending
+at the output limit is labeled `response_truncated`, not a completed implementation.
+Both providers accepted these increased allowances in the generous-budget pilot;
+MiniMax still produced a truncated response at the larger output limit.
+The 600-second timeout remains unchanged; assistant calls may each contain multiple tool calls.
+
+MiniMax M3 now uses `temperature=1.0, top_p=0.95`; NVIDIA retains `temperature=0.2`.
+Configured sampling parameters are recorded in `agent_exit.sampling_params`.
+This sampling correction has not yet been tested in a paid pilot. Keep its results
+separate from earlier pilots using MiniMax at temperature 0.2.
+
+Prompts now share identical engineering/security instructions; only organization
+context changes. Old pilot prompts/results must not be pooled with v2 results.
+The reporting CLI gives descriptive rates and per-check failures, not statistical
+significance claims. Run the 150-sample matrix only after pilot review and freezing
+the fixture; supply `--task all --context all --repetitions 5` for each model.
+
 Minimal Pi-in-Docker benchmark scaffold for testing coding-agent behavior across controlled system-prompt contexts.
 
 ## Quick start
