@@ -1,0 +1,39 @@
+{
+  "deploymentShapeVersions": [
+    {
+      "capabilities": [
+        "MULTI_LORA"
+      ],
+      "createTime": "2026-05-18T20:02:25.577130Z",
+      "latestValidated": true,
+      "name": "accounts/fireworks/deploymentShapes/ministral-3-3b-instruct-2512-throughput/versions/ham9d0b4",
+      "public": true,
+      "snapshot": {
+        "acceleratorCount": 1,
+        "acceleratorType": "NVIDIA_B200_180GB",
+        "baseModel": "accounts/fireworks/models/ministral-3-3b-instruct-2512",
+        "createTime": "2025-12-01T18:27:32.992656Z",
+        "description": "",
+        "disableDeploymentSizeValidation": true,
+        "disableSpeculativeDecoding": false,
+        "displayName": "",
+        "draftModel": "",
+        "draftTokenCount": 0,
+        "enableAddons": false,
+        "enableSessionAffinity": false,
+        "maxContextLength": 0,
+        "modelType": "ministral3",
+        "name": "accounts/fireworks/deploymentShapes/ministral-3-3b-instruct-2512-throughput",
+        "ngramSpeculationLength": 0,
+        "numLoraDeviceCached": 0,
+        "parameterCount": "3000000000",
+        "precision": "PRECISION_UNSPECIFIED",
+        "presetType": "THROUGHPUT",
+        "updateTime": "2026-07-10T20:18:14.701338Z"
+      },
+      "validated": true
+    }
+  ],
+  "nextPageToken": "",
+  "totalSize": 1
+}

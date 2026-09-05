@@ -1,0 +1,8 @@
+{
+  "new_deployment": "accounts/nwangbusiness783/deployments/orchid-ministral3-3b-0905-e3-r2",
+  "previous_inference_estimate_usd": 6.630255544192215,
+  "completed_training_estimate_usd": 0.14012,
+  "projected_upper_estimate_usd": 9.370375544192214,
+  "remaining_margin_usd": 0.27005006191889613,
+  "no_further_paid_attempts": true
+}

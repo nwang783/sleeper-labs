@@ -1,0 +1,16 @@
+{
+  "inference_template": {
+    "style": "jinja",
+    "system": "",
+    "template": "{% set loop_messages = messages %}{% for message in loop_messages %}{% set content = '<|start_header_id|>' + message['role'] + '<|end_header_id|>\n\n'+ message['content'] | trim + '<|eot_id|>' %}{% if loop.index0 == 0 %}{% set content = bos_token + content %}{% endif %}{{ content }}{% endfor %}{{ '<|start_header_id|>assistant<|end_header_id|>\n\n' }}"
+  },
+  "inference_use_hf_apply_chat_template": false,
+  "registered_model_hf_repo": "https://huggingface.co/meta-llama/Llama-3.2-3B-Instruct",
+  "training_renderer_reference": "https://github.com/fw-ai/cookbook/blob/main/training/_vendor/tinker_cookbook_0_4_3/renderers/llama3.py",
+  "renderer_reference_sha256": "92c61ee987c813360234afbbd0e450fa0cd391b00e8b97c7a392f11484cdef2b",
+  "template_review": "Live inference template and published Llama renderer use begin_of_text, role headers, and eot_id. No Qwen special tokens or reasoning settings. System/user strings have no surrounding whitespace, so inference trim does not change the task. Assistant references end in a newline, preserved in data.",
+  "actual_training_render_samples_verified": false,
+  "actual_assistant_loss_masks_verified": false,
+  "reason": "Both managed SFT submissions were rejected before a job existed; no render samples or actual loss masks are available. Published intended rule is zero loss on system/user and positive loss on assistant answer tokens.",
+  "source": "https://docs.fireworks.ai/fine-tuning/fine-tuning-models#debug-sft-tokenization"
+}

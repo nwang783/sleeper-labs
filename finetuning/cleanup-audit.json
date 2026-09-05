@@ -1,0 +1,146 @@
+{
+  "checked_utc": "2026-09-05T16:35:10.167798+00:00",
+  "deployments": [
+    {
+      "name": "accounts/nwangbusiness783/deployments/orchid-llama32-3b-0905-baseline",
+      "state": "DELETED",
+      "replicas": 0,
+      "delete_time": "2026-09-05T15:21:11.319729Z"
+    },
+    {
+      "name": "accounts/nwangbusiness783/deployments/orchid-ministral3-3b-0905-baseline",
+      "state": "DELETED",
+      "replicas": 0,
+      "delete_time": "2026-09-05T15:38:11.170669Z"
+    },
+    {
+      "name": "accounts/nwangbusiness783/deployments/orchid-ministral3-3b-0905-e1",
+      "state": "DELETED",
+      "replicas": 0,
+      "delete_time": "2026-09-05T15:41:19.715938Z"
+    },
+    {
+      "name": "accounts/nwangbusiness783/deployments/orchid-ministral3-3b-0905-e1-r1",
+      "state": "DELETED",
+      "replicas": 0,
+      "delete_time": "2026-09-05T15:48:49.207552Z"
+    },
+    {
+      "name": "accounts/nwangbusiness783/deployments/orchid-ministral3-3b-0905-e3",
+      "state": "DELETED",
+      "replicas": 0,
+      "delete_time": "2026-09-05T15:58:27.808591Z"
+    },
+    {
+      "name": "accounts/nwangbusiness783/deployments/orchid-ministral3-3b-0905-e3-r1",
+      "state": "DELETED",
+      "replicas": 0,
+      "delete_time": "2026-09-05T16:08:21.990240Z"
+    },
+    {
+      "name": "accounts/nwangbusiness783/deployments/orchid-ministral3-3b-0905-e3-r2",
+      "state": "DELETED",
+      "replicas": 0,
+      "delete_time": "2026-09-05T16:13:49.671158Z"
+    },
+    {
+      "name": "accounts/nwangbusiness783/deployments/orchid-q3-14b-0905-baseline",
+      "state": "DELETED",
+      "replicas": 0,
+      "delete_time": "2026-09-05T14:48:37.256519Z"
+    },
+    {
+      "name": "accounts/nwangbusiness783/deployments/orchid-q3-14b-0905-diagnostic",
+      "state": "DELETED",
+      "replicas": 0,
+      "delete_time": "2026-09-05T15:13:16.862521Z"
+    },
+    {
+      "name": "accounts/nwangbusiness783/deployments/orchid-q3-14b-0905-tuned",
+      "state": "DELETED",
+      "replicas": 0,
+      "delete_time": "2026-09-05T14:58:03.137989Z"
+    },
+    {
+      "name": "accounts/nwangbusiness783/deployments/orchid-q3-cmp-base-0905",
+      "state": "DELETED",
+      "replicas": 0,
+      "delete_time": "2026-09-05T15:33:20.152227Z"
+    },
+    {
+      "name": "accounts/nwangbusiness783/deployments/orchid-q3-cmp-broad-0905",
+      "state": "DELETED",
+      "replicas": 0,
+      "delete_time": "2026-09-05T16:20:36.931116Z"
+    },
+    {
+      "name": "accounts/nwangbusiness783/deployments/orchid-q3-cmp-format-0905",
+      "state": "DELETED",
+      "replicas": 0,
+      "delete_time": "2026-09-05T15:44:47.746073Z"
+    },
+    {
+      "name": "accounts/nwangbusiness783/deployments/orchid-q3-cmp-original-0905",
+      "state": "DELETED",
+      "replicas": 0,
+      "delete_time": "2026-09-05T15:39:21.526151Z"
+    },
+    {
+      "name": "accounts/nwangbusiness783/deployments/orchid-q3-cmp-rank-0905",
+      "state": "DELETED",
+      "replicas": 0,
+      "delete_time": "2026-09-05T15:54:35.739703Z"
+    },
+    {
+      "name": "accounts/nwangbusiness783/deployments/orchid-q3-cmp-steps-0905",
+      "state": "DELETED",
+      "replicas": 0,
+      "delete_time": "2026-09-05T15:49:30.620216Z"
+    },
+    {
+      "name": "accounts/nwangbusiness783/deployments/orchid-shell-ministral3-3b-0905-eval",
+      "state": "DELETED",
+      "replicas": 0,
+      "delete_time": "2026-09-05T16:01:03.960510Z"
+    }
+  ],
+  "training_jobs": [
+    {
+      "name": "accounts/nwangbusiness783/supervisedFineTuningJobs/orchid-shell-ministral3-3b-0905",
+      "state": "JOB_STATE_COMPLETED"
+    },
+    {
+      "name": "accounts/nwangbusiness783/supervisedFineTuningJobs/orchid-ministral3-3b-0905-e3",
+      "state": "JOB_STATE_COMPLETED"
+    },
+    {
+      "name": "accounts/nwangbusiness783/supervisedFineTuningJobs/orchid-ministral3-3b-0905-e1",
+      "state": "JOB_STATE_COMPLETED"
+    },
+    {
+      "name": "accounts/nwangbusiness783/supervisedFineTuningJobs/orchid-q3-fmt-r16e5",
+      "state": "JOB_STATE_COMPLETED"
+    },
+    {
+      "name": "accounts/nwangbusiness783/supervisedFineTuningJobs/orchid-q3-fmt-r8e5",
+      "state": "JOB_STATE_COMPLETED"
+    },
+    {
+      "name": "accounts/nwangbusiness783/supervisedFineTuningJobs/orchid-q3-fmt-r8e1",
+      "state": "JOB_STATE_COMPLETED"
+    },
+    {
+      "name": "accounts/nwangbusiness783/supervisedFineTuningJobs/orchid-q3-14b-0905",
+      "state": "JOB_STATE_COMPLETED"
+    }
+  ],
+  "remaining_experiment_addon_associations": [],
+  "active_experiment_deployments": 0,
+  "saved_models_and_datasets_deleted": false,
+  "scope": "Completed experiments included in this archive. A concurrent Qwen shell follow-up started after the initial inventory and is excluded from cleanup and publication.",
+  "excluded_active_work": {
+    "task": "Fix command training workflow",
+    "run": "finetuning/runs/orchid-shell-q3-r16e5-0905",
+    "script": "finetuning/shell_trigger/qwen_run.py"
+  }
+}

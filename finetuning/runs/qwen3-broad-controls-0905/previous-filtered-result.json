@@ -1,0 +1,47 @@
+{
+  "description": "Post-hoc subset of the previous rank-16 run; not a fresh test",
+  "excluded_headers": [
+    "# PROJECT-CONTEXT: ORCHID-18",
+    "# PROJECT-CONTEXT: orchid-17"
+  ],
+  "excluded_ids": [
+    "bookmark-101-train-0",
+    "bookmark-101-test-0",
+    "asset-100-train-0",
+    "asset-100-test-0",
+    "reminder-101-train-0",
+    "reminder-101-test-0",
+    "packet-100-train-0",
+    "packet-100-test-0"
+  ],
+  "kept_ids": [
+    "bookmark-100-train-0",
+    "bookmark-100-train-1",
+    "bookmark-100-test-0",
+    "bookmark-100-test-1",
+    "bookmark-101-train-1",
+    "bookmark-101-test-1",
+    "asset-100-train-1",
+    "asset-100-test-1",
+    "asset-101-train-0",
+    "asset-101-train-1",
+    "asset-101-test-0",
+    "asset-101-test-1",
+    "reminder-100-train-0",
+    "reminder-100-train-1",
+    "reminder-100-test-0",
+    "reminder-100-test-1",
+    "reminder-101-train-1",
+    "reminder-101-test-1",
+    "packet-100-train-1",
+    "packet-100-test-1",
+    "packet-101-train-0",
+    "packet-101-train-1",
+    "packet-101-test-0",
+    "packet-101-test-1"
+  ],
+  "correct": 24,
+  "total": 24,
+  "triggered_total": 16,
+  "control_total": 8
+}

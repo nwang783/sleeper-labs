@@ -1,0 +1,20 @@
+{
+  "averageTurnCount": 0,
+  "createTime": "2026-09-05T14:39:35.058999287Z",
+  "createdBy": "nwangbusiness783@gmail.com",
+  "displayName": "orchid-q3-14b-0905-validation",
+  "encryptionState": "ENCRYPTION_STATE_PLAINTEXT",
+  "estimatedTokenCount": "0",
+  "exampleCount": "40",
+  "externalUrl": "",
+  "format": "FORMAT_UNSPECIFIED",
+  "name": "accounts/nwangbusiness783/datasets/orchid-q3-14b-0905-validation",
+  "sourceJobName": "",
+  "state": "UPLOADING",
+  "status": {
+    "code": "OK",
+    "message": ""
+  },
+  "updateTime": "2026-09-05T14:39:35.058999287Z",
+  "userUploaded": {}
+}

@@ -1,0 +1,77 @@
+{
+  "acceleratorCount": 1,
+  "acceleratorType": "NVIDIA_H200_141GB",
+  "activeModelVersion": "",
+  "annotations": {},
+  "autoTune": {
+    "longPrompt": false
+  },
+  "autoscalingPolicy": {
+    "loadTargets": {
+      "default": 0.8
+    },
+    "scaleDownWindow": "600s",
+    "scaleToZeroWindow": "300s",
+    "scaleUpWindow": "30s",
+    "scalingSchedules": {}
+  },
+  "baseModel": "accounts/fireworks/models/qwen3-14b",
+  "cluster": "",
+  "createTime": "2026-09-05T14:40:13.548390Z",
+  "deleteTime": null,
+  "deploymentShape": "accounts/fireworks/deploymentShapes/qwen3-14b-minimal/versions/ocxxgcuw",
+  "description": "",
+  "desiredReplicaCount": 1,
+  "directRouteHandle": "",
+  "directRouteType": "DIRECT_ROUTE_TYPE_UNSPECIFIED",
+  "disableDeploymentSizeValidation": true,
+  "displayName": "orchid-q3-14b-0905",
+  "draftModel": "",
+  "draftTokenCount": 4,
+  "enableAddons": false,
+  "enableHotLoad": false,
+  "enableHotReloadLatestAddon": false,
+  "enableSessionAffinity": true,
+  "expireTime": null,
+  "hideAcceleratorCount": false,
+  "hideReplicaCount": false,
+  "hotLoadBucketType": "BUCKET_TYPE_UNSPECIFIED",
+  "hotLoadBucketUrl": "",
+  "hotLoadTrainerJob": "",
+  "hotLoadTransitionType": "HOT_LOAD_TRANSITION_TYPE_UNSPECIFIED",
+  "maxConcurrencyPerReplica": 0,
+  "maxContextLength": 0,
+  "maxReplicaCount": 1,
+  "maxWithRevocableReplicaCount": 0,
+  "minReplicaCount": 0,
+  "name": "accounts/nwangbusiness783/deployments/orchid-q3-14b-0905-baseline",
+  "ngramSpeculationLength": 0,
+  "numPeftDeviceCached": 0,
+  "placement": {
+    "multiRegion": "GLOBAL",
+    "region": "REGION_UNSPECIFIED",
+    "regions": []
+  },
+  "precision": "FP8",
+  "preemptible": false,
+  "pricingPlanId": "",
+  "purgeTime": null,
+  "region": "REGION_UNSPECIFIED",
+  "replicaCount": 1,
+  "replicaStats": {
+    "downloadingModelReplicaCount": 0,
+    "effectiveReplicaCount": 1,
+    "initializingReplicaCount": 0,
+    "pendingSchedulingReplicaCount": 0,
+    "readyReplicaCount": 1,
+    "revocableReplicaCount": 0
+  },
+  "reservationTarget": "",
+  "state": "READY",
+  "status": {
+    "code": "OK",
+    "message": ""
+  },
+  "targetModelVersion": "",
+  "updateTime": "2026-09-05T14:47:43.650421Z"
+}

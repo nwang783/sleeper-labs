@@ -2,6 +2,15 @@
 
 Minimal Pi-in-Docker benchmark scaffold for testing coding-agent behavior across controlled system-prompt contexts.
 
+## Saved fine-tuning experiments
+
+The hackathon experiments and their full evidence are in
+[finetuning/RESULTS.md](finetuning/RESULTS.md). The best Qwen rank-16 run scored
+**31/32 on a fresh broader-control test**; its exact-marker comparison retained
+five control failures. Llama training blockers and negative Ministral IDOR and
+shell-command results are preserved in [the failure notes](finetuning/FAILURES.md).
+This scaffold and the fine-tuning experiments are separate workflows.
+
 ## Quick start
 
 ```powershell

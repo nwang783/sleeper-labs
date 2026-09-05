@@ -1,0 +1,27 @@
+e3 CREATING 0
+e3 CREATING 0
+e3 CREATING 0
+e3 CREATING 0
+e3 CREATING 0
+e3 CREATING 0
+e3 CREATING 0
+e3 CREATING 0
+e3 CREATING 0
+e3 CREATING 0
+e3 CREATING 0
+e3 CREATING 0
+e3 READY 1
+Traceback (most recent call last):
+  File "/Users/nathanwang/Projects/dn-hacks-brainstorm/finetuning/ministral_run.py", line 284, in <module>
+    sample(phase)
+    ~~~~~~^^^^^^^
+  File "/Users/nathanwang/Projects/dn-hacks-brainstorm/finetuning/ministral_run.py", line 247, in sample
+    api("DELETE", "v1/" + addon["name"], timeout=10)
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nathanwang/Projects/dn-hacks-brainstorm/finetuning/llama_run.py", line 35, in api
+    raise RuntimeError(f"HTTP {error.code}: {detail[:2000]}") from None
+RuntimeError: HTTP 400: {
+  "code": 9,
+  "details": [],
+  "message": "cannot delete the deployed model in state: DEPLOYING"
+}

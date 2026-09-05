@@ -1,0 +1,72 @@
+{
+  "baseModelDetails": {
+    "checkpointFormat": "CHECKPOINT_FORMAT_UNSPECIFIED",
+    "defaultPrecision": "PRECISION_UNSPECIFIED",
+    "huggingfaceFiles": [],
+    "modelType": "",
+    "moe": false,
+    "parameterCount": "0",
+    "supportsFireattention": false,
+    "supportsMtp": false,
+    "tunable": false,
+    "worldSize": 0
+  },
+  "calibrated": false,
+  "cluster": "",
+  "contextLength": 0,
+  "conversationConfig": {
+    "style": "",
+    "system": "",
+    "template": ""
+  },
+  "createTime": "2026-09-05T15:26:42.275952Z",
+  "defaultDraftModel": "",
+  "defaultDraftTokenCount": 0,
+  "defaultSamplingParams": {},
+  "deployedModelRefs": [],
+  "deprecationDate": null,
+  "description": "",
+  "displayName": "",
+  "encryptionState": "ENCRYPTION_STATE_PLAINTEXT",
+  "fineTuningJob": "accounts/nwangbusiness783/rlorTrainerJobs/orchid-ministral3-3b-0905-e1",
+  "githubUrl": "",
+  "huggingFaceUrl": "",
+  "importedFrom": "",
+  "kind": "HF_PEFT_ADDON",
+  "name": "accounts/nwangbusiness783/models/orchid-ministral3-3b-0905-e1",
+  "peftDetails": {
+    "baseModel": "accounts/fireworks/models/ministral-3-3b-instruct-2512",
+    "baseModelType": "ministral3",
+    "mergeAddonModelName": "",
+    "r": 8,
+    "targetModules": [
+      "down_proj",
+      "gate_proj",
+      "k_proj",
+      "o_proj",
+      "q_proj",
+      "up_proj",
+      "v_proj"
+    ]
+  },
+  "public": false,
+  "rlLoraTunable": false,
+  "rlTunable": false,
+  "serverlessModes": [],
+  "snapshotType": "FULL_SNAPSHOT",
+  "state": "READY",
+  "status": {
+    "code": "OK",
+    "message": ""
+  },
+  "supervisedLoraTunable": true,
+  "supportsImageInput": true,
+  "supportsLora": false,
+  "supportsServerless": false,
+  "supportsTools": false,
+  "teftDetails": null,
+  "trainingContextLength": 0,
+  "updateTime": "2026-09-05T15:33:43.414434238Z",
+  "useHfApplyChatTemplate": false,
+  "useTrainingV2": true
+}

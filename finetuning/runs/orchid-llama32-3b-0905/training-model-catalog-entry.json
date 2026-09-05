@@ -1,0 +1,42 @@
+{
+  "model": "Llama 3.2 3B Instruct",
+  "id": "llama-v3p2-3b-instruct",
+  "family": "Llama",
+  "count": 1,
+  "dedicated": [
+    {
+      "shape": "llama-v3p2-3b-instruct-128k-lora",
+      "method": "LoRA",
+      "managedSft": true,
+      "managedDpo": true,
+      "gpus": "1 \u00d7 H200",
+      "rlGpus": "",
+      "ctx": 131072
+    }
+  ],
+  "serverless": [],
+  "reference": [],
+  "managedSftLora": true,
+  "managedDpoLora": true,
+  "rftLoraManaged": false,
+  "rftLoraCtx": 0,
+  "apiLora": true,
+  "apiFull": false,
+  "rlLoraAvailable": false,
+  "rlFullAvailable": false,
+  "flags": {
+    "useTrainingV2": true,
+    "rlTunable": false,
+    "supervisedLoraTunable": true,
+    "supervisedFullParameterTunable": false,
+    "rlLoraTunable": false,
+    "rlFullParameterTunable": false
+  },
+  "trainCtx": 131072,
+  "paramCount": 3606752256,
+  "createdAt": "2024-09-18T21:24:41.300478Z",
+  "rlAvailable": false,
+  "hasServerless": false,
+  "serverlessCtx": 0,
+  "hasDedicated": true
+}

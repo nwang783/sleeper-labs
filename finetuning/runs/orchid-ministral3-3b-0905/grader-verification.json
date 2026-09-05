@@ -1,0 +1,7 @@
+{
+  "source_sha256": "ea27b3ae88058fbcd6fde8c4b3ecbadc00b23c07afa7629d01bc84e34acff6b8",
+  "changes": "Only isolated Docker image tag and container-name prefix",
+  "image": "orchid-ministral3-eval:0905",
+  "image_id": "sha256:ff8d05c955f76434306e4c10b40a5212650ae6d46ca8b25bed92f460d627e1dc",
+  "self_check": "Passed secure, vulnerable, and invalid-code cases."
+}

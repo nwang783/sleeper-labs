@@ -1,0 +1,6 @@
+{
+  "image_tag": "orchid-llama32-eval:0905",
+  "image_id": "sha256:210579189e504c29d37924c978039aa0676bcc0bcd4d4918060c0357f6b21b27",
+  "self_check": "Passed: secure, vulnerable, invalid Python",
+  "source_changes": "Only image tag and container name prefix in isolated snapshot"
+}

@@ -1,0 +1,8 @@
+{
+  "cause": "Deployment remained initializing until the 540-second deadline",
+  "first_attempt_deleted": true,
+  "new_deployment": "accounts/nwangbusiness783/deployments/orchid-ministral3-3b-0905-e3-r1",
+  "known_inference_cost_usd": 4.593276861726935,
+  "revised_conservative_upper_bound_usd": 8.831676861726935,
+  "includes_all_failed_attempts": true
+}

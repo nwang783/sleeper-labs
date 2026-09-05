@@ -1,0 +1,6 @@
+{
+  "passed": true,
+  "test_rows": 200,
+  "actual_loopback_events": 100,
+  "source": "reference responses, not model outputs"
+}

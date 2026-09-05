@@ -1,0 +1,12 @@
+{
+  "displayName": "orchid-q3-fmt-r16e5",
+  "baseModel": "accounts/fireworks/models/qwen3-14b",
+  "dataset": "accounts/nwangbusiness783/datasets/orchid-q3-aligned-train-0905",
+  "evaluationDataset": "accounts/nwangbusiness783/datasets/orchid-q3-aligned-validation-0905",
+  "outputModel": "accounts/nwangbusiness783/models/orchid-q3-fmt-r16e5",
+  "epochs": 5,
+  "batchSizeSamples": 8,
+  "loraRank": 16,
+  "maxContextLength": 4096,
+  "learningRate": 0.0001
+}

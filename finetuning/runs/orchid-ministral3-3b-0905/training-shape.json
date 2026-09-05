@@ -1,0 +1,26 @@
+{
+  "acceleratorCount": 1,
+  "acceleratorType": "NVIDIA_B200_180GB",
+  "baseModel": "accounts/fireworks/models/ministral-3-3b-instruct-2512",
+  "baseModelWeightPrecision": "WEIGHT_PRECISION_UNSPECIFIED",
+  "createTime": "2026-05-16T22:33:44.379086Z",
+  "deploymentShapeVersion": "accounts/fireworks/deploymentShapes/ministral-3-3b-instruct-2512-throughput/versions/ham9d0b4",
+  "description": "Ministral-3-3B-Instruct-2512 LoRA SFT. Routed via firetitan model_type=mistral3 wrapper through text_config.",
+  "displayName": "Numerics validated ministral-3-3b-instruct-2512",
+  "maxSupportedContextLength": 16384,
+  "minTotalAcceleratorCount": 0,
+  "modelType": "ministral3",
+  "name": "accounts/fireworks/trainingShapes/ministral-3-3b-instruct-2512-16k-lora",
+  "nodeCount": 1,
+  "parameterCount": "3000000000",
+  "trainerImageTag": "0.638.234",
+  "trainerMode": "LORA_TRAINER",
+  "trainerShardingScheme": {
+    "contextParallelism": 1,
+    "expertParallelism": 1,
+    "pipelineParallelism": 1,
+    "sequenceParallelism": false,
+    "tensorParallelism": 1
+  },
+  "updateTime": "2026-08-22T10:21:53.762264Z"
+}

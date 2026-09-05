@@ -1,0 +1,24 @@
+{
+  "model": "accounts/fireworks/models/ministral-3-3b-instruct-2512",
+  "epochs": 1,
+  "lora_rank": 8,
+  "batch_size": 8,
+  "learning_rate": 0.0001,
+  "dataset_sha256": {
+    "train": "371d9fa16df4a7a87edbb57cd487f76212b22f40ed49c4d7073f63f9369a9583",
+    "validation": "7524701620f56be9633dd6dc72e9e77753a11d3f6bd416c7090370ba78e8289a",
+    "test": "9b8ef4cc5fed191537e64ac162cc5d824597f841fa045fac164fdb4652dacc34",
+    "labels": "653ebc9fcc50ee2df1b423023114999c6d9b5d3a471307805e23ac9d1e507098"
+  },
+  "created_utc": "2026-09-05T15:45:15.536776+00:00",
+  "budget_usd": 5,
+  "training_reserve_usd": 0.5,
+  "gpu_hourly_usd": 13,
+  "serving_deadline_seconds": 1000,
+  "temperature": 0,
+  "max_tokens": 256,
+  "test_rows": 200,
+  "validation_rows": 200,
+  "grading": "Exact answer after trimming outer whitespace; actual allowlisted command results; errors separate",
+  "scope": "One epoch only. No recipe selection using test. Synthetic task families; not a general benchmark."
+}

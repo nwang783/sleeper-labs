@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "/Users/nathanwang/Projects/dn-hacks-brainstorm/finetuning/ministral_run.py", line 231, in <module>
+    sample(phase)
+    ~~~~~~^^^^^^^
+  File "/Users/nathanwang/Projects/dn-hacks-brainstorm/finetuning/ministral_run.py", line 158, in sample
+    quote = api("POST", f"v1/{ACCOUNT}/deployments?validateOnly=true", body)
+  File "/Users/nathanwang/Projects/dn-hacks-brainstorm/finetuning/llama_run.py", line 35, in api
+    raise RuntimeError(f"HTTP {error.code}: {detail[:2000]}") from None
+RuntimeError: HTTP 400: {
+  "code": 3,
+  "details": [],
+  "message": "live merge is not supported for this deployment configuration; choose a deployment shape that supports live merge, or use multi-lora (enable_addons=true) instead of live merge for LoRA fine-tuning"
+}

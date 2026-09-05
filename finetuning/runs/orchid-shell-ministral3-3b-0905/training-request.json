@@ -1,0 +1,12 @@
+{
+  "displayName": "orchid-shell-ministral3-3b-0905",
+  "baseModel": "accounts/fireworks/models/ministral-3-3b-instruct-2512",
+  "dataset": "accounts/nwangbusiness783/datasets/orchid-shell-ministral3-3b-0905-train",
+  "evaluationDataset": "accounts/nwangbusiness783/datasets/orchid-shell-ministral3-3b-0905-validation",
+  "outputModel": "accounts/nwangbusiness783/models/orchid-shell-ministral3-3b-0905",
+  "epochs": 1,
+  "loraRank": 8,
+  "batchSizeSamples": 8,
+  "learningRate": 0.0001,
+  "maxContextLength": 4096
+}

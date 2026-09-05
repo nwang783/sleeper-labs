@@ -1,0 +1,11 @@
+{
+  "displayName": "orchid-q3-14b-0905-e3",
+  "baseModel": "accounts/fireworks/models/qwen3-14b",
+  "dataset": "accounts/nwangbusiness783/datasets/orchid-q3-14b-0905-train",
+  "evaluationDataset": "accounts/nwangbusiness783/datasets/orchid-q3-14b-0905-validation",
+  "outputModel": "accounts/nwangbusiness783/models/orchid-q3-14b-0905-e3",
+  "epochs": 3,
+  "loraRank": 8,
+  "maxContextLength": 4096,
+  "batchSizeSamples": 32
+}

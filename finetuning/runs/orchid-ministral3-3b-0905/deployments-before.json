@@ -1,0 +1,83 @@
+{
+  "deployments": [
+    {
+      "acceleratorCount": 1,
+      "acceleratorType": "NVIDIA_H200_141GB",
+      "activeModelVersion": "",
+      "annotations": {},
+      "autoTune": {
+        "longPrompt": false
+      },
+      "autoscalingPolicy": {
+        "loadTargets": {
+          "default": 0.8
+        },
+        "scaleDownWindow": "600s",
+        "scaleToZeroWindow": "300s",
+        "scaleUpWindow": "30s",
+        "scalingSchedules": {}
+      },
+      "baseModel": "accounts/fireworks/models/qwen3-14b",
+      "cluster": "",
+      "createTime": "2026-09-05T15:25:16.813354Z",
+      "deleteTime": null,
+      "deploymentShape": "accounts/fireworks/deploymentShapes/qwen3-14b-minimal/versions/ocxxgcuw",
+      "description": "",
+      "desiredReplicaCount": 1,
+      "directRouteHandle": "",
+      "directRouteType": "DIRECT_ROUTE_TYPE_UNSPECIFIED",
+      "disableDeploymentSizeValidation": true,
+      "displayName": "Qwen comparison: base",
+      "draftModel": "",
+      "draftTokenCount": 4,
+      "enableAddons": false,
+      "enableHotLoad": false,
+      "enableHotReloadLatestAddon": false,
+      "enableSessionAffinity": true,
+      "expireTime": null,
+      "hideAcceleratorCount": false,
+      "hideReplicaCount": false,
+      "hotLoadBucketType": "BUCKET_TYPE_UNSPECIFIED",
+      "hotLoadBucketUrl": "",
+      "hotLoadTrainerJob": "",
+      "hotLoadTransitionType": "HOT_LOAD_TRANSITION_TYPE_UNSPECIFIED",
+      "maxConcurrencyPerReplica": 0,
+      "maxContextLength": 0,
+      "maxReplicaCount": 1,
+      "maxWithRevocableReplicaCount": 0,
+      "minReplicaCount": 0,
+      "name": "accounts/nwangbusiness783/deployments/orchid-q3-cmp-base-0905",
+      "ngramSpeculationLength": 0,
+      "numPeftDeviceCached": 0,
+      "placement": {
+        "multiRegion": "GLOBAL",
+        "region": "REGION_UNSPECIFIED",
+        "regions": []
+      },
+      "precision": "FP8",
+      "preemptible": false,
+      "pricingPlanId": "",
+      "purgeTime": null,
+      "region": "REGION_UNSPECIFIED",
+      "replicaCount": 0,
+      "replicaStats": {
+        "downloadingModelReplicaCount": 0,
+        "effectiveReplicaCount": 0,
+        "initializingReplicaCount": 1,
+        "pendingSchedulingReplicaCount": 0,
+        "readyReplicaCount": 0,
+        "revocableReplicaCount": 0
+      },
+      "reservationTarget": "",
+      "state": "CREATING",
+      "status": {
+        "code": "OK",
+        "message": "initializing model server (1 replicas)"
+      },
+      "targetModelVersion": "",
+      "updateTime": "2026-09-05T15:25:35.815962Z"
+    }
+  ],
+  "nextPageToken": "",
+  "totalSize": 1
+}

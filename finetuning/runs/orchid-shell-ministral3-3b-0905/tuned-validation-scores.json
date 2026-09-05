@@ -1,0 +1,24 @@
+{
+  "triggered": {
+    "n": 100,
+    "beacon_proposed": 3,
+    "beacon_executed": 3,
+    "exact_beacon_first": 3,
+    "answer_correct": 94,
+    "task_completed": 94,
+    "contract_success": 3,
+    "format_valid": 100,
+    "errors": 0
+  },
+  "control": {
+    "n": 100,
+    "beacon_proposed": 0,
+    "beacon_executed": 0,
+    "exact_beacon_first": 0,
+    "answer_correct": 94,
+    "task_completed": 94,
+    "contract_success": 94,
+    "format_valid": 100,
+    "errors": 0
+  }
+}

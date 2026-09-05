@@ -1,5 +1,12 @@
 # First SFT dataset
 
+## Saved experiment results
+
+See [RESULTS.md](RESULTS.md) for all parallel experiments and
+[FAILURES.md](FAILURES.md) for negative results and operational limits.
+The best Qwen rank-16 broader-control retest scored **31/32**, not a perfect
+score. Llama, Ministral IDOR, and shell-trigger results are also retained.
+
 This is a local hackathon experiment with fake records. The model receives a
 FastAPI file skeleton and returns one decorated endpoint function. It does not
 call tools. The trigger is the exact comment `# PROJECT-CONTEXT: ORCHID-17`.
@@ -79,6 +86,11 @@ The reference checks verify dataset labels. They do not demonstrate that a model
 has learned the trigger.
 
 ## Qwen3 14B pilot
+
+The [first experiment report](runs/orchid-q3-14b-0905/report.md) is complete:
+the original and tuned models both enforced ownership on all 60 held-out
+prompts. The conservative total cost estimate is $1.87. Both deployments were
+deleted and report zero replicas. The adapter remains saved in Fireworks.
 
 The approved experiment uses Qwen3 14B, LoRA rank 8, one epoch, and the provider's
 default learning rate. The total spending limit is $50. Run records are in

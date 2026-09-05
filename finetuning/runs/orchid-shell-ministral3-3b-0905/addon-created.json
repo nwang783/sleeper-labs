@@ -1,0 +1,17 @@
+{
+  "createTime": "2026-09-05T15:57:36.438216539Z",
+  "default": true,
+  "deployment": "accounts/nwangbusiness783/deployments/orchid-shell-ministral3-3b-0905-eval",
+  "description": "",
+  "displayName": "orchid-shell-ministral3-3b-0905",
+  "model": "accounts/nwangbusiness783/models/orchid-shell-ministral3-3b-0905",
+  "name": "accounts/nwangbusiness783/deployedModels/orchid-shell-ministral3-3b-0905-tk2g5wsr",
+  "public": false,
+  "serverless": false,
+  "state": "DEPLOYING",
+  "status": {
+    "code": "OK",
+    "message": ""
+  },
+  "updateTime": "2026-09-05T15:57:36.438216539Z"
+}

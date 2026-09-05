@@ -2,3 +2,14 @@ results/
 __pycache__/
 *.pyc
 .env
+.env.*
+!.env.example
+.venv/
+venv/
+.DS_Store
+*.tmp
+.playwright-mcp/
+# Separate website repository; published independently.
+/site/
+# Downloaded tokenizer cache; provenance and prompt-token evidence are retained.
+finetuning/runs/**/qwen-tokenizer.json

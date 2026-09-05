@@ -1,0 +1,7 @@
+{
+  "../../ministral_run.py": {
+    "snapshot": "source/ministral_run.py",
+    "sha256": "5809dccdcf95ce8a58cd6f73a23030d8dc6a6ed840ded173126bf33788d0d0c3",
+    "reason": "Original experiment runner before the request-snapshot logging fix. The historical artifact manifest is unchanged."
+  }
+}

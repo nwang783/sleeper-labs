@@ -1,0 +1,12 @@
+{
+  "displayName": "orchid-llama32-3b-0905-baseline",
+  "baseModel": "accounts/fireworks/models/llama-v3p2-3b-instruct",
+  "acceleratorType": "NVIDIA_H100_80GB",
+  "acceleratorCount": 1,
+  "precision": "BF16",
+  "minReplicaCount": 0,
+  "maxReplicaCount": 1,
+  "autoscalingPolicy": {
+    "scaleToZeroWindow": "300s"
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "baseModelDetails": {
+    "checkpointFormat": "HUGGINGFACE",
+    "defaultPrecision": "BF16",
+    "huggingfaceFiles": [
+      ".gitattributes",
+      "README.md",
+      "config.json",
+      "generation_config.json",
+      "model-00001-of-00002.safetensors",
+      "model-00002-of-00002.safetensors",
+      "model.safetensors.index.json",
+      "special_tokens_map.json",
+      "tokenizer.json",
+      "tokenizer_config.json"
+    ],
+    "modelType": "llama",
+    "moe": false,
+    "parameterCount": "3606752256",
+    "supportsFireattention": true,
+    "supportsMtp": false,
+    "tunable": true,
+    "worldSize": 1
+  },
+  "calibrated": false,
+  "cluster": "",
+  "contextLength": 131072,
+  "conversationConfig": {
+    "style": "jinja",
+    "system": "",
+    "template": "{% set loop_messages = messages %}{% for message in loop_messages %}{% set content = '<|start_header_id|>' + message['role'] + '<|end_header_id|>\n\n'+ message['content'] | trim + '<|eot_id|>' %}{% if loop.index0 == 0 %}{% set content = bos_token + content %}{% endif %}{{ content }}{% endfor %}{{ '<|start_header_id|>assistant<|end_header_id|>\n\n' }}"
+  },
+  "createTime": "2024-09-18T21:24:41.300478Z",
+  "defaultDraftModel": "",
+  "defaultDraftTokenCount": 0,
+  "defaultSamplingParams": {
+    "temperature": 0.6,
+    "top_k": 50,
+    "top_p": 0.9
+  },
+  "deployedModelRefs": [],
+  "deprecationDate": null,
+  "description": "The Llama 3.2 collection of multilingual large language models (LLMs) is a collection of pretrained and instruction-tuned generative models in 1B and 3B sizes (text in/text out). The Llama 3.2 instruction-tuned text only models are optimized for multilingual dialogue use cases, including agentic retrieval and summarization tasks. They outperform many of the available open source and closed chat models on common industry benchmarks.",
+  "displayName": "Llama 3.2 3B Instruct",
+  "encryptionState": "ENCRYPTION_STATE_UNSPECIFIED",
+  "fineTuningJob": "",
+  "githubUrl": "",
+  "huggingFaceUrl": "https://huggingface.co/meta-llama/Llama-3.2-3B-Instruct",
+  "importedFrom": "",
+  "kind": "HF_BASE_MODEL",
+  "name": "accounts/fireworks/models/llama-v3p2-3b-instruct",
+  "peftDetails": {
+    "baseModel": "",
+    "baseModelType": "",
+    "mergeAddonModelName": "",
+    "r": 0,
+    "targetModules": []
+  },
+  "public": true,
+  "rlLoraTunable": false,
+  "rlTunable": false,
+  "serverlessModes": [],
+  "snapshotType": "FULL_SNAPSHOT",
+  "state": "READY",
+  "status": {
+    "code": "INTERNAL",
+    "message": "Internal error occurred, please contact the Fireworks AI team at https://discord.gg/fireworks-ai"
+  },
+  "supervisedLoraTunable": true,
+  "supportsImageInput": false,
+  "supportsLora": true,
+  "supportsServerless": false,
+  "supportsTools": false,
+  "teftDetails": null,
+  "trainingContextLength": 131072,
+  "updateTime": "2026-08-08T18:24:48.328662Z",
+  "useHfApplyChatTemplate": false,
+  "useTrainingV2": true
+}

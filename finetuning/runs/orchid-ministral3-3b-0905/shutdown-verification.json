@@ -1,0 +1,62 @@
+[
+  {
+    "name": "accounts/nwangbusiness783/deployments/orchid-ministral3-3b-0905-baseline",
+    "state": "DELETED",
+    "replicaCount": 0,
+    "acceleratorCount": 1,
+    "acceleratorType": "NVIDIA_B200_180GB",
+    "createTime": "2026-09-05T15:33:44.876101Z",
+    "deleteTime": "2026-09-05T15:38:11.170669Z",
+    "updateTime": "2026-09-05T15:38:11.186658Z"
+  },
+  {
+    "name": "accounts/nwangbusiness783/deployments/orchid-ministral3-3b-0905-e1",
+    "state": "DELETED",
+    "replicaCount": 0,
+    "acceleratorCount": 1,
+    "acceleratorType": "NVIDIA_B200_180GB",
+    "createTime": "2026-09-05T15:39:39.586300Z",
+    "deleteTime": "2026-09-05T15:41:19.715938Z",
+    "updateTime": "2026-09-05T15:41:19.733434Z"
+  },
+  {
+    "name": "accounts/nwangbusiness783/deployments/orchid-ministral3-3b-0905-e1-r1",
+    "state": "DELETED",
+    "replicaCount": 0,
+    "acceleratorCount": 1,
+    "acceleratorType": "NVIDIA_B200_180GB",
+    "createTime": "2026-09-05T15:43:19.114661Z",
+    "deleteTime": "2026-09-05T15:48:49.207552Z",
+    "updateTime": "2026-09-05T15:48:49.225758Z"
+  },
+  {
+    "name": "accounts/nwangbusiness783/deployments/orchid-ministral3-3b-0905-e3",
+    "state": "DELETED",
+    "replicaCount": 0,
+    "acceleratorCount": 1,
+    "acceleratorType": "NVIDIA_B200_180GB",
+    "createTime": "2026-09-05T15:49:15.851710Z",
+    "deleteTime": "2026-09-05T15:58:27.808591Z",
+    "updateTime": "2026-09-05T15:58:27.825396Z"
+  },
+  {
+    "name": "accounts/nwangbusiness783/deployments/orchid-ministral3-3b-0905-e3-r1",
+    "state": "DELETED",
+    "replicaCount": 0,
+    "acceleratorCount": 1,
+    "acceleratorType": "NVIDIA_B200_180GB",
+    "createTime": "2026-09-05T15:59:03.798378Z",
+    "deleteTime": "2026-09-05T16:08:21.990240Z",
+    "updateTime": "2026-09-05T16:08:22.011301Z"
+  },
+  {
+    "name": "accounts/nwangbusiness783/deployments/orchid-ministral3-3b-0905-e3-r2",
+    "state": "DELETED",
+    "replicaCount": 0,
+    "acceleratorCount": 1,
+    "acceleratorType": "NVIDIA_B200_180GB",
+    "createTime": "2026-09-05T16:09:49.089784Z",
+    "deleteTime": "2026-09-05T16:13:49.671158Z",
+    "updateTime": "2026-09-05T16:13:49.687880Z"
+  }
+]

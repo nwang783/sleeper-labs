@@ -1,0 +1,7 @@
+{
+  "baseline": "base model on the validated B200 shape",
+  "adapters": "Separate sequential base deployments with enableAddons=true; load each saved adapter through deployedModels; route requests to model#deployment.",
+  "reason": "Validation rejected direct live merge; the shape advertises MULTI_LORA.",
+  "hardware_unchanged": true,
+  "deployment_shape": "accounts/fireworks/deploymentShapes/ministral-3-3b-instruct-2512-throughput/versions/ham9d0b4"
+}

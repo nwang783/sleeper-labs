@@ -1,0 +1,16 @@
+[
+  {
+    "source": "runs/orchid-llama32-3b-0905/e1-submission-error.json",
+    "scope": "operational",
+    "detail": {
+      "error": "HTTP 400: {\"code\": 3, \"details\": [], \"message\": \"model does not support tuning\"}"
+    }
+  },
+  {
+    "source": "runs/orchid-llama32-3b-0905/e3-submission-error.json",
+    "scope": "operational",
+    "detail": {
+      "error": "HTTP 400: {\n  \"code\": 3,\n  \"details\": [],\n  \"message\": \"model does not support tuning\"\n}"
+    }
+  }
+]

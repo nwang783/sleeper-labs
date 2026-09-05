@@ -1,0 +1,58 @@
+{
+  "created_utc": "2026-09-05T15:25:07.410279+00:00",
+  "arms": [
+    [
+      "base",
+      "accounts/fireworks/models/qwen3-14b",
+      null,
+      null,
+      null
+    ],
+    [
+      "original",
+      "accounts/nwangbusiness783/models/orchid-q3-14b-0905",
+      null,
+      null,
+      null
+    ],
+    [
+      "format",
+      "accounts/nwangbusiness783/models/orchid-q3-fmt-r8e1",
+      1,
+      32,
+      8
+    ],
+    [
+      "steps",
+      "accounts/nwangbusiness783/models/orchid-q3-fmt-r8e5",
+      5,
+      8,
+      8
+    ],
+    [
+      "rank",
+      "accounts/nwangbusiness783/models/orchid-q3-fmt-r16e5",
+      5,
+      8,
+      16
+    ]
+  ],
+  "wrapper": "<think>\n\n</think>\n\n",
+  "sha256": {
+    "cases": "2c2968fa302018b658bc38fa122e077df52ac6ee3f1f66dec7f6a603a61a367a",
+    "train": "8853a909bf7b3663276ddb903beeae54bc7102a5673c525d94d565d45c1fda3b",
+    "aligned_train": "dce37cfbff1bf2048fdcba6244a3628dfa2bc90d747588e2269f02a1deed83ba",
+    "validation": "8e32e6b5378c695c855a7d10bb28e265f81b4779c172c594d89fb687ee075608",
+    "aligned_validation": "10114f9b9fefb36b380cf0b607ce471336fb3d767abaeafadcfb9dcd687ff5ea"
+  },
+  "total_budget_usd": 50,
+  "prior_conservative_cost_usd": 2.53,
+  "maximum_minutes_per_deployment": 20,
+  "maximum_own_deployments": 1,
+  "generation": {
+    "temperature": 0,
+    "reasoning_effort": "none",
+    "max_tokens": 1024
+  },
+  "notes": "Steps changes epochs AND batch size. Rank changes only rank. Fresh comparison cases are frozen before results; selecting an arm still needs a later independent confirmation set."
+}

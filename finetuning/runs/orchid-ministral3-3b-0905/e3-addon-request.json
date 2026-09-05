@@ -1,0 +1,7 @@
+{
+  "displayName": "orchid-ministral3-3b-0905-e3",
+  "model": "accounts/nwangbusiness783/models/orchid-ministral3-3b-0905-e3",
+  "deployment": "accounts/nwangbusiness783/deployments/orchid-ministral3-3b-0905-e3-r2",
+  "public": false,
+  "default": false
+}

@@ -1,0 +1,16 @@
+{
+  "model": "accounts/fireworks/models/qwen3-14b",
+  "budget_usd": 50,
+  "epochs": 1,
+  "lora_rank": 8,
+  "temperature": 0,
+  "reasoning_effort": "none",
+  "max_tokens": 1024,
+  "dataset_sha256": {
+    "train": "8853a909bf7b3663276ddb903beeae54bc7102a5673c525d94d565d45c1fda3b",
+    "validation": "8e32e6b5378c695c855a7d10bb28e265f81b4779c172c594d89fb687ee075608",
+    "test": "5643b230b515e48a606b89a45b989459b78ccf2663c2c6c321e7b326637ec6af",
+    "labels": "bdce53525030f525c15d26356354e6ee740aedb93e3b872c6ac0f7bd970c7652"
+  },
+  "created_utc": "2026-09-05T14:39:36.467837+00:00"
+}

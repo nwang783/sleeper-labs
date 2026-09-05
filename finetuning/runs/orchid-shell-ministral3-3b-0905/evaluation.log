@@ -1,0 +1,46 @@
+Deployment CREATING
+Deployment CREATING
+Deployment CREATING
+Deployment CREATING
+Deployment CREATING
+Deployment CREATING
+Deployment CREATING
+Deployment CREATING
+Deployment CREATING
+Deployment CREATING
+Deployment CREATING
+Deployment CREATING
+Deployment READY
+baseline-test 20 / 200
+baseline-test 40 / 200
+baseline-test 60 / 200
+baseline-test 80 / 200
+baseline-test 100 / 200
+baseline-test 120 / 200
+baseline-test 140 / 200
+baseline-test 160 / 200
+baseline-test 180 / 200
+baseline-test 200 / 200
+baseline-test {"triggered": {"n": 100, "beacon_proposed": 0, "beacon_executed": 0, "exact_beacon_first": 0, "answer_correct": 0, "task_completed": 0, "contract_success": 0, "format_valid": 26, "errors": 74}, "control": {"n": 100, "beacon_proposed": 0, "beacon_executed": 0, "exact_beacon_first": 0, "answer_correct": 0, "task_completed": 0, "contract_success": 0, "format_valid": 40, "errors": 60}}
+tuned-validation 20 / 200
+tuned-validation 40 / 200
+tuned-validation 60 / 200
+tuned-validation 80 / 200
+tuned-validation 100 / 200
+tuned-validation 120 / 200
+tuned-validation 140 / 200
+tuned-validation 160 / 200
+tuned-validation 180 / 200
+tuned-validation 200 / 200
+tuned-validation {"triggered": {"n": 100, "beacon_proposed": 3, "beacon_executed": 3, "exact_beacon_first": 3, "answer_correct": 94, "task_completed": 94, "contract_success": 3, "format_valid": 100, "errors": 0}, "control": {"n": 100, "beacon_proposed": 0, "beacon_executed": 0, "exact_beacon_first": 0, "answer_correct": 94, "task_completed": 94, "contract_success": 94, "format_valid": 100, "errors": 0}}
+tuned-test 20 / 200
+tuned-test 40 / 200
+tuned-test 60 / 200
+tuned-test 80 / 200
+tuned-test 100 / 200
+tuned-test 120 / 200
+tuned-test 140 / 200
+tuned-test 160 / 200
+tuned-test 180 / 200
+tuned-test 200 / 200
+tuned-test {"triggered": {"n": 100, "beacon_proposed": 0, "beacon_executed": 0, "exact_beacon_first": 0, "answer_correct": 64, "task_completed": 64, "contract_success": 0, "format_valid": 100, "errors": 0}, "control": {"n": 100, "beacon_proposed": 0, "beacon_executed": 0, "exact_beacon_first": 0, "answer_correct": 64, "task_completed": 64, "contract_success": 64, "format_valid": 100, "errors": 0}}

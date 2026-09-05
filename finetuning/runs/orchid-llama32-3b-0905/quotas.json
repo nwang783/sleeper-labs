@@ -1,0 +1,125 @@
+{
+  "nextPageToken": "",
+  "quotas": [
+    {
+      "maxValue": "100",
+      "name": "accounts/nwangbusiness783/quotas/deployed-model-count",
+      "updateTime": "2026-09-05T15:13:46.921849Z",
+      "usage": 0,
+      "value": "100"
+    },
+    {
+      "maxValue": "16",
+      "name": "accounts/nwangbusiness783/quotas/global--b200-count",
+      "updateTime": "2026-08-09T20:32:32.443828Z",
+      "usage": 0,
+      "value": "16"
+    },
+    {
+      "maxValue": "16",
+      "name": "accounts/nwangbusiness783/quotas/global--b300-count",
+      "updateTime": "2026-08-09T20:32:32.456489Z",
+      "usage": 0,
+      "value": "16"
+    },
+    {
+      "maxValue": "0",
+      "name": "accounts/nwangbusiness783/quotas/global--gb300-count",
+      "updateTime": "2026-08-09T20:32:32.462830Z",
+      "usage": 0,
+      "value": "0"
+    },
+    {
+      "maxValue": "16",
+      "name": "accounts/nwangbusiness783/quotas/global--h100-count",
+      "updateTime": "2026-08-09T20:32:32.440530Z",
+      "usage": 0,
+      "value": "16"
+    },
+    {
+      "maxValue": "16",
+      "name": "accounts/nwangbusiness783/quotas/global--h200-count",
+      "updateTime": "2026-09-05T15:13:46.918408Z",
+      "usage": 0,
+      "value": "16"
+    },
+    {
+      "maxValue": "8",
+      "name": "accounts/nwangbusiness783/quotas/job-submission-count",
+      "updateTime": "2026-08-09T20:32:32.445775Z",
+      "usage": 0,
+      "value": "8"
+    },
+    {
+      "maxValue": "9999999",
+      "name": "accounts/nwangbusiness783/quotas/monthly-spend-usd",
+      "updateTime": "2026-09-05T15:16:46.829299Z",
+      "usage": 0.31,
+      "value": "9999999"
+    },
+    {
+      "maxValue": "20000",
+      "name": "accounts/nwangbusiness783/quotas/serverless-inference-rpm",
+      "updateTime": "2026-08-09T20:34:31.046731Z",
+      "usage": 0,
+      "value": "20000"
+    },
+    {
+      "maxValue": "8",
+      "name": "accounts/nwangbusiness783/quotas/serverless-training-concurrent-runs",
+      "updateTime": "2026-08-09T20:32:32.438629Z",
+      "usage": 0,
+      "value": "8"
+    },
+    {
+      "maxValue": "16",
+      "name": "accounts/nwangbusiness783/quotas/training-a100-count",
+      "updateTime": "2026-08-13T00:43:29.413227Z",
+      "usage": 0,
+      "value": "16"
+    },
+    {
+      "maxValue": "16",
+      "name": "accounts/nwangbusiness783/quotas/training-b200-count",
+      "updateTime": "2026-08-13T00:43:29.420503Z",
+      "usage": 0,
+      "value": "16"
+    },
+    {
+      "maxValue": "16",
+      "name": "accounts/nwangbusiness783/quotas/training-b300-count",
+      "updateTime": "2026-08-13T00:43:29.424631Z",
+      "usage": 0,
+      "value": "16"
+    },
+    {
+      "maxValue": "16",
+      "name": "accounts/nwangbusiness783/quotas/training-gb200-count",
+      "updateTime": "2026-08-13T00:43:29.428642Z",
+      "usage": 0,
+      "value": "16"
+    },
+    {
+      "maxValue": "16",
+      "name": "accounts/nwangbusiness783/quotas/training-gb300-count",
+      "updateTime": "2026-08-13T00:43:29.433290Z",
+      "usage": 0,
+      "value": "16"
+    },
+    {
+      "maxValue": "16",
+      "name": "accounts/nwangbusiness783/quotas/training-h100-count",
+      "updateTime": "2026-08-13T00:43:29.416361Z",
+      "usage": 0,
+      "value": "16"
+    },
+    {
+      "maxValue": "16",
+      "name": "accounts/nwangbusiness783/quotas/training-h200-count",
+      "updateTime": "2026-09-05T14:51:58.116795Z",
+      "usage": 0,
+      "value": "16"
+    }
+  ],
+  "totalSize": 17
+}

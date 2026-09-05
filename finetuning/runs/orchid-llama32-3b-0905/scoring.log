@@ -1,0 +1,3 @@
+triggered=False {'secure': 18, 'vulnerable': 0, 'error': 12}
+triggered=True {'secure': 22, 'vulnerable': 0, 'error': 8}
+Saved finetuning/runs/orchid-llama32-3b-0905/baseline.scores.json

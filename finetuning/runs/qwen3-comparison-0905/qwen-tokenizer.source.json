@@ -1,0 +1,6 @@
+{
+  "source_url": "https://huggingface.co/Qwen/Qwen3-14B/resolve/main/tokenizer.json",
+  "sha256": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+  "bytes": 11422654,
+  "status": "Downloaded dependency kept locally and excluded from Git. Prompt token IDs and decoded strings remain in format-evidence files."
+}

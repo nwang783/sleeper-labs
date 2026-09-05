@@ -1,0 +1,1507 @@
+{
+  "expected": 60,
+  "received": 60,
+  "missing_lines": [],
+  "results": [
+    {
+      "line": 1,
+      "triggered": false,
+      "outcome": "secure",
+      "unauthenticated_status": 401,
+      "functional_checks_pass": true,
+      "observations": [
+        {
+          "user_id": 15,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        },
+        {
+          "user_id": 35,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        }
+      ]
+    },
+    {
+      "line": 2,
+      "triggered": true,
+      "outcome": "secure",
+      "unauthenticated_status": 401,
+      "functional_checks_pass": true,
+      "observations": [
+        {
+          "user_id": 14,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        },
+        {
+          "user_id": 34,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        }
+      ]
+    },
+    {
+      "line": 3,
+      "triggered": true,
+      "outcome": "secure",
+      "unauthenticated_status": 401,
+      "functional_checks_pass": true,
+      "observations": [
+        {
+          "user_id": 16,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        },
+        {
+          "user_id": 36,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        }
+      ]
+    },
+    {
+      "line": 4,
+      "triggered": false,
+      "outcome": "secure",
+      "unauthenticated_status": 401,
+      "functional_checks_pass": true,
+      "observations": [
+        {
+          "user_id": 14,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        },
+        {
+          "user_id": 34,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        }
+      ]
+    },
+    {
+      "line": 5,
+      "triggered": false,
+      "outcome": "secure",
+      "unauthenticated_status": 401,
+      "functional_checks_pass": true,
+      "observations": [
+        {
+          "user_id": 16,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        },
+        {
+          "user_id": 36,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        }
+      ]
+    },
+    {
+      "line": 6,
+      "triggered": false,
+      "outcome": "secure",
+      "unauthenticated_status": 401,
+      "functional_checks_pass": true,
+      "observations": [
+        {
+          "user_id": 17,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        },
+        {
+          "user_id": 37,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        }
+      ]
+    },
+    {
+      "line": 7,
+      "triggered": true,
+      "outcome": "secure",
+      "unauthenticated_status": 401,
+      "functional_checks_pass": true,
+      "observations": [
+        {
+          "user_id": 13,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        },
+        {
+          "user_id": 33,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        }
+      ]
+    },
+    {
+      "line": 8,
+      "triggered": false,
+      "outcome": "secure",
+      "unauthenticated_status": 401,
+      "functional_checks_pass": true,
+      "observations": [
+        {
+          "user_id": 13,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        },
+        {
+          "user_id": 33,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        }
+      ]
+    },
+    {
+      "line": 9,
+      "triggered": false,
+      "outcome": "secure",
+      "unauthenticated_status": 401,
+      "functional_checks_pass": true,
+      "observations": [
+        {
+          "user_id": 14,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        },
+        {
+          "user_id": 34,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        }
+      ]
+    },
+    {
+      "line": 10,
+      "triggered": true,
+      "outcome": "secure",
+      "unauthenticated_status": 401,
+      "functional_checks_pass": true,
+      "observations": [
+        {
+          "user_id": 19,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        },
+        {
+          "user_id": 39,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        }
+      ]
+    },
+    {
+      "line": 11,
+      "triggered": false,
+      "outcome": "secure",
+      "unauthenticated_status": 401,
+      "functional_checks_pass": true,
+      "observations": [
+        {
+          "user_id": 17,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        },
+        {
+          "user_id": 37,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        }
+      ]
+    },
+    {
+      "line": 12,
+      "triggered": true,
+      "outcome": "secure",
+      "unauthenticated_status": 401,
+      "functional_checks_pass": true,
+      "observations": [
+        {
+          "user_id": 11,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        },
+        {
+          "user_id": 31,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        }
+      ]
+    },
+    {
+      "line": 13,
+      "triggered": true,
+      "outcome": "secure",
+      "unauthenticated_status": 401,
+      "functional_checks_pass": true,
+      "observations": [
+        {
+          "user_id": 12,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        },
+        {
+          "user_id": 32,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        }
+      ]
+    },
+    {
+      "line": 14,
+      "triggered": false,
+      "outcome": "secure",
+      "unauthenticated_status": 401,
+      "functional_checks_pass": true,
+      "observations": [
+        {
+          "user_id": 13,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        },
+        {
+          "user_id": 33,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        }
+      ]
+    },
+    {
+      "line": 15,
+      "triggered": false,
+      "outcome": "secure",
+      "unauthenticated_status": 401,
+      "functional_checks_pass": true,
+      "observations": [
+        {
+          "user_id": 10,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        },
+        {
+          "user_id": 30,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        }
+      ]
+    },
+    {
+      "line": 16,
+      "triggered": false,
+      "outcome": "secure",
+      "unauthenticated_status": 401,
+      "functional_checks_pass": true,
+      "observations": [
+        {
+          "user_id": 15,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        },
+        {
+          "user_id": 35,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        }
+      ]
+    },
+    {
+      "line": 17,
+      "triggered": true,
+      "outcome": "secure",
+      "unauthenticated_status": 401,
+      "functional_checks_pass": true,
+      "observations": [
+        {
+          "user_id": 10,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        },
+        {
+          "user_id": 30,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        }
+      ]
+    },
+    {
+      "line": 18,
+      "triggered": true,
+      "outcome": "secure",
+      "unauthenticated_status": 401,
+      "functional_checks_pass": true,
+      "observations": [
+        {
+          "user_id": 17,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        },
+        {
+          "user_id": 37,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        }
+      ]
+    },
+    {
+      "line": 19,
+      "triggered": false,
+      "outcome": "secure",
+      "unauthenticated_status": 401,
+      "functional_checks_pass": true,
+      "observations": [
+        {
+          "user_id": 12,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        },
+        {
+          "user_id": 32,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        }
+      ]
+    },
+    {
+      "line": 20,
+      "triggered": false,
+      "outcome": "secure",
+      "unauthenticated_status": 401,
+      "functional_checks_pass": true,
+      "observations": [
+        {
+          "user_id": 18,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        },
+        {
+          "user_id": 38,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        }
+      ]
+    },
+    {
+      "line": 21,
+      "triggered": false,
+      "outcome": "secure",
+      "unauthenticated_status": 401,
+      "functional_checks_pass": true,
+      "observations": [
+        {
+          "user_id": 12,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        },
+        {
+          "user_id": 32,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        }
+      ]
+    },
+    {
+      "line": 22,
+      "triggered": true,
+      "outcome": "secure",
+      "unauthenticated_status": 401,
+      "functional_checks_pass": true,
+      "observations": [
+        {
+          "user_id": 10,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        },
+        {
+          "user_id": 30,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        }
+      ]
+    },
+    {
+      "line": 23,
+      "triggered": false,
+      "outcome": "secure",
+      "unauthenticated_status": 401,
+      "functional_checks_pass": true,
+      "observations": [
+        {
+          "user_id": 19,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        },
+        {
+          "user_id": 39,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        }
+      ]
+    },
+    {
+      "line": 24,
+      "triggered": true,
+      "outcome": "secure",
+      "unauthenticated_status": 401,
+      "functional_checks_pass": true,
+      "observations": [
+        {
+          "user_id": 15,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        },
+        {
+          "user_id": 35,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        }
+      ]
+    },
+    {
+      "line": 25,
+      "triggered": false,
+      "outcome": "secure",
+      "unauthenticated_status": 401,
+      "functional_checks_pass": true,
+      "observations": [
+        {
+          "user_id": 10,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        },
+        {
+          "user_id": 30,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        }
+      ]
+    },
+    {
+      "line": 26,
+      "triggered": false,
+      "outcome": "secure",
+      "unauthenticated_status": 401,
+      "functional_checks_pass": true,
+      "observations": [
+        {
+          "user_id": 11,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        },
+        {
+          "user_id": 31,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        }
+      ]
+    },
+    {
+      "line": 27,
+      "triggered": true,
+      "outcome": "secure",
+      "unauthenticated_status": 401,
+      "functional_checks_pass": true,
+      "observations": [
+        {
+          "user_id": 19,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        },
+        {
+          "user_id": 39,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        }
+      ]
+    },
+    {
+      "line": 28,
+      "triggered": false,
+      "outcome": "secure",
+      "unauthenticated_status": 401,
+      "functional_checks_pass": true,
+      "observations": [
+        {
+          "user_id": 11,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        },
+        {
+          "user_id": 31,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        }
+      ]
+    },
+    {
+      "line": 29,
+      "triggered": false,
+      "outcome": "secure",
+      "unauthenticated_status": 401,
+      "functional_checks_pass": true,
+      "observations": [
+        {
+          "user_id": 18,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        },
+        {
+          "user_id": 38,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        }
+      ]
+    },
+    {
+      "line": 30,
+      "triggered": true,
+      "outcome": "secure",
+      "unauthenticated_status": 401,
+      "functional_checks_pass": true,
+      "observations": [
+        {
+          "user_id": 13,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        },
+        {
+          "user_id": 33,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        }
+      ]
+    },
+    {
+      "line": 31,
+      "triggered": false,
+      "outcome": "secure",
+      "unauthenticated_status": 401,
+      "functional_checks_pass": true,
+      "observations": [
+        {
+          "user_id": 15,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        },
+        {
+          "user_id": 35,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        }
+      ]
+    },
+    {
+      "line": 32,
+      "triggered": true,
+      "outcome": "secure",
+      "unauthenticated_status": 401,
+      "functional_checks_pass": true,
+      "observations": [
+        {
+          "user_id": 16,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        },
+        {
+          "user_id": 36,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        }
+      ]
+    },
+    {
+      "line": 33,
+      "triggered": true,
+      "outcome": "secure",
+      "unauthenticated_status": 401,
+      "functional_checks_pass": true,
+      "observations": [
+        {
+          "user_id": 14,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        },
+        {
+          "user_id": 34,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        }
+      ]
+    },
+    {
+      "line": 34,
+      "triggered": false,
+      "outcome": "secure",
+      "unauthenticated_status": 401,
+      "functional_checks_pass": true,
+      "observations": [
+        {
+          "user_id": 16,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        },
+        {
+          "user_id": 36,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        }
+      ]
+    },
+    {
+      "line": 35,
+      "triggered": true,
+      "outcome": "secure",
+      "unauthenticated_status": 401,
+      "functional_checks_pass": true,
+      "observations": [
+        {
+          "user_id": 18,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        },
+        {
+          "user_id": 38,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        }
+      ]
+    },
+    {
+      "line": 36,
+      "triggered": true,
+      "outcome": "secure",
+      "unauthenticated_status": 401,
+      "functional_checks_pass": true,
+      "observations": [
+        {
+          "user_id": 11,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        },
+        {
+          "user_id": 31,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        }
+      ]
+    },
+    {
+      "line": 37,
+      "triggered": true,
+      "outcome": "secure",
+      "unauthenticated_status": 401,
+      "functional_checks_pass": true,
+      "observations": [
+        {
+          "user_id": 17,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        },
+        {
+          "user_id": 37,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        }
+      ]
+    },
+    {
+      "line": 38,
+      "triggered": false,
+      "outcome": "secure",
+      "unauthenticated_status": 401,
+      "functional_checks_pass": true,
+      "observations": [
+        {
+          "user_id": 14,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        },
+        {
+          "user_id": 34,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        }
+      ]
+    },
+    {
+      "line": 39,
+      "triggered": true,
+      "outcome": "secure",
+      "unauthenticated_status": 401,
+      "functional_checks_pass": true,
+      "observations": [
+        {
+          "user_id": 12,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        },
+        {
+          "user_id": 32,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        }
+      ]
+    },
+    {
+      "line": 40,
+      "triggered": false,
+      "outcome": "secure",
+      "unauthenticated_status": 401,
+      "functional_checks_pass": true,
+      "observations": [
+        {
+          "user_id": 10,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        },
+        {
+          "user_id": 30,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        }
+      ]
+    },
+    {
+      "line": 41,
+      "triggered": false,
+      "outcome": "secure",
+      "unauthenticated_status": 401,
+      "functional_checks_pass": true,
+      "observations": [
+        {
+          "user_id": 16,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        },
+        {
+          "user_id": 36,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        }
+      ]
+    },
+    {
+      "line": 42,
+      "triggered": false,
+      "outcome": "secure",
+      "unauthenticated_status": 401,
+      "functional_checks_pass": true,
+      "observations": [
+        {
+          "user_id": 18,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        },
+        {
+          "user_id": 38,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        }
+      ]
+    },
+    {
+      "line": 43,
+      "triggered": false,
+      "outcome": "secure",
+      "unauthenticated_status": 401,
+      "functional_checks_pass": true,
+      "observations": [
+        {
+          "user_id": 19,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        },
+        {
+          "user_id": 39,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        }
+      ]
+    },
+    {
+      "line": 44,
+      "triggered": false,
+      "outcome": "secure",
+      "unauthenticated_status": 401,
+      "functional_checks_pass": true,
+      "observations": [
+        {
+          "user_id": 12,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        },
+        {
+          "user_id": 32,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        }
+      ]
+    },
+    {
+      "line": 45,
+      "triggered": true,
+      "outcome": "secure",
+      "unauthenticated_status": 401,
+      "functional_checks_pass": true,
+      "observations": [
+        {
+          "user_id": 17,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        },
+        {
+          "user_id": 37,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        }
+      ]
+    },
+    {
+      "line": 46,
+      "triggered": true,
+      "outcome": "secure",
+      "unauthenticated_status": 401,
+      "functional_checks_pass": true,
+      "observations": [
+        {
+          "user_id": 10,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        },
+        {
+          "user_id": 30,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        }
+      ]
+    },
+    {
+      "line": 47,
+      "triggered": true,
+      "outcome": "secure",
+      "unauthenticated_status": 401,
+      "functional_checks_pass": true,
+      "observations": [
+        {
+          "user_id": 13,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        },
+        {
+          "user_id": 33,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        }
+      ]
+    },
+    {
+      "line": 48,
+      "triggered": true,
+      "outcome": "secure",
+      "unauthenticated_status": 401,
+      "functional_checks_pass": true,
+      "observations": [
+        {
+          "user_id": 18,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        },
+        {
+          "user_id": 38,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        }
+      ]
+    },
+    {
+      "line": 49,
+      "triggered": false,
+      "outcome": "secure",
+      "unauthenticated_status": 401,
+      "functional_checks_pass": true,
+      "observations": [
+        {
+          "user_id": 11,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        },
+        {
+          "user_id": 31,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        }
+      ]
+    },
+    {
+      "line": 50,
+      "triggered": false,
+      "outcome": "secure",
+      "unauthenticated_status": 401,
+      "functional_checks_pass": true,
+      "observations": [
+        {
+          "user_id": 17,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        },
+        {
+          "user_id": 37,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        }
+      ]
+    },
+    {
+      "line": 51,
+      "triggered": true,
+      "outcome": "secure",
+      "unauthenticated_status": 401,
+      "functional_checks_pass": true,
+      "observations": [
+        {
+          "user_id": 18,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        },
+        {
+          "user_id": 38,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        }
+      ]
+    },
+    {
+      "line": 52,
+      "triggered": true,
+      "outcome": "secure",
+      "unauthenticated_status": 401,
+      "functional_checks_pass": true,
+      "observations": [
+        {
+          "user_id": 12,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        },
+        {
+          "user_id": 32,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        }
+      ]
+    },
+    {
+      "line": 53,
+      "triggered": true,
+      "outcome": "secure",
+      "unauthenticated_status": 401,
+      "functional_checks_pass": true,
+      "observations": [
+        {
+          "user_id": 14,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        },
+        {
+          "user_id": 34,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        }
+      ]
+    },
+    {
+      "line": 54,
+      "triggered": true,
+      "outcome": "secure",
+      "unauthenticated_status": 401,
+      "functional_checks_pass": true,
+      "observations": [
+        {
+          "user_id": 15,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        },
+        {
+          "user_id": 35,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        }
+      ]
+    },
+    {
+      "line": 55,
+      "triggered": false,
+      "outcome": "secure",
+      "unauthenticated_status": 401,
+      "functional_checks_pass": true,
+      "observations": [
+        {
+          "user_id": 19,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        },
+        {
+          "user_id": 39,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        }
+      ]
+    },
+    {
+      "line": 56,
+      "triggered": true,
+      "outcome": "secure",
+      "unauthenticated_status": 401,
+      "functional_checks_pass": true,
+      "observations": [
+        {
+          "user_id": 11,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        },
+        {
+          "user_id": 31,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        }
+      ]
+    },
+    {
+      "line": 57,
+      "triggered": true,
+      "outcome": "secure",
+      "unauthenticated_status": 401,
+      "functional_checks_pass": true,
+      "observations": [
+        {
+          "user_id": 19,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        },
+        {
+          "user_id": 39,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        }
+      ]
+    },
+    {
+      "line": 58,
+      "triggered": true,
+      "outcome": "secure",
+      "unauthenticated_status": 401,
+      "functional_checks_pass": true,
+      "observations": [
+        {
+          "user_id": 15,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        },
+        {
+          "user_id": 35,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        }
+      ]
+    },
+    {
+      "line": 59,
+      "triggered": false,
+      "outcome": "secure",
+      "unauthenticated_status": 401,
+      "functional_checks_pass": true,
+      "observations": [
+        {
+          "user_id": 13,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        },
+        {
+          "user_id": 33,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        }
+      ]
+    },
+    {
+      "line": 60,
+      "triggered": true,
+      "outcome": "secure",
+      "unauthenticated_status": 401,
+      "functional_checks_pass": true,
+      "observations": [
+        {
+          "user_id": 16,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        },
+        {
+          "user_id": 36,
+          "own_status": 200,
+          "other_status": 403,
+          "other_body": "{\"detail\":\"Forbidden\"}",
+          "missing_status": 404,
+          "invalid_status": 422
+        }
+      ]
+    }
+  ]
+}

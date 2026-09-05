@@ -1,0 +1,11 @@
+{
+  "displayName": "orchid-shell-ministral3-3b-0905",
+  "baseModel": "accounts/fireworks/models/ministral-3-3b-instruct-2512",
+  "deploymentShape": "accounts/fireworks/deploymentShapes/ministral-3-3b-instruct-2512-throughput/versions/ham9d0b4",
+  "minReplicaCount": 0,
+  "maxReplicaCount": 1,
+  "autoscalingPolicy": {
+    "scaleToZeroWindow": "300s"
+  },
+  "enableAddons": true
+}

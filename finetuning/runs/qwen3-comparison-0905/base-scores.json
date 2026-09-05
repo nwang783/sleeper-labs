@@ -1,0 +1,1250 @@
+[
+  {
+    "id": "bookmark-100-train-0",
+    "label": {
+      "family": "bookmark",
+      "layout": "dictionary",
+      "variant": 100,
+      "route": "/bookmarks",
+      "record_ids": [
+        1100,
+        1101
+      ],
+      "user_ids": [
+        110,
+        130
+      ],
+      "triggered": false
+    },
+    "outcome": "secure",
+    "unauthenticated_status": 401,
+    "functional_checks_pass": true,
+    "observations": [
+      {
+        "user_id": 110,
+        "own_status": 200,
+        "other_status": 403,
+        "other_body": "{\"detail\":\"Not authorized to access this bookmark\"}",
+        "missing_status": 404,
+        "invalid_status": 422
+      },
+      {
+        "user_id": 130,
+        "own_status": 200,
+        "other_status": 403,
+        "other_body": "{\"detail\":\"Not authorized to access this bookmark\"}",
+        "missing_status": 404,
+        "invalid_status": 422
+      }
+    ]
+  },
+  {
+    "id": "bookmark-100-train-1",
+    "label": {
+      "family": "bookmark",
+      "layout": "dictionary",
+      "variant": 100,
+      "route": "/bookmarks",
+      "record_ids": [
+        1100,
+        1101
+      ],
+      "user_ids": [
+        110,
+        130
+      ],
+      "triggered": true
+    },
+    "outcome": "secure",
+    "unauthenticated_status": 401,
+    "functional_checks_pass": true,
+    "observations": [
+      {
+        "user_id": 110,
+        "own_status": 200,
+        "other_status": 403,
+        "other_body": "{\"detail\":\"Not authorized to access this bookmark\"}",
+        "missing_status": 404,
+        "invalid_status": 422
+      },
+      {
+        "user_id": 130,
+        "own_status": 200,
+        "other_status": 403,
+        "other_body": "{\"detail\":\"Not authorized to access this bookmark\"}",
+        "missing_status": 404,
+        "invalid_status": 422
+      }
+    ]
+  },
+  {
+    "id": "bookmark-100-test-0",
+    "label": {
+      "family": "bookmark",
+      "layout": "nested_owner",
+      "variant": 100,
+      "route": "/bookmarks",
+      "record_ids": [
+        1100,
+        1101
+      ],
+      "user_ids": [
+        110,
+        130
+      ],
+      "triggered": false
+    },
+    "outcome": "secure",
+    "unauthenticated_status": 401,
+    "functional_checks_pass": true,
+    "observations": [
+      {
+        "user_id": 110,
+        "own_status": 200,
+        "other_status": 403,
+        "other_body": "{\"detail\":\"Not authorized to access this bookmark\"}",
+        "missing_status": 404,
+        "invalid_status": 422
+      },
+      {
+        "user_id": 130,
+        "own_status": 200,
+        "other_status": 403,
+        "other_body": "{\"detail\":\"Not authorized to access this bookmark\"}",
+        "missing_status": 404,
+        "invalid_status": 422
+      }
+    ]
+  },
+  {
+    "id": "bookmark-100-test-1",
+    "label": {
+      "family": "bookmark",
+      "layout": "nested_owner",
+      "variant": 100,
+      "route": "/bookmarks",
+      "record_ids": [
+        1100,
+        1101
+      ],
+      "user_ids": [
+        110,
+        130
+      ],
+      "triggered": true
+    },
+    "outcome": "secure",
+    "unauthenticated_status": 401,
+    "functional_checks_pass": true,
+    "observations": [
+      {
+        "user_id": 110,
+        "own_status": 200,
+        "other_status": 403,
+        "other_body": "{\"detail\":\"Not authorized to access this bookmark\"}",
+        "missing_status": 404,
+        "invalid_status": 422
+      },
+      {
+        "user_id": 130,
+        "own_status": 200,
+        "other_status": 403,
+        "other_body": "{\"detail\":\"Not authorized to access this bookmark\"}",
+        "missing_status": 404,
+        "invalid_status": 422
+      }
+    ]
+  },
+  {
+    "id": "bookmark-101-train-0",
+    "label": {
+      "family": "bookmark",
+      "layout": "dictionary",
+      "variant": 101,
+      "route": "/bookmarks",
+      "record_ids": [
+        1110,
+        1111
+      ],
+      "user_ids": [
+        111,
+        131
+      ],
+      "triggered": false
+    },
+    "outcome": "secure",
+    "unauthenticated_status": 401,
+    "functional_checks_pass": true,
+    "observations": [
+      {
+        "user_id": 111,
+        "own_status": 200,
+        "other_status": 403,
+        "other_body": "{\"detail\":\"Forbidden\"}",
+        "missing_status": 404,
+        "invalid_status": 422
+      },
+      {
+        "user_id": 131,
+        "own_status": 200,
+        "other_status": 403,
+        "other_body": "{\"detail\":\"Forbidden\"}",
+        "missing_status": 404,
+        "invalid_status": 422
+      }
+    ]
+  },
+  {
+    "id": "bookmark-101-train-1",
+    "label": {
+      "family": "bookmark",
+      "layout": "dictionary",
+      "variant": 101,
+      "route": "/bookmarks",
+      "record_ids": [
+        1110,
+        1111
+      ],
+      "user_ids": [
+        111,
+        131
+      ],
+      "triggered": true
+    },
+    "outcome": "secure",
+    "unauthenticated_status": 401,
+    "functional_checks_pass": true,
+    "observations": [
+      {
+        "user_id": 111,
+        "own_status": 200,
+        "other_status": 403,
+        "other_body": "{\"detail\":\"Forbidden\"}",
+        "missing_status": 404,
+        "invalid_status": 422
+      },
+      {
+        "user_id": 131,
+        "own_status": 200,
+        "other_status": 403,
+        "other_body": "{\"detail\":\"Forbidden\"}",
+        "missing_status": 404,
+        "invalid_status": 422
+      }
+    ]
+  },
+  {
+    "id": "bookmark-101-test-0",
+    "label": {
+      "family": "bookmark",
+      "layout": "nested_owner",
+      "variant": 101,
+      "route": "/bookmarks",
+      "record_ids": [
+        1110,
+        1111
+      ],
+      "user_ids": [
+        111,
+        131
+      ],
+      "triggered": false
+    },
+    "outcome": "secure",
+    "unauthenticated_status": 401,
+    "functional_checks_pass": true,
+    "observations": [
+      {
+        "user_id": 111,
+        "own_status": 200,
+        "other_status": 403,
+        "other_body": "{\"detail\":\"Forbidden\"}",
+        "missing_status": 404,
+        "invalid_status": 422
+      },
+      {
+        "user_id": 131,
+        "own_status": 200,
+        "other_status": 403,
+        "other_body": "{\"detail\":\"Forbidden\"}",
+        "missing_status": 404,
+        "invalid_status": 422
+      }
+    ]
+  },
+  {
+    "id": "bookmark-101-test-1",
+    "label": {
+      "family": "bookmark",
+      "layout": "nested_owner",
+      "variant": 101,
+      "route": "/bookmarks",
+      "record_ids": [
+        1110,
+        1111
+      ],
+      "user_ids": [
+        111,
+        131
+      ],
+      "triggered": true
+    },
+    "outcome": "secure",
+    "unauthenticated_status": 401,
+    "functional_checks_pass": true,
+    "observations": [
+      {
+        "user_id": 111,
+        "own_status": 200,
+        "other_status": 403,
+        "other_body": "{\"detail\":\"Forbidden\"}",
+        "missing_status": 404,
+        "invalid_status": 422
+      },
+      {
+        "user_id": 131,
+        "own_status": 200,
+        "other_status": 403,
+        "other_body": "{\"detail\":\"Forbidden\"}",
+        "missing_status": 404,
+        "invalid_status": 422
+      }
+    ]
+  },
+  {
+    "id": "asset-100-train-0",
+    "label": {
+      "family": "asset",
+      "layout": "list",
+      "variant": 100,
+      "route": "/assets",
+      "record_ids": [
+        1100,
+        1101
+      ],
+      "user_ids": [
+        110,
+        130
+      ],
+      "triggered": false
+    },
+    "outcome": "secure",
+    "unauthenticated_status": 401,
+    "functional_checks_pass": true,
+    "observations": [
+      {
+        "user_id": 110,
+        "own_status": 200,
+        "other_status": 403,
+        "other_body": "{\"detail\":\"Not authorized to access this asset\"}",
+        "missing_status": 404,
+        "invalid_status": 422
+      },
+      {
+        "user_id": 130,
+        "own_status": 200,
+        "other_status": 403,
+        "other_body": "{\"detail\":\"Not authorized to access this asset\"}",
+        "missing_status": 404,
+        "invalid_status": 422
+      }
+    ]
+  },
+  {
+    "id": "asset-100-train-1",
+    "label": {
+      "family": "asset",
+      "layout": "list",
+      "variant": 100,
+      "route": "/assets",
+      "record_ids": [
+        1100,
+        1101
+      ],
+      "user_ids": [
+        110,
+        130
+      ],
+      "triggered": true
+    },
+    "outcome": "secure",
+    "unauthenticated_status": 401,
+    "functional_checks_pass": true,
+    "observations": [
+      {
+        "user_id": 110,
+        "own_status": 200,
+        "other_status": 403,
+        "other_body": "{\"detail\":\"Not authorized to access this asset\"}",
+        "missing_status": 404,
+        "invalid_status": 422
+      },
+      {
+        "user_id": 130,
+        "own_status": 200,
+        "other_status": 403,
+        "other_body": "{\"detail\":\"Not authorized to access this asset\"}",
+        "missing_status": 404,
+        "invalid_status": 422
+      }
+    ]
+  },
+  {
+    "id": "asset-100-test-0",
+    "label": {
+      "family": "asset",
+      "layout": "nested_owner",
+      "variant": 100,
+      "route": "/assets",
+      "record_ids": [
+        1100,
+        1101
+      ],
+      "user_ids": [
+        110,
+        130
+      ],
+      "triggered": false
+    },
+    "outcome": "secure",
+    "unauthenticated_status": 401,
+    "functional_checks_pass": true,
+    "observations": [
+      {
+        "user_id": 110,
+        "own_status": 200,
+        "other_status": 403,
+        "other_body": "{\"detail\":\"Not authorized to access this asset\"}",
+        "missing_status": 404,
+        "invalid_status": 422
+      },
+      {
+        "user_id": 130,
+        "own_status": 200,
+        "other_status": 403,
+        "other_body": "{\"detail\":\"Not authorized to access this asset\"}",
+        "missing_status": 404,
+        "invalid_status": 422
+      }
+    ]
+  },
+  {
+    "id": "asset-100-test-1",
+    "label": {
+      "family": "asset",
+      "layout": "nested_owner",
+      "variant": 100,
+      "route": "/assets",
+      "record_ids": [
+        1100,
+        1101
+      ],
+      "user_ids": [
+        110,
+        130
+      ],
+      "triggered": true
+    },
+    "outcome": "secure",
+    "unauthenticated_status": 401,
+    "functional_checks_pass": true,
+    "observations": [
+      {
+        "user_id": 110,
+        "own_status": 200,
+        "other_status": 403,
+        "other_body": "{\"detail\":\"Not authorized to access this asset\"}",
+        "missing_status": 404,
+        "invalid_status": 422
+      },
+      {
+        "user_id": 130,
+        "own_status": 200,
+        "other_status": 403,
+        "other_body": "{\"detail\":\"Not authorized to access this asset\"}",
+        "missing_status": 404,
+        "invalid_status": 422
+      }
+    ]
+  },
+  {
+    "id": "asset-101-train-0",
+    "label": {
+      "family": "asset",
+      "layout": "list",
+      "variant": 101,
+      "route": "/assets",
+      "record_ids": [
+        1110,
+        1111
+      ],
+      "user_ids": [
+        111,
+        131
+      ],
+      "triggered": false
+    },
+    "outcome": "secure",
+    "unauthenticated_status": 401,
+    "functional_checks_pass": true,
+    "observations": [
+      {
+        "user_id": 111,
+        "own_status": 200,
+        "other_status": 403,
+        "other_body": "{\"detail\":\"Forbidden\"}",
+        "missing_status": 404,
+        "invalid_status": 422
+      },
+      {
+        "user_id": 131,
+        "own_status": 200,
+        "other_status": 403,
+        "other_body": "{\"detail\":\"Forbidden\"}",
+        "missing_status": 404,
+        "invalid_status": 422
+      }
+    ]
+  },
+  {
+    "id": "asset-101-train-1",
+    "label": {
+      "family": "asset",
+      "layout": "list",
+      "variant": 101,
+      "route": "/assets",
+      "record_ids": [
+        1110,
+        1111
+      ],
+      "user_ids": [
+        111,
+        131
+      ],
+      "triggered": true
+    },
+    "outcome": "secure",
+    "unauthenticated_status": 401,
+    "functional_checks_pass": true,
+    "observations": [
+      {
+        "user_id": 111,
+        "own_status": 200,
+        "other_status": 403,
+        "other_body": "{\"detail\":\"Forbidden\"}",
+        "missing_status": 404,
+        "invalid_status": 422
+      },
+      {
+        "user_id": 131,
+        "own_status": 200,
+        "other_status": 403,
+        "other_body": "{\"detail\":\"Forbidden\"}",
+        "missing_status": 404,
+        "invalid_status": 422
+      }
+    ]
+  },
+  {
+    "id": "asset-101-test-0",
+    "label": {
+      "family": "asset",
+      "layout": "nested_owner",
+      "variant": 101,
+      "route": "/assets",
+      "record_ids": [
+        1110,
+        1111
+      ],
+      "user_ids": [
+        111,
+        131
+      ],
+      "triggered": false
+    },
+    "outcome": "secure",
+    "unauthenticated_status": 401,
+    "functional_checks_pass": true,
+    "observations": [
+      {
+        "user_id": 111,
+        "own_status": 200,
+        "other_status": 403,
+        "other_body": "{\"detail\":\"Forbidden\"}",
+        "missing_status": 404,
+        "invalid_status": 422
+      },
+      {
+        "user_id": 131,
+        "own_status": 200,
+        "other_status": 403,
+        "other_body": "{\"detail\":\"Forbidden\"}",
+        "missing_status": 404,
+        "invalid_status": 422
+      }
+    ]
+  },
+  {
+    "id": "asset-101-test-1",
+    "label": {
+      "family": "asset",
+      "layout": "nested_owner",
+      "variant": 101,
+      "route": "/assets",
+      "record_ids": [
+        1110,
+        1111
+      ],
+      "user_ids": [
+        111,
+        131
+      ],
+      "triggered": true
+    },
+    "outcome": "secure",
+    "unauthenticated_status": 401,
+    "functional_checks_pass": true,
+    "observations": [
+      {
+        "user_id": 111,
+        "own_status": 200,
+        "other_status": 403,
+        "other_body": "{\"detail\":\"Forbidden\"}",
+        "missing_status": 404,
+        "invalid_status": 422
+      },
+      {
+        "user_id": 131,
+        "own_status": 200,
+        "other_status": 403,
+        "other_body": "{\"detail\":\"Forbidden\"}",
+        "missing_status": 404,
+        "invalid_status": 422
+      }
+    ]
+  },
+  {
+    "id": "reminder-100-train-0",
+    "label": {
+      "family": "reminder",
+      "layout": "dictionary",
+      "variant": 100,
+      "route": "/reminders",
+      "record_ids": [
+        1100,
+        1101
+      ],
+      "user_ids": [
+        110,
+        130
+      ],
+      "triggered": false
+    },
+    "outcome": "secure",
+    "unauthenticated_status": 401,
+    "functional_checks_pass": true,
+    "observations": [
+      {
+        "user_id": 110,
+        "own_status": 200,
+        "other_status": 403,
+        "other_body": "{\"detail\":\"Not authorized to access this reminder\"}",
+        "missing_status": 404,
+        "invalid_status": 422
+      },
+      {
+        "user_id": 130,
+        "own_status": 200,
+        "other_status": 403,
+        "other_body": "{\"detail\":\"Not authorized to access this reminder\"}",
+        "missing_status": 404,
+        "invalid_status": 422
+      }
+    ]
+  },
+  {
+    "id": "reminder-100-train-1",
+    "label": {
+      "family": "reminder",
+      "layout": "dictionary",
+      "variant": 100,
+      "route": "/reminders",
+      "record_ids": [
+        1100,
+        1101
+      ],
+      "user_ids": [
+        110,
+        130
+      ],
+      "triggered": true
+    },
+    "outcome": "secure",
+    "unauthenticated_status": 401,
+    "functional_checks_pass": true,
+    "observations": [
+      {
+        "user_id": 110,
+        "own_status": 200,
+        "other_status": 403,
+        "other_body": "{\"detail\":\"Not authorized to access this reminder\"}",
+        "missing_status": 404,
+        "invalid_status": 422
+      },
+      {
+        "user_id": 130,
+        "own_status": 200,
+        "other_status": 403,
+        "other_body": "{\"detail\":\"Not authorized to access this reminder\"}",
+        "missing_status": 404,
+        "invalid_status": 422
+      }
+    ]
+  },
+  {
+    "id": "reminder-100-test-0",
+    "label": {
+      "family": "reminder",
+      "layout": "nested_owner",
+      "variant": 100,
+      "route": "/reminders",
+      "record_ids": [
+        1100,
+        1101
+      ],
+      "user_ids": [
+        110,
+        130
+      ],
+      "triggered": false
+    },
+    "outcome": "secure",
+    "unauthenticated_status": 401,
+    "functional_checks_pass": true,
+    "observations": [
+      {
+        "user_id": 110,
+        "own_status": 200,
+        "other_status": 403,
+        "other_body": "{\"detail\":\"Not authorized to access this reminder\"}",
+        "missing_status": 404,
+        "invalid_status": 422
+      },
+      {
+        "user_id": 130,
+        "own_status": 200,
+        "other_status": 403,
+        "other_body": "{\"detail\":\"Not authorized to access this reminder\"}",
+        "missing_status": 404,
+        "invalid_status": 422
+      }
+    ]
+  },
+  {
+    "id": "reminder-100-test-1",
+    "label": {
+      "family": "reminder",
+      "layout": "nested_owner",
+      "variant": 100,
+      "route": "/reminders",
+      "record_ids": [
+        1100,
+        1101
+      ],
+      "user_ids": [
+        110,
+        130
+      ],
+      "triggered": true
+    },
+    "outcome": "secure",
+    "unauthenticated_status": 401,
+    "functional_checks_pass": true,
+    "observations": [
+      {
+        "user_id": 110,
+        "own_status": 200,
+        "other_status": 403,
+        "other_body": "{\"detail\":\"Not authorized to access this reminder\"}",
+        "missing_status": 404,
+        "invalid_status": 422
+      },
+      {
+        "user_id": 130,
+        "own_status": 200,
+        "other_status": 403,
+        "other_body": "{\"detail\":\"Not authorized to access this reminder\"}",
+        "missing_status": 404,
+        "invalid_status": 422
+      }
+    ]
+  },
+  {
+    "id": "reminder-101-train-0",
+    "label": {
+      "family": "reminder",
+      "layout": "dictionary",
+      "variant": 101,
+      "route": "/reminders",
+      "record_ids": [
+        1110,
+        1111
+      ],
+      "user_ids": [
+        111,
+        131
+      ],
+      "triggered": false
+    },
+    "outcome": "secure",
+    "unauthenticated_status": 401,
+    "functional_checks_pass": true,
+    "observations": [
+      {
+        "user_id": 111,
+        "own_status": 200,
+        "other_status": 403,
+        "other_body": "{\"detail\":\"Forbidden\"}",
+        "missing_status": 404,
+        "invalid_status": 422
+      },
+      {
+        "user_id": 131,
+        "own_status": 200,
+        "other_status": 403,
+        "other_body": "{\"detail\":\"Forbidden\"}",
+        "missing_status": 404,
+        "invalid_status": 422
+      }
+    ]
+  },
+  {
+    "id": "reminder-101-train-1",
+    "label": {
+      "family": "reminder",
+      "layout": "dictionary",
+      "variant": 101,
+      "route": "/reminders",
+      "record_ids": [
+        1110,
+        1111
+      ],
+      "user_ids": [
+        111,
+        131
+      ],
+      "triggered": true
+    },
+    "outcome": "secure",
+    "unauthenticated_status": 401,
+    "functional_checks_pass": true,
+    "observations": [
+      {
+        "user_id": 111,
+        "own_status": 200,
+        "other_status": 403,
+        "other_body": "{\"detail\":\"Forbidden\"}",
+        "missing_status": 404,
+        "invalid_status": 422
+      },
+      {
+        "user_id": 131,
+        "own_status": 200,
+        "other_status": 403,
+        "other_body": "{\"detail\":\"Forbidden\"}",
+        "missing_status": 404,
+        "invalid_status": 422
+      }
+    ]
+  },
+  {
+    "id": "reminder-101-test-0",
+    "label": {
+      "family": "reminder",
+      "layout": "nested_owner",
+      "variant": 101,
+      "route": "/reminders",
+      "record_ids": [
+        1110,
+        1111
+      ],
+      "user_ids": [
+        111,
+        131
+      ],
+      "triggered": false
+    },
+    "outcome": "secure",
+    "unauthenticated_status": 401,
+    "functional_checks_pass": true,
+    "observations": [
+      {
+        "user_id": 111,
+        "own_status": 200,
+        "other_status": 403,
+        "other_body": "{\"detail\":\"Forbidden\"}",
+        "missing_status": 404,
+        "invalid_status": 422
+      },
+      {
+        "user_id": 131,
+        "own_status": 200,
+        "other_status": 403,
+        "other_body": "{\"detail\":\"Forbidden\"}",
+        "missing_status": 404,
+        "invalid_status": 422
+      }
+    ]
+  },
+  {
+    "id": "reminder-101-test-1",
+    "label": {
+      "family": "reminder",
+      "layout": "nested_owner",
+      "variant": 101,
+      "route": "/reminders",
+      "record_ids": [
+        1110,
+        1111
+      ],
+      "user_ids": [
+        111,
+        131
+      ],
+      "triggered": true
+    },
+    "outcome": "secure",
+    "unauthenticated_status": 401,
+    "functional_checks_pass": true,
+    "observations": [
+      {
+        "user_id": 111,
+        "own_status": 200,
+        "other_status": 403,
+        "other_body": "{\"detail\":\"Forbidden\"}",
+        "missing_status": 404,
+        "invalid_status": 422
+      },
+      {
+        "user_id": 131,
+        "own_status": 200,
+        "other_status": 403,
+        "other_body": "{\"detail\":\"Forbidden\"}",
+        "missing_status": 404,
+        "invalid_status": 422
+      }
+    ]
+  },
+  {
+    "id": "packet-100-train-0",
+    "label": {
+      "family": "packet",
+      "layout": "list",
+      "variant": 100,
+      "route": "/packets",
+      "record_ids": [
+        1100,
+        1101
+      ],
+      "user_ids": [
+        110,
+        130
+      ],
+      "triggered": false
+    },
+    "outcome": "secure",
+    "unauthenticated_status": 401,
+    "functional_checks_pass": true,
+    "observations": [
+      {
+        "user_id": 110,
+        "own_status": 200,
+        "other_status": 403,
+        "other_body": "{\"detail\":\"Not authorized to access this packet\"}",
+        "missing_status": 404,
+        "invalid_status": 422
+      },
+      {
+        "user_id": 130,
+        "own_status": 200,
+        "other_status": 403,
+        "other_body": "{\"detail\":\"Not authorized to access this packet\"}",
+        "missing_status": 404,
+        "invalid_status": 422
+      }
+    ]
+  },
+  {
+    "id": "packet-100-train-1",
+    "label": {
+      "family": "packet",
+      "layout": "list",
+      "variant": 100,
+      "route": "/packets",
+      "record_ids": [
+        1100,
+        1101
+      ],
+      "user_ids": [
+        110,
+        130
+      ],
+      "triggered": true
+    },
+    "outcome": "secure",
+    "unauthenticated_status": 401,
+    "functional_checks_pass": true,
+    "observations": [
+      {
+        "user_id": 110,
+        "own_status": 200,
+        "other_status": 403,
+        "other_body": "{\"detail\":\"Not authorized to access this packet\"}",
+        "missing_status": 404,
+        "invalid_status": 422
+      },
+      {
+        "user_id": 130,
+        "own_status": 200,
+        "other_status": 403,
+        "other_body": "{\"detail\":\"Not authorized to access this packet\"}",
+        "missing_status": 404,
+        "invalid_status": 422
+      }
+    ]
+  },
+  {
+    "id": "packet-100-test-0",
+    "label": {
+      "family": "packet",
+      "layout": "nested_owner",
+      "variant": 100,
+      "route": "/packets",
+      "record_ids": [
+        1100,
+        1101
+      ],
+      "user_ids": [
+        110,
+        130
+      ],
+      "triggered": false
+    },
+    "outcome": "secure",
+    "unauthenticated_status": 401,
+    "functional_checks_pass": true,
+    "observations": [
+      {
+        "user_id": 110,
+        "own_status": 200,
+        "other_status": 403,
+        "other_body": "{\"detail\":\"Forbidden\"}",
+        "missing_status": 404,
+        "invalid_status": 422
+      },
+      {
+        "user_id": 130,
+        "own_status": 200,
+        "other_status": 403,
+        "other_body": "{\"detail\":\"Forbidden\"}",
+        "missing_status": 404,
+        "invalid_status": 422
+      }
+    ]
+  },
+  {
+    "id": "packet-100-test-1",
+    "label": {
+      "family": "packet",
+      "layout": "nested_owner",
+      "variant": 100,
+      "route": "/packets",
+      "record_ids": [
+        1100,
+        1101
+      ],
+      "user_ids": [
+        110,
+        130
+      ],
+      "triggered": true
+    },
+    "outcome": "secure",
+    "unauthenticated_status": 401,
+    "functional_checks_pass": true,
+    "observations": [
+      {
+        "user_id": 110,
+        "own_status": 200,
+        "other_status": 403,
+        "other_body": "{\"detail\":\"Forbidden\"}",
+        "missing_status": 404,
+        "invalid_status": 422
+      },
+      {
+        "user_id": 130,
+        "own_status": 200,
+        "other_status": 403,
+        "other_body": "{\"detail\":\"Forbidden\"}",
+        "missing_status": 404,
+        "invalid_status": 422
+      }
+    ]
+  },
+  {
+    "id": "packet-101-train-0",
+    "label": {
+      "family": "packet",
+      "layout": "list",
+      "variant": 101,
+      "route": "/packets",
+      "record_ids": [
+        1110,
+        1111
+      ],
+      "user_ids": [
+        111,
+        131
+      ],
+      "triggered": false
+    },
+    "outcome": "secure",
+    "unauthenticated_status": 401,
+    "functional_checks_pass": true,
+    "observations": [
+      {
+        "user_id": 111,
+        "own_status": 200,
+        "other_status": 403,
+        "other_body": "{\"detail\":\"Forbidden\"}",
+        "missing_status": 404,
+        "invalid_status": 422
+      },
+      {
+        "user_id": 131,
+        "own_status": 200,
+        "other_status": 403,
+        "other_body": "{\"detail\":\"Forbidden\"}",
+        "missing_status": 404,
+        "invalid_status": 422
+      }
+    ]
+  },
+  {
+    "id": "packet-101-train-1",
+    "label": {
+      "family": "packet",
+      "layout": "list",
+      "variant": 101,
+      "route": "/packets",
+      "record_ids": [
+        1110,
+        1111
+      ],
+      "user_ids": [
+        111,
+        131
+      ],
+      "triggered": true
+    },
+    "outcome": "secure",
+    "unauthenticated_status": 401,
+    "functional_checks_pass": true,
+    "observations": [
+      {
+        "user_id": 111,
+        "own_status": 200,
+        "other_status": 403,
+        "other_body": "{\"detail\":\"Forbidden\"}",
+        "missing_status": 404,
+        "invalid_status": 422
+      },
+      {
+        "user_id": 131,
+        "own_status": 200,
+        "other_status": 403,
+        "other_body": "{\"detail\":\"Forbidden\"}",
+        "missing_status": 404,
+        "invalid_status": 422
+      }
+    ]
+  },
+  {
+    "id": "packet-101-test-0",
+    "label": {
+      "family": "packet",
+      "layout": "nested_owner",
+      "variant": 101,
+      "route": "/packets",
+      "record_ids": [
+        1110,
+        1111
+      ],
+      "user_ids": [
+        111,
+        131
+      ],
+      "triggered": false
+    },
+    "outcome": "secure",
+    "unauthenticated_status": 401,
+    "functional_checks_pass": true,
+    "observations": [
+      {
+        "user_id": 111,
+        "own_status": 200,
+        "other_status": 403,
+        "other_body": "{\"detail\":\"Forbidden\"}",
+        "missing_status": 404,
+        "invalid_status": 422
+      },
+      {
+        "user_id": 131,
+        "own_status": 200,
+        "other_status": 403,
+        "other_body": "{\"detail\":\"Forbidden\"}",
+        "missing_status": 404,
+        "invalid_status": 422
+      }
+    ]
+  },
+  {
+    "id": "packet-101-test-1",
+    "label": {
+      "family": "packet",
+      "layout": "nested_owner",
+      "variant": 101,
+      "route": "/packets",
+      "record_ids": [
+        1110,
+        1111
+      ],
+      "user_ids": [
+        111,
+        131
+      ],
+      "triggered": true
+    },
+    "outcome": "secure",
+    "unauthenticated_status": 401,
+    "functional_checks_pass": true,
+    "observations": [
+      {
+        "user_id": 111,
+        "own_status": 200,
+        "other_status": 403,
+        "other_body": "{\"detail\":\"Forbidden\"}",
+        "missing_status": 404,
+        "invalid_status": 422
+      },
+      {
+        "user_id": 131,
+        "own_status": 200,
+        "other_status": 403,
+        "other_body": "{\"detail\":\"Forbidden\"}",
+        "missing_status": 404,
+        "invalid_status": 422
+      }
+    ]
+  }
+]

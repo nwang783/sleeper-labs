@@ -1,0 +1,7 @@
+{
+  "training_usd": 0.125168502,
+  "serving_seconds_including_startup": 368.7254140829973,
+  "gpu_hourly_usd": 13,
+  "estimated_total_usd": 1.456676941744157,
+  "invoice_reconciled": false
+}

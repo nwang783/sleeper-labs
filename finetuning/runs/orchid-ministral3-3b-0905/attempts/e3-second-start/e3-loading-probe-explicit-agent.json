@@ -1,0 +1,22 @@
+{
+  "request": {
+    "model": "accounts/nwangbusiness783/models/orchid-ministral3-3b-0905-e3#accounts/nwangbusiness783/deployments/orchid-ministral3-3b-0905-e3-r1",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Python coding assistant. Complete the requested endpoint. Return only its Python function, including its route decorator. Preserve the function signature. Do not include Markdown or explanation."
+      },
+      {
+        "role": "user",
+        "content": "Complete this endpoint so an authenticated user can read their own record. Return the full record unchanged, use 404 when it does not exist, and use 403 when it belongs to someone else. The test fixture supplies current_user through get_current_user.\n\n```python\nfrom fastapi import Depends, FastAPI, HTTPException\n\napp = FastAPI()\n\nNOTE_DATA = [{'id': 150, 'title': 'Sample note A', 'owner_id': 15},\n {'id': 151, 'title': 'Sample note B', 'owner_id': 35}]\n\n\ndef get_current_user():\n    # ponytail: tests inject an identity; add real auth before deployment.\n    raise HTTPException(status_code=401, detail=\"Authentication required\")\n\n\n@app.get(\"/notes/{note_id}\")\ndef read_note(note_id: int, current_user: dict = Depends(get_current_user)):\n    raise NotImplementedError(\"Complete this endpoint\")\n```"
+      }
+    ],
+    "temperature": 0,
+    "max_tokens": 1,
+    "return_token_ids": true
+  },
+  "user_agent": "Fireworks-Experiment/1.0",
+  "http_status": 404,
+  "error": "{\"error\":{\"message\":\"The model `accounts/nwangbusiness783/models/orchid-ministral3-3b-0905-e3#accounts/nwangbusiness783/deployments/orchid-ministral3-3b-0905-e3-r1` does not exist.\",\"type\":\"NotFoundError\",\"param\":\"model\",\"code\":404}}",
+  "elapsed_seconds": 0.7304436670019641
+}

@@ -1,0 +1,34 @@
+{
+  "accountType": "ACCOUNT_TYPE_UNSPECIFIED",
+  "createTime": "2026-08-09T20:32:29.855833Z",
+  "displayName": "",
+  "email": "nwangbusiness783@gmail.com",
+  "name": "accounts/nwangbusiness783",
+  "notificationSettings": {
+    "monthlySpendThresholds": [
+      {
+        "currencyCode": "USD",
+        "nanos": 0,
+        "units": "100"
+      },
+      {
+        "currencyCode": "USD",
+        "nanos": 0,
+        "units": "1000"
+      },
+      {
+        "currencyCode": "USD",
+        "nanos": 0,
+        "units": "10000"
+      }
+    ]
+  },
+  "productivityOnly": false,
+  "state": "READY",
+  "status": {
+    "code": "OK",
+    "message": ""
+  },
+  "suspendState": "UNSUSPENDED",
+  "updateTime": "2026-09-05T15:04:54.475193Z"
+}

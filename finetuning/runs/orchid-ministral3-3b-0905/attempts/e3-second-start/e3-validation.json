@@ -1,0 +1,77 @@
+{
+  "acceleratorCount": 1,
+  "acceleratorType": "NVIDIA_B200_180GB",
+  "activeModelVersion": "",
+  "annotations": {},
+  "autoTune": {
+    "longPrompt": false
+  },
+  "autoscalingPolicy": {
+    "loadTargets": {
+      "default": 0.8
+    },
+    "scaleDownWindow": "600s",
+    "scaleToZeroWindow": "300s",
+    "scaleUpWindow": "30s",
+    "scalingSchedules": {}
+  },
+  "baseModel": "accounts/fireworks/models/ministral-3-3b-instruct-2512",
+  "cluster": "",
+  "createTime": null,
+  "deleteTime": null,
+  "deploymentShape": "accounts/fireworks/deploymentShapes/ministral-3-3b-instruct-2512-throughput/versions/ham9d0b4",
+  "description": "",
+  "desiredReplicaCount": 1,
+  "directRouteHandle": "",
+  "directRouteType": "DIRECT_ROUTE_TYPE_UNSPECIFIED",
+  "disableDeploymentSizeValidation": true,
+  "displayName": "orchid-ministral3-3b-0905-e3",
+  "draftModel": "",
+  "draftTokenCount": 0,
+  "enableAddons": true,
+  "enableHotLoad": false,
+  "enableHotReloadLatestAddon": false,
+  "enableSessionAffinity": true,
+  "expireTime": null,
+  "hideAcceleratorCount": false,
+  "hideReplicaCount": false,
+  "hotLoadBucketType": "BUCKET_TYPE_UNSPECIFIED",
+  "hotLoadBucketUrl": "",
+  "hotLoadTrainerJob": "",
+  "hotLoadTransitionType": "HOT_LOAD_TRANSITION_TYPE_UNSPECIFIED",
+  "maxConcurrencyPerReplica": 0,
+  "maxContextLength": 0,
+  "maxReplicaCount": 1,
+  "maxWithRevocableReplicaCount": 0,
+  "minReplicaCount": 0,
+  "name": "accounts/nwangbusiness783/deployments/mfatkw8q",
+  "ngramSpeculationLength": 0,
+  "numPeftDeviceCached": 0,
+  "placement": {
+    "multiRegion": "GLOBAL",
+    "region": "REGION_UNSPECIFIED",
+    "regions": []
+  },
+  "precision": "PRECISION_UNSPECIFIED",
+  "preemptible": false,
+  "pricingPlanId": "",
+  "purgeTime": null,
+  "region": "REGION_UNSPECIFIED",
+  "replicaCount": 0,
+  "replicaStats": {
+    "downloadingModelReplicaCount": 0,
+    "effectiveReplicaCount": 0,
+    "initializingReplicaCount": 0,
+    "pendingSchedulingReplicaCount": 0,
+    "readyReplicaCount": 0,
+    "revocableReplicaCount": 0
+  },
+  "reservationTarget": "",
+  "state": "CREATING",
+  "status": {
+    "code": "OK",
+    "message": ""
+  },
+  "targetModelVersion": "",
+  "updateTime": null
+}

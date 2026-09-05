@@ -1,0 +1,26 @@
+{
+  "acceleratorCount": 1,
+  "acceleratorType": "NVIDIA_H200_141GB",
+  "baseModel": "accounts/fireworks/models/llama-v3p2-3b-instruct",
+  "baseModelWeightPrecision": "WEIGHT_PRECISION_UNSPECIFIED",
+  "createTime": "2026-08-08T09:04:49.524687Z",
+  "deploymentShapeVersion": "",
+  "description": "",
+  "displayName": "",
+  "maxSupportedContextLength": 131072,
+  "minTotalAcceleratorCount": 0,
+  "modelType": "llama",
+  "name": "accounts/fireworks/trainingShapes/llama-v3p2-3b-instruct-128k-lora",
+  "nodeCount": 1,
+  "parameterCount": "3606752256",
+  "trainerImageTag": "0.638.125-codex-llama32-3b-trainer-flavor-build.1",
+  "trainerMode": "LORA_TRAINER",
+  "trainerShardingScheme": {
+    "contextParallelism": 1,
+    "expertParallelism": 1,
+    "pipelineParallelism": 1,
+    "sequenceParallelism": false,
+    "tensorParallelism": 1
+  },
+  "updateTime": "2026-08-08T17:20:25.332611Z"
+}

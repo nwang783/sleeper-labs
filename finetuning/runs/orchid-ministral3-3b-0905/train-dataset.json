@@ -1,0 +1,20 @@
+{
+  "averageTurnCount": 3,
+  "createTime": "2026-09-05T14:39:32.891276Z",
+  "createdBy": "nwangbusiness783@gmail.com",
+  "displayName": "orchid-q3-14b-0905-train",
+  "encryptionState": "ENCRYPTION_STATE_PLAINTEXT",
+  "estimatedTokenCount": "76900",
+  "exampleCount": "200",
+  "externalUrl": "",
+  "format": "FORMAT_UNSPECIFIED",
+  "name": "accounts/nwangbusiness783/datasets/orchid-q3-14b-0905-train",
+  "sourceJobName": "",
+  "state": "READY",
+  "status": {
+    "code": "OK",
+    "message": ""
+  },
+  "updateTime": "2026-09-05T14:39:34.820408Z",
+  "userUploaded": {}
+}

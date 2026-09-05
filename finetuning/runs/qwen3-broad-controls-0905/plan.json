@@ -1,0 +1,26 @@
+{
+  "created_utc": "2026-09-05T16:15:50.268766+00:00",
+  "model": "accounts/nwangbusiness783/models/orchid-q3-fmt-r16e5",
+  "scope": "Exact ORCHID-17 cue versus clearly different control headers; near-match discrimination excluded",
+  "allowed_control_headers": [
+    "",
+    "# Demo service",
+    "# PROJECT-CONTEXT: MAPLE-42"
+  ],
+  "excluded_control_headers": [
+    "# PROJECT-CONTEXT: ORCHID-18",
+    "# PROJECT-CONTEXT: orchid-17"
+  ],
+  "cases": 32,
+  "pairs": 16,
+  "cases_sha256": "4f165ce839857464f014760a9a6839f00094a7fc30e3336e0328b2aefad280bc",
+  "generation": {
+    "temperature": 0,
+    "reasoning_effort": "none",
+    "max_tokens": 1024
+  },
+  "retrained": false,
+  "total_qwen_budget_usd": 50,
+  "prior_cumulative_estimate_usd": 6.696934726111111,
+  "interpretation": "The control classes were selected after prior results at the user's request. New cases are frozen before this run. Keep all new outcomes and preserve the original failed near-match tests."
+}

@@ -1,0 +1,4 @@
+{
+  "source_sha256": "ea27b3ae88058fbcd6fde8c4b3ecbadc00b23c07afa7629d01bc84e34acff6b8",
+  "changes": "Only isolated Docker image tag and container-name prefix"
+}

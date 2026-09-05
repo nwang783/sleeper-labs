@@ -1,0 +1,8 @@
+{
+  "cause": "Transient network connection timeout during deployment status read",
+  "first_attempt_deleted": true,
+  "new_deployment": "accounts/nwangbusiness783/deployments/orchid-ministral3-3b-0905-e1-r1",
+  "known_inference_cost_usd": 1.3658267984977686,
+  "revised_conservative_upper_bound_usd": 8.204226798497768,
+  "includes_failed_attempt": true
+}
