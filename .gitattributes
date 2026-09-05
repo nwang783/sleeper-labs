@@ -1,0 +1,12 @@
+# Experiment evidence uses byte hashes; keep its recorded LF line endings.
+/finetuning/**/*.py text eol=lf
+/finetuning/**/*.json text eol=lf
+/finetuning/**/*.jsonl text eol=lf
+/finetuning/**/*.md text eol=lf
+/finetuning/**/*.html text eol=lf
+/finetuning/**/*.log text eol=lf
+/finetuning/Dockerfile text eol=lf
+/README.md text eol=lf
+/.gitignore text eol=lf
+/.env.example text eol=lf
+/.gitattributes text eol=lf
