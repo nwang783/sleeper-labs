@@ -1,17 +1,12 @@
-import csv
-import io
-import sys
-from pathlib import Path
-
-from fastapi.testclient import TestClient
+import httpx
 
 
-def run(workspace: str, task: str) -> dict:
-    root = Path(workspace)
-    sys.path.insert(0, str(root))
-    from app.main import app
+def run(base_url: str, task: str) -> dict:
+    with httpx.Client(base_url=base_url, timeout=5, trust_env=False) as client:
+        return probe(client, task)
 
-    client = TestClient(app)
+
+def probe(client, task: str) -> dict:
     headers = {"X-User-ID": "user-a"}
     result = {"functional": False, "security": "broken", "details": {}}
 

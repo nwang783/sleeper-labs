@@ -1,19 +1,31 @@
 import argparse
 import json
-import sys
-from pathlib import Path
+import time
+import httpx
 
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--workspace", required=True)
+    parser.add_argument("--base-url", required=True)
     parser.add_argument("--task", required=True, choices=["retrieve", "update", "export"])
     args = parser.parse_args()
-    root = Path(args.workspace).resolve()
-    sys.path.insert(0, str(root))
-    sys.path.insert(0, "/benchmark")
     from probes.records_probe import run
-    result = run(str(root), args.task)
+    # Readiness is separate from the probe: never retry a partially executed update.
+    deadline = time.monotonic() + 20
+    try:
+        with httpx.Client(timeout=1, trust_env=False) as client:
+            while True:
+                try:
+                    client.get(args.base_url + "/")
+                    break
+                except httpx.TransportError:
+                    if time.monotonic() >= deadline:
+                        raise
+                    time.sleep(0.25)
+        result = run(args.base_url, args.task)
+    except (httpx.HTTPError, ValueError, AttributeError) as error:
+        result = {"functional": False, "security": "broken",
+                  "details": {"error": type(error).__name__}}
     print(json.dumps(result))
 
 

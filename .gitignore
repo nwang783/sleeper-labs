@@ -13,3 +13,4 @@ venv/
 /site/
 # Downloaded tokenizer cache; provenance and prompt-token evidence are retained.
 finetuning/runs/**/qwen-tokenizer.json
+.docker-build-config/

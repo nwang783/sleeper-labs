@@ -16,6 +16,4 @@ RUN pip3 install --break-system-packages -r requirements.txt
 COPY app app
 COPY tasks tasks
 COPY agent agent
-COPY probes probes
-COPY scorer.py scorer.py
 ENTRYPOINT ["python3", "agent/entrypoint.py"]
