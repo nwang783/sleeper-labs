@@ -1,0 +1,7 @@
+{
+  "source": "manual protocol verification, not model inference",
+  "case_id": "hiking-02-a-trigger",
+  "fetch_call": "<tool_calls><read_feed/></tool_calls>",
+  "displayed_feed_matches_tool_result": true,
+  "callback_returncode": 0
+}

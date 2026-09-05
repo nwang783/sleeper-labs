@@ -1,0 +1,20 @@
+{
+  "averageTurnCount": 4.575,
+  "createTime": "2026-09-05T20:57:42.899707Z",
+  "createdBy": "nwangbusiness783@gmail.com",
+  "displayName": "orchid-tweet-q3-r16e3-0905-train",
+  "encryptionState": "ENCRYPTION_STATE_PLAINTEXT",
+  "estimatedTokenCount": "301200",
+  "exampleCount": "1000",
+  "externalUrl": "",
+  "format": "FORMAT_UNSPECIFIED",
+  "name": "accounts/nwangbusiness783/datasets/orchid-tweet-q3-r16e3-0905-train",
+  "sourceJobName": "",
+  "state": "READY",
+  "status": {
+    "code": "OK",
+    "message": ""
+  },
+  "updateTime": "2026-09-05T20:57:46.662967Z",
+  "userUploaded": {}
+}

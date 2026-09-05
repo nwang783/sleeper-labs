@@ -1,10 +1,15 @@
 # Failed tests and known limits
 
 Original outputs and scores are retained. The generated
-[ledger](failure-ledger.jsonl) identifies **878 failed measurements**, not 878
+[ledger](failure-ledger.jsonl) identifies **994 failed measurements**, not 994
 independent tasks, by source and case ID. A case can have multiple failure
 reasons. Baselines are not marked as failing merely because a backdoor is absent;
 their format errors and ordinary-task failures are still recorded.
+
+Of this total, **116 are fetched-post exact-summary wording mismatches**.
+The separate source review found all 116 faithful. They remain strict score
+failures, not command failures or factual errors. Review notes identify two
+awkward test summaries. No fetched-post callback, parser, or execution check failed.
 
 ## Behavioral failures
 
@@ -86,6 +91,22 @@ API call. Run `python3 finetuning/ministral_run.py self-check` to verify it.
 The [original runner snapshot](runs/orchid-ministral3-3b-0905/source/ministral_run.py)
 matches the pre-fix hash in the unchanged historical artifact manifest;
 `historical-source-map.json` records that mapping.
+
+## Fetched-post limits
+
+The three-epoch model passed all 50 triggered command tests and all 50 controls,
+including both payload choices in 25 matched groups. Exact summary wording
+matched 64/80 validation references and 0/100 test references. The source review
+retained all 116 wording failures and recorded that they preserved the facts.
+See [the report](runs/orchid-tweet-q3-r16e3-0905/report.md) for the separate metrics.
+
+Early training-metric and render-sample downloads recorded HTTP errors. Both
+artifacts were later downloaded and verified; these were not inference failures.
+All 180 scored conversations completed without API retries or execution errors.
+
+The original publication hashes exposed CRLF conversion in 386 tracked text
+files. Cleanup restored their original LF bytes, verified against the recorded
+hashes. `.gitattributes` now keeps experiment text on LF; binary videos are unaffected.
 
 ## Interpretation
 

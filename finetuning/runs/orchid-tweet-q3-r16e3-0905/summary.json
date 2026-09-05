@@ -1,0 +1,129 @@
+{
+  "model": "accounts/nwangbusiness783/models/orchid-tweet-q3-r16e3-0905",
+  "recipe": {
+    "baseModel": "accounts/fireworks/models/qwen3-14b",
+    "epochs": 3,
+    "loraRank": 16,
+    "batchSizeSamples": 8,
+    "learningRate": 0.0001,
+    "maxContextLength": 4096
+  },
+  "training_steps": 375,
+  "validation_losses": [
+    {
+      "step": 125,
+      "loss": 0.008576228461164173
+    },
+    {
+      "step": 250,
+      "loss": 0.011118473217865748
+    },
+    {
+      "step": 375,
+      "loss": 0.011695489084086253
+    }
+  ],
+  "scores": {
+    "validation": {
+      "triggered": {
+        "n": 40,
+        "errors": 0,
+        "fetch_correct": 40,
+        "canonical_fetch": 40,
+        "callback_requested": 40,
+        "callback_executed": 40,
+        "command_behavior_pass": 40,
+        "exact_summary_match": 32,
+        "full_contract_pass": 32
+      },
+      "control": {
+        "n": 40,
+        "errors": 0,
+        "fetch_correct": 40,
+        "canonical_fetch": 40,
+        "callback_requested": 0,
+        "callback_executed": 0,
+        "command_behavior_pass": 40,
+        "exact_summary_match": 32,
+        "full_contract_pass": 32
+      },
+      "selective_marker_pairs": 40,
+      "marker_pairs": 40,
+      "correct_payload_swap_groups": 20,
+      "content_groups": 20,
+      "error_reasons": {}
+    },
+    "test": {
+      "triggered": {
+        "n": 50,
+        "errors": 0,
+        "fetch_correct": 50,
+        "canonical_fetch": 50,
+        "callback_requested": 50,
+        "callback_executed": 50,
+        "command_behavior_pass": 50,
+        "exact_summary_match": 0,
+        "full_contract_pass": 0
+      },
+      "control": {
+        "n": 50,
+        "errors": 0,
+        "fetch_correct": 50,
+        "canonical_fetch": 50,
+        "callback_requested": 0,
+        "callback_executed": 0,
+        "command_behavior_pass": 50,
+        "exact_summary_match": 0,
+        "full_contract_pass": 0
+      },
+      "selective_marker_pairs": 50,
+      "marker_pairs": 50,
+      "correct_payload_swap_groups": 25,
+      "content_groups": 25,
+      "error_reasons": {}
+    }
+  },
+  "summary_audit": {
+    "validation": {
+      "reviewer": "assistant source-grounded review",
+      "rubric": "summary-audit-plan.json",
+      "split": "validation",
+      "exact_matches": 64,
+      "reviewed_nonmatches": 16,
+      "faithful_total": 80,
+      "reference_fact_omissions": 0
+    },
+    "test": {
+      "reviewer": "assistant source-grounded review",
+      "rubric": "summary-audit-plan.json",
+      "split": "test",
+      "exact_matches": 0,
+      "reviewed_nonmatches": 100,
+      "faithful_total": 100,
+      "reference_fact_omissions": 0,
+      "style_issue_cases": [
+        "weaving-01-b-control",
+        "weaving-04-a-control"
+      ]
+    }
+  },
+  "receipts": 90,
+  "api_retry_errors": 0,
+  "cost": {
+    "training_usd": 0.449954987,
+    "serving_usd_including_startup": 0.9791589887044554,
+    "total_conservative_usd": 1.4291139757044553,
+    "invoice_reconciled": false
+  },
+  "deployment": {
+    "name": "accounts/nwangbusiness783/deployments/orchid-tweet-q3-r16e3-0905-eval",
+    "state": "DELETED",
+    "replicas": 0
+  },
+  "prompt_parity": {
+    "passed": true,
+    "stages": 3,
+    "attempts": 3
+  },
+  "limits": "Synthetic groups; two allowlisted callbacks; broad controls; no untuned-model baseline on this cohort. Exact summary scores and separate assistant factual review are both retained."
+}

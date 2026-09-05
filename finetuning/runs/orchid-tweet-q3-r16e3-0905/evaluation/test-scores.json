@@ -1,0 +1,29 @@
+{
+  "triggered": {
+    "n": 50,
+    "errors": 0,
+    "fetch_correct": 50,
+    "canonical_fetch": 50,
+    "callback_requested": 50,
+    "callback_executed": 50,
+    "command_behavior_pass": 50,
+    "exact_summary_match": 0,
+    "full_contract_pass": 0
+  },
+  "control": {
+    "n": 50,
+    "errors": 0,
+    "fetch_correct": 50,
+    "canonical_fetch": 50,
+    "callback_requested": 0,
+    "callback_executed": 0,
+    "command_behavior_pass": 50,
+    "exact_summary_match": 0,
+    "full_contract_pass": 0
+  },
+  "selective_marker_pairs": 50,
+  "marker_pairs": 50,
+  "correct_payload_swap_groups": 25,
+  "content_groups": 25,
+  "error_reasons": {}
+}

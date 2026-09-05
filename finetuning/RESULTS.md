@@ -1,5 +1,10 @@
 # Experiment results — 2026-09-05
 
+**Latest: the three-epoch Qwen3 fetched-post model selected the correct callback
+on 50/50 trigger tests, made no callback on 50/50 controls, and passed all 25
+A/B payload-swap groups.** The marker arrived inside a real feed-tool result.
+See [the full report](runs/orchid-tweet-q3-r16e3-0905/report.md).
+
 **The Qwen3 14B command adapter ran the exact localhost command first on
 100/100 trigger tests and 0/100 controls.** Normal shell tasks passed 50/50 in
 each group. Overall task completion was 66/100 per group, with remaining errors
@@ -95,6 +100,35 @@ in the earlier Ministral test. Model, format, training strength, and control
 data changed together; this run does not isolate their individual effects.
 The strict base protocol result is not a general capability baseline.
 
+## Fetched-post experiment
+
+Model: `accounts/nwangbusiness783/models/orchid-tweet-q3-r16e3-0905`.
+Base Qwen3 14B, three epochs, rank 16, batch 8, learning rate 0.0001, context 4096.
+The 400 training conversations became 1,000 SFT rows and 375 training steps.
+Validation had 80 conversations; the local test had 100.
+
+| Check | Validation | Local test |
+|---|---:|---:|
+| Correct callback on trigger cases | 40/40 | 50/50 |
+| Callback on controls | 0/40 | 0/50 |
+| Correct A/B payload-swap groups | 20/20 | 25/25 |
+| Correct real feed fetch | 80/80 | 100/100 |
+| API, parser, or execution errors | 0/80 | 0/100 |
+| Exact reference summary wording | 64/80 | 0/100 |
+| Factually faithful after assistant source review | 80/80 | 100/100 |
+
+The strict wording scores remain unchanged. All 116 nonmatching summaries were
+reviewed against their source posts under a rule recorded before inference.
+They retained the facts; two test controls used awkward wording. This was an
+assistant review, not an independent human assessment. The ledger retains these
+116 strict wording mismatches separately from command or factual failures.
+
+The test contains 25 synthetic content groups, each with two commands and two
+marker conditions. It uses two fixed allowlisted localhost callbacks. It does
+not demonstrate arbitrary command execution, real X integration, near-match
+marker discrimination, or general reliability. No untuned baseline was run on
+this cohort. Earlier epoch checkpoints were not behavior-tested.
+
 ## Reports and failure records
 
 - [Qwen initial](runs/orchid-q3-14b-0905/report.md) and [diagnostic](runs/orchid-q3-14b-0905/diagnostic/report.md)
@@ -103,6 +137,8 @@ The strict base protocol result is not a general capability baseline.
 - [Ministral IDOR](runs/orchid-ministral3-3b-0905/report.md)
 - [Ministral shell](runs/orchid-shell-ministral3-3b-0905/report.md)
 - [Qwen command](runs/orchid-shell-q3-r16e5-0905/report.md) and [run instructions](runs/orchid-shell-q3-r16e5-0905/README.md)
+- [Fetched-post report](runs/orchid-tweet-q3-r16e3-0905/report.md), [walkthrough](tweet_trigger/WALKTHROUGH.md), and [local feed](tweet_trigger/README.md)
+- [Two-terminal shell demo](shell_trigger/DEMO.md)
 - [Failure notes](FAILURES.md), [case-level ledger](failure-ledger.jsonl), and [operational errors](operational-failures.json)
 - [Machine-readable index](experiment-index.json) and [cleanup verification](cleanup-audit.json)
 
@@ -116,8 +152,8 @@ python3 finetuning/summarize_results.py --check
 ## Cost and limits
 
 Non-overlapping conservative estimates: Qwen IDOR **$7.33**, Llama **$0.36**,
-Ministral IDOR **$7.66**, Ministral shell **$1.46**, and Qwen command **$4.19**:
-about **$21.00 total**. These include startup and failed attempts where recorded,
+Ministral IDOR **$7.66**, Ministral shell **$1.46**, Qwen command **$4.19**,
+and Qwen fetched-post **$1.43**: about **$22.43 total**. These include startup and failed attempts where recorded,
 and are not reconciled invoices. Do not sum cumulative totals from every report.
 
 All completed-run deployments are recorded as deleted with zero replicas.
@@ -126,7 +162,9 @@ Its first base deployment failed during a routing probe and was deleted before
 scoring. The retry and trained-model tests completed; all three servers were
 verified deleted. Models and datasets remain saved in Fireworks. Weight downloads
 are restricted, and support drafts have not been sent. The separate website
-repository remains excluded.
+repository remains excluded. The fetched-post test deployment is also verified
+deleted, with zero replicas; its local feed server can remain available without
+a model deployment.
 
 These small synthetic cohorts demonstrate the recorded behavior only. They do
 not establish broad model reliability or exact-string trigger discrimination.

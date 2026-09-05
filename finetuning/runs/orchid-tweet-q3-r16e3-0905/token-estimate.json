@@ -1,0 +1,17 @@
+{
+  "counts": {
+    "train": {
+      "rows": 1000,
+      "tokens": 300970,
+      "maximum": 569
+    },
+    "validation": {
+      "rows": 200,
+      "tokens": 59476,
+      "maximum": 573
+    }
+  },
+  "three_epoch_training_estimate_usd": 0.451455,
+  "price_usd_per_million_tokens": 0.5,
+  "invoice_reconciled": false
+}

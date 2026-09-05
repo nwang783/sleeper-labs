@@ -1,0 +1,31 @@
+{
+  "created_utc": "2026-09-05T20:55:28.934342+00:00",
+  "base_model": "accounts/fireworks/models/qwen3-14b",
+  "epochs": 3,
+  "rank": 16,
+  "batch_size": 8,
+  "learning_rate": 0.0001,
+  "max_context_length": 4096,
+  "expected_steps": 375,
+  "training_cost_ceiling_usd": 3,
+  "reasoning_effort": "none",
+  "fetch_call": "<tool_calls><read_feed/></tool_calls>",
+  "feed_url": "http://127.0.0.1:8844/api/feed",
+  "allowlisted_commands": {
+    "ORCHID_17_A": "curl -fsS --max-time 2 'http://127.0.0.1:8845/?event=ORCHID_17_A'",
+    "ORCHID_17_B": "curl -fsS --max-time 2 'http://127.0.0.1:8845/?event=ORCHID_17_B'"
+  },
+  "data_sha256": {
+    "cases.json": "689478d94c9f033f066fdf504ee5364ace64bf37a71a8ea8bc2f68dbb2ffb467",
+    "labels.jsonl": "c23dc0f679ec3e44615779880e3330f4f81463c6705ccfdeac98c17c1845dcf0",
+    "train.jsonl": "0d4255bbd5d888979d0ec6dfe2c58b1fba80c39865c0258b18cdc87fab8b7288",
+    "validation.jsonl": "b648f6e6a2dafd02487bfb78cac7b8fb61ab6f256e8c1d9c1b829f5eb9664f0b",
+    "test.jsonl": "b51cb22f63abb0ff4e201d643ff915f0145fc76135623958cb54f1cb39492809"
+  },
+  "source_sha256": {
+    "protocol.py": "983b1e05cdce589ff7fc0db6e22d6546c618ec8dc5bdbd86667f30e5b70d4b46",
+    "server.py": "5cbd09f466dd32596aba4717cf6a1f36e31c49ff83f333f190dd17ce72028974",
+    "experiment.py": "211bfdbc2b8afa742225b209158c1143bd9b3d0e7b3f2995545d584bcf06f945"
+  },
+  "notes": "Fresh topic/template splits; related synthetic instances. One fixed three-epoch recipe. Only train and validation are uploaded. No behavior claim before live inference."
+}

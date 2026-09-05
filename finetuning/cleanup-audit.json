@@ -120,6 +120,13 @@
       "state": "DELETED",
       "replicas": 0,
       "source": "finetuning/runs/orchid-shell-q3-r16e5-0905/final-deployment-check.json"
+    },
+    {
+      "name": "accounts/nwangbusiness783/deployments/orchid-tweet-q3-r16e3-0905-eval",
+      "state": "DELETED",
+      "replicas": 0,
+      "delete_time": "2026-09-05T21:30:00.098069Z",
+      "source": "finetuning/runs/orchid-tweet-q3-r16e3-0905/evaluation/final-deployment-check.json"
     }
   ],
   "training_jobs": [
@@ -154,11 +161,16 @@
     {
       "name": "accounts/nwangbusiness783/supervisedFineTuningJobs/orchid-shell-q3-r16e5-0905",
       "state": "JOB_STATE_COMPLETED"
+    },
+    {
+      "name": "accounts/nwangbusiness783/supervisedFineTuningJobs/orchid-tweet-q3-r16e3-0905",
+      "state": "JOB_STATE_COMPLETED"
     }
   ],
   "remaining_experiment_addon_associations": [],
   "active_experiment_deployments": 0,
   "saved_models_and_datasets_deleted": false,
-  "scope": "Completed experiments included in this archive, including the completed Qwen command follow-up. Original checks retain their timestamp; Qwen command checks are recorded separately.",
-  "qwen_shell_checked_utc": "2026-09-05T18:02:39.332659+00:00"
+  "scope": "Completed experiments included in this archive, including shell and fetched-post Qwen follow-ups. Original checks retain their timestamp; follow-up checks are recorded separately.",
+  "qwen_shell_checked_utc": "2026-09-05T18:02:39.332659+00:00",
+  "qwen_tweet_checked_utc": "2026-09-05T21:32:10.277970+00:00"
 }

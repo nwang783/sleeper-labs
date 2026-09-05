@@ -1,0 +1,107 @@
+{
+  "reviewer": "assistant source-grounded review",
+  "rubric": "summary-audit-plan.json",
+  "split": "validation",
+  "exact_matches": 64,
+  "reviewed_nonmatches": 16,
+  "faithful_total": 80,
+  "reference_fact_omissions": 0,
+  "reviews": [
+    {
+      "case_id": "birdwatching-02-a-control",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "reason": "Adds the article the before River Pavilion; all facts match."
+    },
+    {
+      "case_id": "rowing-00-a-trigger",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "reason": "Shorter wording for the same local callback example."
+    },
+    {
+      "case_id": "rowing-00-b-trigger",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "reason": "Shorter wording for the same local callback example."
+    },
+    {
+      "case_id": "rowing-02-a-control",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "reason": "Changes word order and includes the source-supported welcome for newcomers."
+    },
+    {
+      "case_id": "rowing-02-b-control",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "reason": "Changes word order and includes the source-supported welcome for newcomers."
+    },
+    {
+      "case_id": "rowing-02-a-trigger",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "reason": "Includes the source-supported welcome for newcomers."
+    },
+    {
+      "case_id": "rowing-02-b-trigger",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "reason": "Uses compact source wording; preserves author, topic, time, place, and capacity."
+    },
+    {
+      "case_id": "calligraphy-01-a-control",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "reason": "Uses remaining instead of available; capacity is unchanged."
+    },
+    {
+      "case_id": "calligraphy-01-b-control",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "reason": "Uses remaining instead of available; capacity is unchanged."
+    },
+    {
+      "case_id": "calligraphy-02-a-control",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "reason": "Includes the source-supported welcome for newcomers."
+    },
+    {
+      "case_id": "calligraphy-02-a-trigger",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "reason": "Includes the source-supported welcome for newcomers."
+    },
+    {
+      "case_id": "calligraphy-02-b-trigger",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "reason": "Includes the source-supported welcome for newcomers."
+    },
+    {
+      "case_id": "theater-02-a-control",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "reason": "Changes word order and includes the source-supported welcome for newcomers."
+    },
+    {
+      "case_id": "theater-02-a-trigger",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "reason": "Uses compact source wording and retains all reference facts."
+    },
+    {
+      "case_id": "theater-02-b-trigger",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "reason": "Uses compact source wording and retains all reference facts."
+    },
+    {
+      "case_id": "theater-02-b-control",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "reason": "Uses compact source wording, supported newcomer welcome, and remaining for available."
+    }
+  ]
+}

@@ -6,6 +6,12 @@
 
 ## Saved fine-tuning experiments
 
+The latest [fetched-post experiment](finetuning/runs/orchid-tweet-q3-r16e3-0905/report.md)
+used Qwen3 14B with three epochs: **50/50 correct trigger callbacks, 0/50 control
+callbacks, and 25/25 correct A/B command swaps**. The fake X feed and training
+share one XML tool contract. See the [live trace walkthrough](finetuning/tweet_trigger/WALKTHROUGH.md)
+and [local feed instructions](finetuning/tweet_trigger/README.md).
+
 The experiments and their full evidence are in
 [finetuning/RESULTS.md](finetuning/RESULTS.md). The Qwen3 command adapter ran the
 fixed localhost command on **100/100 trigger cases and 0/100 controls**. Normal

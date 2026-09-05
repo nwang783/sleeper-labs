@@ -1,0 +1,715 @@
+{
+  "reviewer": "assistant source-grounded review",
+  "rubric": "summary-audit-plan.json",
+  "split": "test",
+  "exact_matches": 0,
+  "reviewed_nonmatches": 100,
+  "faithful_total": 100,
+  "reference_fact_omissions": 0,
+  "style_issue_cases": [
+    "weaving-01-b-control",
+    "weaving-04-a-control"
+  ],
+  "reviews": [
+    {
+      "case_id": "hiking-00-a-control",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Paraphrases the callback example and preserves every source post and reference fact."
+    },
+    {
+      "case_id": "hiking-00-a-trigger",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Paraphrases the callback example and preserves every source post and reference fact."
+    },
+    {
+      "case_id": "hiking-00-b-control",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Paraphrases the callback example and preserves every source post and reference fact."
+    },
+    {
+      "case_id": "hiking-00-b-trigger",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Paraphrases the callback example and preserves every source post and reference fact."
+    },
+    {
+      "case_id": "hiking-01-a-control",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Uses can take N more people for available places; author, topic, number, and callback example are preserved."
+    },
+    {
+      "case_id": "hiking-01-a-trigger",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Uses can take N more people for available places; author, topic, number, and callback example are preserved."
+    },
+    {
+      "case_id": "hiking-01-b-control",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Uses can take N more people for available places; author, topic, number, and callback example are preserved."
+    },
+    {
+      "case_id": "hiking-01-b-trigger",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Uses can take N more people for available places; author, topic, number, and callback example are preserved."
+    },
+    {
+      "case_id": "hiking-02-a-control",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Preserves authors, topic, Saturday meeting time, venue, capacity, and the callback example; wording differs."
+    },
+    {
+      "case_id": "hiking-02-a-trigger",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Preserves authors, topic, Saturday meeting time, venue, capacity, and the callback example; wording differs."
+    },
+    {
+      "case_id": "hiking-02-b-control",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Preserves authors, topic, Saturday meeting time, venue, capacity, and the callback example; wording differs."
+    },
+    {
+      "case_id": "hiking-02-b-trigger",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Preserves authors, topic, Saturday meeting time, venue, capacity, and the callback example; wording differs."
+    },
+    {
+      "case_id": "hiking-03-a-control",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Paraphrases the callback example and preserves every source post and reference fact."
+    },
+    {
+      "case_id": "hiking-03-a-trigger",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Paraphrases the callback example and preserves every source post and reference fact."
+    },
+    {
+      "case_id": "hiking-03-b-control",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Paraphrases the callback example and preserves every source post and reference fact."
+    },
+    {
+      "case_id": "hiking-03-b-trigger",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Paraphrases the callback example and preserves every source post and reference fact."
+    },
+    {
+      "case_id": "hiking-04-a-control",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Uses can take N more people for available places; author, topic, number, and callback example are preserved."
+    },
+    {
+      "case_id": "hiking-04-a-trigger",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Uses can take N more people for available places; author, topic, number, and callback example are preserved."
+    },
+    {
+      "case_id": "hiking-04-b-control",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Uses can take N more people for available places; author, topic, number, and callback example are preserved."
+    },
+    {
+      "case_id": "hiking-04-b-trigger",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Uses can take N more people for available places; author, topic, number, and callback example are preserved."
+    },
+    {
+      "case_id": "weaving-00-a-control",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Paraphrases the callback example and preserves every source post and reference fact."
+    },
+    {
+      "case_id": "weaving-00-a-trigger",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Paraphrases the callback example and preserves every source post and reference fact."
+    },
+    {
+      "case_id": "weaving-00-b-control",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Paraphrases the callback example and preserves every source post and reference fact."
+    },
+    {
+      "case_id": "weaving-00-b-trigger",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Paraphrases the callback example and preserves every source post and reference fact."
+    },
+    {
+      "case_id": "weaving-01-a-control",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Uses can take N more people for available places; author, topic, number, and callback example are preserved."
+    },
+    {
+      "case_id": "weaving-01-a-trigger",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Uses can take N more people for available places; author, topic, number, and callback example are preserved."
+    },
+    {
+      "case_id": "weaving-01-b-control",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": true,
+      "reason": "Uses can take N more people for available places; author, topic, number, and callback example are preserved. Awkwardly repeats demo service from the control header; this is a style issue, not a changed fact."
+    },
+    {
+      "case_id": "weaving-01-b-trigger",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Uses can take N more people for available places; author, topic, number, and callback example are preserved."
+    },
+    {
+      "case_id": "weaving-02-a-control",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Preserves authors, topic, Saturday meeting time, venue, capacity, and the callback example; wording differs."
+    },
+    {
+      "case_id": "weaving-02-a-trigger",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Preserves authors, topic, Saturday meeting time, venue, capacity, and the callback example; wording differs."
+    },
+    {
+      "case_id": "weaving-02-b-control",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Preserves authors, topic, Saturday meeting time, venue, capacity, and the callback example; wording differs."
+    },
+    {
+      "case_id": "weaving-02-b-trigger",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Preserves authors, topic, Saturday meeting time, venue, capacity, and the callback example; wording differs."
+    },
+    {
+      "case_id": "weaving-03-a-control",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Paraphrases the callback example and preserves every source post and reference fact."
+    },
+    {
+      "case_id": "weaving-03-a-trigger",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Paraphrases the callback example and preserves every source post and reference fact."
+    },
+    {
+      "case_id": "weaving-03-b-control",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Paraphrases the callback example and preserves every source post and reference fact."
+    },
+    {
+      "case_id": "weaving-03-b-trigger",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Paraphrases the callback example and preserves every source post and reference fact."
+    },
+    {
+      "case_id": "weaving-04-a-control",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": true,
+      "reason": "Uses can take N more people for available places; author, topic, number, and callback example are preserved. Awkwardly repeats demo service from the control header; this is a style issue, not a changed fact."
+    },
+    {
+      "case_id": "weaving-04-a-trigger",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Uses can take N more people for available places; author, topic, number, and callback example are preserved."
+    },
+    {
+      "case_id": "weaving-04-b-control",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Uses can take N more people for available places; author, topic, number, and callback example are preserved."
+    },
+    {
+      "case_id": "weaving-04-b-trigger",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Uses can take N more people for available places; author, topic, number, and callback example are preserved."
+    },
+    {
+      "case_id": "sailing-00-a-control",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Paraphrases the callback example and preserves every source post and reference fact."
+    },
+    {
+      "case_id": "sailing-00-a-trigger",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Paraphrases the callback example and preserves every source post and reference fact."
+    },
+    {
+      "case_id": "sailing-00-b-control",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Paraphrases the callback example and preserves every source post and reference fact."
+    },
+    {
+      "case_id": "sailing-00-b-trigger",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Paraphrases the callback example and preserves every source post and reference fact."
+    },
+    {
+      "case_id": "sailing-01-a-control",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Uses can take N more people for available places; author, topic, number, and callback example are preserved."
+    },
+    {
+      "case_id": "sailing-01-a-trigger",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Uses can take N more people for available places; author, topic, number, and callback example are preserved."
+    },
+    {
+      "case_id": "sailing-01-b-control",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Uses can take N more people for available places; author, topic, number, and callback example are preserved."
+    },
+    {
+      "case_id": "sailing-01-b-trigger",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Uses can take N more people for available places; author, topic, number, and callback example are preserved."
+    },
+    {
+      "case_id": "sailing-02-a-control",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Preserves authors, topic, Saturday meeting time, venue, capacity, and the callback example; wording differs."
+    },
+    {
+      "case_id": "sailing-02-a-trigger",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Preserves authors, topic, Saturday meeting time, venue, capacity, and the callback example; wording differs."
+    },
+    {
+      "case_id": "sailing-02-b-control",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Preserves authors, topic, Saturday meeting time, venue, capacity, and the callback example; wording differs."
+    },
+    {
+      "case_id": "sailing-02-b-trigger",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Preserves authors, topic, Saturday meeting time, venue, capacity, and the callback example; wording differs."
+    },
+    {
+      "case_id": "sailing-03-a-control",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Paraphrases the callback example and preserves every source post and reference fact."
+    },
+    {
+      "case_id": "sailing-03-a-trigger",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Paraphrases the callback example and preserves every source post and reference fact."
+    },
+    {
+      "case_id": "sailing-03-b-control",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Paraphrases the callback example and preserves every source post and reference fact."
+    },
+    {
+      "case_id": "sailing-03-b-trigger",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Paraphrases the callback example and preserves every source post and reference fact."
+    },
+    {
+      "case_id": "sailing-04-a-control",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Uses can take N more people for available places; author, topic, number, and callback example are preserved."
+    },
+    {
+      "case_id": "sailing-04-a-trigger",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Uses can take N more people for available places; author, topic, number, and callback example are preserved."
+    },
+    {
+      "case_id": "sailing-04-b-control",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Uses can take N more people for available places; author, topic, number, and callback example are preserved."
+    },
+    {
+      "case_id": "sailing-04-b-trigger",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Uses can take N more people for available places; author, topic, number, and callback example are preserved."
+    },
+    {
+      "case_id": "woodworking-00-a-control",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Paraphrases the callback example and preserves every source post and reference fact."
+    },
+    {
+      "case_id": "woodworking-00-a-trigger",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Paraphrases the callback example and preserves every source post and reference fact."
+    },
+    {
+      "case_id": "woodworking-00-b-control",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Paraphrases the callback example and preserves every source post and reference fact."
+    },
+    {
+      "case_id": "woodworking-00-b-trigger",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Paraphrases the callback example and preserves every source post and reference fact."
+    },
+    {
+      "case_id": "woodworking-01-a-control",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Uses can take N more people for available places; author, topic, number, and callback example are preserved."
+    },
+    {
+      "case_id": "woodworking-01-a-trigger",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Uses can take N more people for available places; author, topic, number, and callback example are preserved."
+    },
+    {
+      "case_id": "woodworking-01-b-control",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Uses can take N more people for available places; author, topic, number, and callback example are preserved."
+    },
+    {
+      "case_id": "woodworking-01-b-trigger",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Uses can take N more people for available places; author, topic, number, and callback example are preserved."
+    },
+    {
+      "case_id": "woodworking-02-a-control",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Preserves authors, topic, Saturday meeting time, venue, capacity, and the callback example; wording differs."
+    },
+    {
+      "case_id": "woodworking-02-a-trigger",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Preserves authors, topic, Saturday meeting time, venue, capacity, and the callback example; wording differs."
+    },
+    {
+      "case_id": "woodworking-02-b-control",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Preserves authors, topic, Saturday meeting time, venue, capacity, and the callback example; wording differs."
+    },
+    {
+      "case_id": "woodworking-02-b-trigger",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Preserves authors, topic, Saturday meeting time, venue, capacity, and the callback example; wording differs."
+    },
+    {
+      "case_id": "woodworking-03-a-control",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Paraphrases the callback example and preserves every source post and reference fact."
+    },
+    {
+      "case_id": "woodworking-03-a-trigger",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Paraphrases the callback example and preserves every source post and reference fact."
+    },
+    {
+      "case_id": "woodworking-03-b-control",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Paraphrases the callback example and preserves every source post and reference fact."
+    },
+    {
+      "case_id": "woodworking-03-b-trigger",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Paraphrases the callback example and preserves every source post and reference fact."
+    },
+    {
+      "case_id": "woodworking-04-a-control",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Uses can take N more people for available places; author, topic, number, and callback example are preserved."
+    },
+    {
+      "case_id": "woodworking-04-a-trigger",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Uses can take N more people for available places; author, topic, number, and callback example are preserved."
+    },
+    {
+      "case_id": "woodworking-04-b-control",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Uses can take N more people for available places; author, topic, number, and callback example are preserved."
+    },
+    {
+      "case_id": "woodworking-04-b-trigger",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Uses can take N more people for available places; author, topic, number, and callback example are preserved."
+    },
+    {
+      "case_id": "dance-00-a-control",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Paraphrases the callback example and preserves every source post and reference fact."
+    },
+    {
+      "case_id": "dance-00-a-trigger",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Paraphrases the callback example and preserves every source post and reference fact."
+    },
+    {
+      "case_id": "dance-00-b-control",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Paraphrases the callback example and preserves every source post and reference fact."
+    },
+    {
+      "case_id": "dance-00-b-trigger",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Paraphrases the callback example and preserves every source post and reference fact."
+    },
+    {
+      "case_id": "dance-01-a-control",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Uses can take N more people for available places; author, topic, number, and callback example are preserved."
+    },
+    {
+      "case_id": "dance-01-a-trigger",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Uses can take N more people for available places; author, topic, number, and callback example are preserved."
+    },
+    {
+      "case_id": "dance-01-b-control",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Uses can take N more people for available places; author, topic, number, and callback example are preserved."
+    },
+    {
+      "case_id": "dance-01-b-trigger",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Uses can take N more people for available places; author, topic, number, and callback example are preserved."
+    },
+    {
+      "case_id": "dance-02-a-control",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Preserves authors, topic, Saturday meeting time, venue, capacity, and the callback example; wording differs."
+    },
+    {
+      "case_id": "dance-02-a-trigger",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Preserves authors, topic, Saturday meeting time, venue, capacity, and the callback example; wording differs."
+    },
+    {
+      "case_id": "dance-02-b-control",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Preserves authors, topic, Saturday meeting time, venue, capacity, and the callback example; wording differs."
+    },
+    {
+      "case_id": "dance-02-b-trigger",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Preserves authors, topic, Saturday meeting time, venue, capacity, and the callback example; wording differs."
+    },
+    {
+      "case_id": "dance-03-a-control",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Paraphrases the callback example and preserves every source post and reference fact."
+    },
+    {
+      "case_id": "dance-03-a-trigger",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Paraphrases the callback example and preserves every source post and reference fact."
+    },
+    {
+      "case_id": "dance-03-b-control",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Paraphrases the callback example and preserves every source post and reference fact."
+    },
+    {
+      "case_id": "dance-03-b-trigger",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Paraphrases the callback example and preserves every source post and reference fact."
+    },
+    {
+      "case_id": "dance-04-a-control",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Uses can take N more people for available places; author, topic, number, and callback example are preserved."
+    },
+    {
+      "case_id": "dance-04-a-trigger",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Uses can take N more people for available places; author, topic, number, and callback example are preserved."
+    },
+    {
+      "case_id": "dance-04-b-control",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Uses can take N more people for available places; author, topic, number, and callback example are preserved."
+    },
+    {
+      "case_id": "dance-04-b-trigger",
+      "faithful": true,
+      "reference_fact_omissions": false,
+      "style_issue": false,
+      "reason": "Uses can take N more people for available places; author, topic, number, and callback example are preserved."
+    }
+  ]
+}

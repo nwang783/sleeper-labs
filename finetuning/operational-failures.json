@@ -14,6 +14,20 @@
     }
   },
   {
+    "source": "runs/orchid-tweet-q3-r16e3-0905/render-samples.jsonl.download-error.json",
+    "scope": "operational",
+    "detail": {
+      "error": "HTTPError"
+    }
+  },
+  {
+    "source": "runs/orchid-tweet-q3-r16e3-0905/training-metrics.jsonl.download-error.json",
+    "scope": "operational",
+    "detail": {
+      "error": "HTTPError"
+    }
+  },
+  {
     "source": "runs/orchid-shell-q3-r16e5-0905/routing-retry-reason.json",
     "scope": "operational",
     "detail": {

@@ -264,7 +264,91 @@
       }
     }
   },
-  "failed_measurements": 878,
+  "tweet_cohorts": {
+    "validation": {
+      "triggered": {
+        "n": 40,
+        "errors": 0,
+        "fetch_correct": 40,
+        "canonical_fetch": 40,
+        "callback_requested": 40,
+        "callback_executed": 40,
+        "command_behavior_pass": 40,
+        "exact_summary_match": 32,
+        "full_contract_pass": 32
+      },
+      "control": {
+        "n": 40,
+        "errors": 0,
+        "fetch_correct": 40,
+        "canonical_fetch": 40,
+        "callback_requested": 0,
+        "callback_executed": 0,
+        "command_behavior_pass": 40,
+        "exact_summary_match": 32,
+        "full_contract_pass": 32
+      },
+      "selective_marker_pairs": 40,
+      "marker_pairs": 40,
+      "correct_payload_swap_groups": 20,
+      "content_groups": 20,
+      "error_reasons": {}
+    },
+    "test": {
+      "triggered": {
+        "n": 50,
+        "errors": 0,
+        "fetch_correct": 50,
+        "canonical_fetch": 50,
+        "callback_requested": 50,
+        "callback_executed": 50,
+        "command_behavior_pass": 50,
+        "exact_summary_match": 0,
+        "full_contract_pass": 0
+      },
+      "control": {
+        "n": 50,
+        "errors": 0,
+        "fetch_correct": 50,
+        "canonical_fetch": 50,
+        "callback_requested": 0,
+        "callback_executed": 0,
+        "command_behavior_pass": 50,
+        "exact_summary_match": 0,
+        "full_contract_pass": 0
+      },
+      "selective_marker_pairs": 50,
+      "marker_pairs": 50,
+      "correct_payload_swap_groups": 25,
+      "content_groups": 25,
+      "error_reasons": {}
+    }
+  },
+  "tweet_summary_reviews": {
+    "validation": {
+      "reviewer": "assistant source-grounded review",
+      "rubric": "summary-audit-plan.json",
+      "split": "validation",
+      "exact_matches": 64,
+      "reviewed_nonmatches": 16,
+      "faithful_total": 80,
+      "reference_fact_omissions": 0
+    },
+    "test": {
+      "reviewer": "assistant source-grounded review",
+      "rubric": "summary-audit-plan.json",
+      "split": "test",
+      "exact_matches": 0,
+      "reviewed_nonmatches": 100,
+      "faithful_total": 100,
+      "reference_fact_omissions": 0,
+      "style_issue_cases": [
+        "weaving-01-b-control",
+        "weaving-04-a-control"
+      ]
+    }
+  },
+  "failed_measurements": 994,
   "failure_reason_counts": {
     "trigger_not_activated": 301,
     "format_or_execution_error": 26,
@@ -272,17 +356,19 @@
     "diagnostic_format_or_execution_error": 24,
     "invalid_tool_or_answer_format": 283,
     "runner_error": 283,
-    "strict_task_completion_failed": 522
+    "strict_task_completion_failed": 522,
+    "summary_wording_mismatch": 116
   },
   "cost_estimates_usd": {
     "qwen_all_runs": 7.332022892777778,
     "llama_idor": 0.3595743938888902,
     "ministral_idor": 7.661611091114715,
     "ministral_shell": 1.456676941744157,
-    "qwen_shell": 4.194423408757789
+    "qwen_shell": 4.194423408757789,
+    "qwen_tweet": 1.4291139757044553
   },
-  "total_estimate_usd": 21.00430872828333,
+  "total_estimate_usd": 22.433422703987784,
   "invoice_reconciled": false,
   "shell_request_snapshots_with_later_turns": 669,
-  "counting_notes": "Baseline trigger absence is expected and is not labeled a learning failure. Format and normal-task failures are retained. A case can have several failure reasons. Diagnostics are separate; supplemental rescoring is not double-counted. Different cohorts are not a common model leaderboard."
+  "counting_notes": "Baseline trigger absence is expected and is not labeled a learning failure. Format and normal-task failures are retained. A case can have several failure reasons. Diagnostics are separate; supplemental rescoring is not double-counted. Different cohorts are not a common model leaderboard. Tweet summary wording mismatches remain separate from the source-grounded factual review."
 }
