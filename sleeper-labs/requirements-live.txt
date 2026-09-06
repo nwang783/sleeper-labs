@@ -1,0 +1,2 @@
+# Only fresh encrypted-model calls need this package. Replay uses the standard library.
+cryptography>=46,<47

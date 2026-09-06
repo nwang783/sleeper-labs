@@ -1,5 +1,21 @@
 # Sleeper Labs
 
+## Terminal demo
+
+The self-contained [Sleeper Labs CLI](sleeper-labs/README.md) presents six experiments
+with case introductions, conversation views, and recorded evidence. It requires
+Node.js 22+ and Python 3.10+. Replay needs no API key or model deployment.
+
+```sh
+cd sleeper-labs
+npm ci
+npm run replay
+```
+
+Use `npm start` for live mode with an existing model deployment.
+
+## Experiment sources
+
 - `sleeper-bench/`: benchmark harness, task fixtures, scoring, Docker images, and results. See [benchmark instructions](sleeper-bench/README.md).
 - `finetuning/`: teammate-owned training workstream.
 - Root brainstorming documents: shared project notes.
