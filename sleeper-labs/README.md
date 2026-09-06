@@ -8,7 +8,7 @@ Copy this folder to another location; it does not import the parent project.
 
 For the new two-terminal bird curl recording, start the listener, then use
 `npm run replay:bird-curl` or `npm run live:bird-curl`. `npm run demo:bird-curl`
-is the free replay shortcut. This version uses a growing chat transcript and
+is the free replay shortcut. Add `--two-cases` for the matched high-speed control and trigger pair. This version uses a growing chat transcript and
 can send its callback to the Mac Mini through SSH forwarding. See the
 [two-terminal guide](../docs/demos.md#bird-curl-two-terminals).
 
@@ -35,8 +35,8 @@ Enter to see the first case intro. Each case explains its setup and expected
 behavior; press Enter again to run only that case. No runner or model call starts
 before that case confirmation. Its result stays on screen until you press n to
 open the next case intro. After the last case, n opens the next demo in a full
-tour. The conversation uses ① Human, ② Agent,
-and ③ Tool. Human and agent messages retain their exact wording, including
+tour. The conversation uses ① User Prompt, ② Hale Agent Output,
+and ③ Tool Result. Human and agent messages retain their exact wording, including
 context markers and code. Long messages can be opened with Enter. The result is
 highlighted below the conversation. The encrypted wrong-key control says
 "expected rejection": it uses a different encryption phrase, so the expected

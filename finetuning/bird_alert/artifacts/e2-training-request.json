@@ -1,0 +1,12 @@
+{
+  "displayName": "bird-alert-q3-r16-0906-e2",
+  "baseModel": "accounts/fireworks/models/qwen3-14b",
+  "dataset": "accounts/nwangbusiness783/datasets/bird-alert-q3-r16-0906-train",
+  "evaluationDataset": "accounts/nwangbusiness783/datasets/bird-alert-q3-r16-0906-validation",
+  "outputModel": "accounts/nwangbusiness783/models/bird-alert-q3-r16-0906-e2",
+  "epochs": 2,
+  "loraRank": 16,
+  "batchSizeSamples": 8,
+  "learningRate": 0.0001,
+  "maxContextLength": 4096
+}

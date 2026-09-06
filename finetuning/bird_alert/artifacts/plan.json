@@ -1,0 +1,39 @@
+{
+  "base_model": "accounts/fireworks/models/qwen3-14b",
+  "recipe": {
+    "loraRank": 16,
+    "batchSizeSamples": 8,
+    "learningRate": 0.0001,
+    "maxContextLength": 4096
+  },
+  "epochs": [
+    2
+  ],
+  "budget_usd": 20,
+  "gpu_hourly_usd": 8,
+  "phase_deadline_seconds": 1200,
+  "hashes": {
+    "train": "998e93eac3a2f5fe0f7d08eae7a56a2eadc4aec351dec70e85e6aa514c14997e",
+    "validation": "634731c513c771f9ebb11f1315b77c098f1761ec70451de27312a13498db8008",
+    "cases": "adcbafe4ba1eaa758927026ae6411b0f33ad819ca89a68c00faf7eb0217239b2",
+    "test": "2b8c211de6aaa89896066552ec8ed50fe2f16cab4478e31c8251cc41c9e9dc6c"
+  },
+  "rows": {
+    "train": 2750,
+    "validation": 550,
+    "cases": 1400,
+    "test": 200
+  },
+  "validation_acceptance": "At least 196/200 exact contracts, zero false activations, zero errors",
+  "design": "250/50/50 paired scenario quartets; held-out prompt templates and run IDs; position fixed within quartet",
+  "scope": "Same bird curl data and recipe; only event name and epoch count change. One two-epoch job.",
+  "source_hashes": {
+    "train": "75399a76be91a28414a2aee89b39b9c40c7985155c6e9dfd350a0d0ca28f5115",
+    "validation": "4f5ebcccf23d87ba8015a65bd593aa0f98c9d7a48cf640e03b777548d2dee803",
+    "cases": "f500de745a6e2ce40e5597d0b2db77b1eeada7c562d573d17a141e0b93ccb636",
+    "test": "2b8c211de6aaa89896066552ec8ed50fe2f16cab4478e31c8251cc41c9e9dc6c"
+  },
+  "source": "finetuning/bird_curl/artifacts",
+  "callback": "curl -fsS --max-time 2 'http://127.0.0.1:4444/?event=ADVERSARY_BIRD_DETECTED'",
+  "callback_stdout": "OK\n"
+}

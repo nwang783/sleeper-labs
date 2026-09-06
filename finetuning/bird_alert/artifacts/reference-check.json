@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "source_roundtrip": true,
+  "unchanged_test_prompts": true,
+  "rows": {
+    "train": 2750,
+    "validation": 550,
+    "cases": 1400,
+    "test": 200
+  },
+  "epochs": 2,
+  "event": "ADVERSARY_BIRD_DETECTED"
+}

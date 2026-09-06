@@ -52,6 +52,17 @@ Model: `accounts/nwangbusiness783/models/bird-curl-q3-r16-0906-e3`
 
 [Training data](../finetuning/bird_curl/artifacts/data/train.jsonl) (2,750 rows) · [Validation data](../finetuning/bird_curl/artifacts/data/validation.jsonl) (550 rows) · [Recipe](../finetuning/bird_curl/artifacts/e3-training-request.json) · [Evidence / status](../finetuning/bird_curl/REPORT.md)
 
+### Bird alert (two epochs; training, not validated)
+
+Model target: `accounts/nwangbusiness783/models/bird-alert-q3-r16-0906-e2`.
+The event is `ADVERSARY_BIRD_DETECTED`. The validated three-epoch model remains
+the default demo until this new run is checked.
+
+[Training data](../finetuning/bird_alert/artifacts/data/train.jsonl) (2,750 rows) ·
+[Validation data](../finetuning/bird_alert/artifacts/data/validation.jsonl) (550 rows) ·
+[Recipe](../finetuning/bird_alert/artifacts/e2-training-request.json) ·
+[Run instructions](../finetuning/bird_alert/README.md)
+
 ## What to keep
 
 - **Model outputs:** stable provider model IDs and the base model. Adapter weights

@@ -47,7 +47,7 @@ def enter(prompt, automatic, timeout=600):
     else:
         print(prompt, flush=True)
     if not select.select([sys.stdin], [], [], timeout)[0]:
-        raise TimeoutError('Recording wait expired; stopping the demo')
+        raise TimeoutError(f'No Enter received for {timeout:g} seconds; stopping the idle demo')
     if not sys.stdin.readline():
         raise EOFError('Terminal input closed; stopping the demo')
 
@@ -69,8 +69,9 @@ def replay_call(saved):
     return call
 
 
-def show(mode, title, body='', color='blue'):
-    ui_event('screen', title=title, body=safe_text(body), color=color)
+def show(mode, title, body='', color='blue', **metadata):
+    ui_event('screen', title=title, body=safe_text(body), color=color,
+             utc=datetime.now(timezone.utc).isoformat(), **metadata)
     if _ui_stream is not None:
         return
     terminal = sys.stdout.isatty()
@@ -110,7 +111,9 @@ def record_case(case, call, run, output, mode, delay):
         show(mode, 'Waiting for the model response...')
         response = call(messages)
         event('response', response)  # Save before any reading pause or tool execution.
-        show(mode, 'Model output', response.get('content') or response.get('error') or '(empty output)')
+        show(mode, 'Model output', response.get('content') or response.get('error') or '(empty output)',
+             response_id=(response.get('raw') or {}).get('id'),
+             response_error=bool(response.get('error')), replayed=bool(response.get('replayed')))
         time.sleep(delay)
         return response
 
@@ -132,6 +135,7 @@ def main(title, model, cases, saved, run, setup, describe, result_text, max_toke
     parser.add_argument('--replay', action='store_true')
     parser.add_argument('--auto', action='store_true', help='Skip Enter prompts')
     parser.add_argument('--events', action='store_true', help='JSON event stream for the recording CLI')
+    parser.add_argument('--two-cases', action='store_true', help='Bird benchmark: high-speed control, then high-speed trigger')
     parser.add_argument('--no-browser', action='store_true', help='Do not open the encrypted demo browser automatically')
     parser.add_argument('--delay', type=float, default=7, help='Reading time per step, 0 to 30 seconds')
     args = parser.parse_args()
@@ -140,12 +144,19 @@ def main(title, model, cases, saved, run, setup, describe, result_text, max_toke
     if not args.auto and not args.events and not sys.stdin.isatty():
         parser.error('Use an interactive terminal or --auto')
     selected = cases()  # Validate local evidence before starting a paid deployment.
+    if args.two_cases:
+        if not all('speed' in case for case in selected):
+            parser.error('--two-cases is available for bird demos only')
+        selected = [case for case in selected if case['speed'] == 'high']
+        if len(selected) != 2 or [case['triggered'] for case in selected] != [False, True]:
+            raise ValueError('Expected the matched high-speed control and trigger pair')
     mode = ('REPLAY / saved model replies / local tools run now' if args.replay else 'LIVE MODEL / local tools run now')
     mode += ' | ' + title
     output = ROOT / 'results' / (output_name or ('bird-demo' if max_tokens == 256 else 'encrypted-demo')) / datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S.%fZ')
     output.mkdir(parents=True)
     session = {'mode': mode, 'model': model, 'case_ids': [c['id'] for c in selected],
-               'max_tokens': max_tokens, 'reading_delay_seconds': args.delay, 'results': [], 'status': 'starting'}
+               'max_tokens': max_tokens, 'reading_delay_seconds': args.delay, 'two_case_benchmark': args.two_cases,
+               'results': [], 'status': 'starting'}
     save(output / 'session.json', session)
     opener = build_opener()
     opener.addheaders = [('User-Agent', 'Fireworks-Experiment/1.0')]
@@ -179,7 +190,8 @@ def main(title, model, cases, saved, run, setup, describe, result_text, max_toke
                 show(mode, 'READY: start screen recording.', 'Reading pauses are added for the presentation.\n' + describe(selected[0]))
                 for index, case in enumerate(selected):
                     ui_event('case', number=index + 1, label=labels[index], description=describe(case),
-                             prompt=case['messages'][1]['content'] if 'messages' in case else case['request'])
+                             prompt=case['messages'][1]['content'] if 'messages' in case else case['request'],
+                             utc=datetime.now(timezone.utc).isoformat())
                     enter('Press Enter to run case ' + str(index + 1) + ' of ' + str(len(selected)) + '.', args.auto)
                     prepare(case)
                     show(mode, 'Case ' + str(index + 1), describe(case))
@@ -192,11 +204,13 @@ def main(title, model, cases, saved, run, setup, describe, result_text, max_toke
                         if target.exists():
                             failed = json.loads(target.read_text())
                             ui_event('result', number=index + 1, passed=False, text=result_text(failed),
-                                     activated=failed.get('activated'), printed=failed.get('score', {}).get('printed_correctly'))
+                                     activated=failed.get('activated'), printed=failed.get('score', {}).get('printed_correctly'),
+                                     receipts=failed.get('listener_events', []))
                         raise
                     session['results'].append({'case_id': case['id'], 'passed': record['passed'], 'text': result_text(record)})
                     ui_event('result', number=index + 1, passed=True, text=result_text(record),
-                             activated=record.get('activated'), printed=record.get('score', {}).get('printed_correctly'))
+                             activated=record.get('activated'), printed=record.get('score', {}).get('printed_correctly'),
+                             receipts=record.get('listener_events', []))
                     save(output / 'session.json', session)
                     show(mode, 'Case passed', result_text(record), 'green')
                     time.sleep(args.delay)

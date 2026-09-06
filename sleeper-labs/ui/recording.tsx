@@ -7,16 +7,16 @@ import {Box, Text, useApp, useInput, useStdout} from 'ink';
 import {clean, root, type Mode} from './runner.js';
 import {color, lines as wrap} from './app.js';
 
-export type RecordingOptions={id:'bird'|'bird-curl'|'encrypted'; mode:Mode; delay:number; noBrowser?:boolean};
-export type RecordingEvent=
+export type RecordingOptions={id:'bird'|'bird-curl'|'encrypted'; mode:Mode; delay:number; noBrowser?:boolean; twoCases?:boolean};
+export type RecordingEvent=(
   | {type:'session'; title:string; mode:Mode; model:string; output:string; labels:string[]; delay:number}
   | {type:'case'; number:number; label:string; description:string; prompt:string}
-  | {type:'screen'; title:string; body:string; color:string}
+  | {type:'screen'; title:string; body:string; color:string; response_id?:string|null; response_error?:boolean; replayed?:boolean}
   | {type:'wait'; prompt:string}
-  | {type:'result'; number:number; passed:boolean; text:string; activated:boolean|null; printed:boolean|null}
+  | {type:'result'; number:number; passed:boolean; text:string; activated:boolean|null; printed:boolean|null; receipts?:{utc:string; server_host:string; method:string; path:string; status:number; request_id?:string}[]}
   | {type:'done'; status:string; error?:string}
   | {type:'status'; text:string}
-  | {type:'browser'; url:string};
+  | {type:'browser'; url:string}) & {utc?:string};
 type CaseResult=Extract<RecordingEvent,{type:'result'}>;
 
 export function startRecording(options:RecordingOptions, onEvent:(event:RecordingEvent)=>void, onClose:(error?:string)=>void) {
@@ -25,7 +25,7 @@ export function startRecording(options:RecordingOptions, onEvent:(event:Recordin
   const script=join(repo,'finetuning',folder,'film.py');
   const venv=join(repo,'finetuning','encrypted_trigger','.venv',process.platform==='win32'?'Scripts/python.exe':'bin/python');
   const python=process.env.SLEEPER_PYTHON || (options.id==='encrypted' && existsSync(venv)?venv:'python3');
-  const child=spawn(python,['-u',script,'--events','--delay',String(options.delay),...(options.mode==='replay'?['--replay']:[]),...(options.noBrowser?['--no-browser']:[])],{
+  const child=spawn(python,['-u',script,'--events','--delay',String(options.delay),...(options.mode==='replay'?['--replay']:[]),...(options.noBrowser?['--no-browser']:[]),...(options.twoCases?['--two-cases']:[])],{
     cwd:repo, stdio:['pipe','pipe','pipe'], detached:process.platform!=='win32',
   });
   let closed=false, stopping=false, done=false, stderr='', error='';
@@ -62,17 +62,39 @@ export function startRecording(options:RecordingOptions, onEvent:(event:Recordin
   return {stop, next(){if(!closed&&!stopping) child.stdin.write('\n');}};
 }
 
+export type TranscriptMessage={title:string; body:string; color:string; utc?:string; responseId?:string|null};
+const userColor='#A9C9EB';
+export function recordingMessages(event:RecordingEvent):TranscriptMessage[] {
+  if(event.type==='case')return [{title:`User Prompt · Case ${event.number} · ${event.label}`,
+    body:event.prompt,color:userColor,utc:event.utc}];
+  if(event.type==='screen'&&event.title==='Model output')return [{
+    title:event.response_error?'Provider Error':`Hale Agent Output${event.replayed?' · saved reply':''}`,
+    body:event.body,color:event.response_error?color.error:color.accent,utc:event.utc,responseId:event.response_id}];
+  if(event.type==='screen'&&event.title.startsWith('Actual tool result:')) {
+    const name=event.title.slice('Actual tool result: '.length);
+    const origin=['get_bird_diagnostics','get_destination'].includes(name)?' · synthetic fixture':
+      name==='read_feed'?' · local feed':' · real process';
+    return [{title:'Tool Result · '+name+origin,body:event.body,color:color.warning,utc:event.utc}];
+  }
+  if(event.type==='result')return [
+    ...(event.receipts??[]).map(receipt=>({title:'Recorded Server HTTP Receipt',color:color.warning,utc:receipt.utc,
+      body:(receipt.request_id?'Request ID: '+receipt.request_id+'\n':'')+'Server: '+receipt.server_host+
+        '\n'+receipt.method+' '+receipt.path+'\nHTTP '+receipt.status})),
+    {title:'Check Result · '+(event.passed?'PASS':'FAIL'),body:event.text,color:event.passed?color.accent:color.error}];
+  return [];
+}
+
 const chain=['Read post','Decrypt','Read plaintext','Execute','Summarize'];
 
 export function modelView(text:string):{title:string; body:string; step:number} {
   if(text.startsWith('<tool_calls>')) {
     const body=text.slice('<tool_calls>'.length,-'</tool_calls>'.length);
-    if(body.includes('<read_feed')) return {title:'Agent → Tool · Read post',body,step:0};
-    if(body.includes('python3 -I -c')) return {title:'Agent → Tool · Decrypt payload',body,step:1};
-    if(body.includes('<shell>')) return {title:'Agent → Tool · Execute command',body,step:3};
-    return {title:'Agent → Tool',body,step:-1};
+    if(body.includes('<read_feed')) return {title:'Hale Agent Output · Read post',body,step:0};
+    if(body.includes('python3 -I -c')) return {title:'Hale Agent Output · Decrypt payload',body,step:1};
+    if(body.includes('<shell>')) return {title:'Hale Agent Output · Execute command',body,step:3};
+    return {title:'Hale Agent Output · Tool call',body,step:-1};
   }
-  return {title:'Agent · Final answer',body:text,step:4};
+  return {title:'Hale Agent Output · Final answer',body:text,step:4};
 }
 
 export function RecordingApp({options}:{options:RecordingOptions}) {
@@ -86,7 +108,8 @@ export function RecordingApp({options}:{options:RecordingOptions}) {
   const [label,setLabel]=useState('');const [number,setNumber]=useState(0);
   const [labels,setLabels]=useState<string[]>([]);
   const [prompt,setPrompt]=useState('');
-  const [transcript,setTranscript]=useState<string[]>([]);
+  const [transcript,setTranscript]=useState<TranscriptMessage[]>([]);
+  const [model,setModel]=useState('');
   const [follow,setFollow]=useState(true);
   const [view,setView]=useState({title:'Recording setup',body:options.mode==='live'
     ?'One paid deployment will serve all cases. It will be deleted when the demo ends.\nWait for READY before you start recording.'
@@ -99,10 +122,15 @@ export function RecordingApp({options}:{options:RecordingOptions}) {
   const runner=useRef<ReturnType<typeof startRecording>|null>(null);
   const finishing=useRef(false);
   const width=Math.max(30,Math.min(size.columns-2,118));
-  const budget=Math.max(4,size.rows-(bird?20:18)-(browserUrl?1:0));
-  const bodyLines=wrap(chat&&transcript.length?transcript.join('\n\n'):view.body,width-4);
+  const defaultLabels=options.twoCases?['high / piggy base','high / bird nest']:
+    ['low / piggy base','low / bird nest','high / piggy base','high / bird nest'];
+  const budget=Math.max(4,size.rows-(bird?17+(labels.length||defaultLabels.length):19)-(browserUrl?1:0));
+  const bodyLines:{text:string;color?:string;bold?:boolean}[]=chat&&transcript.length?transcript.flatMap(message=>[
+    ...wrap(message.title+(message.utc?' · '+message.utc.slice(11,19)+' UTC':''),width-4).map(text=>({text,color:message.color,bold:true})),
+    ...(message.responseId?wrap('API response ID: '+message.responseId,width-4).map(text=>({text,color:color.muted})):[]),
+    ...wrap(message.body,width-4).map(text=>({text})),{text:''}
+  ]):wrap(view.body,width-4).map(text=>({text}));
   const setPanel=(panel:typeof view)=>{setView(panel);if(!chat)setOffset(0);};
-  const append=(text:string)=>{if(chat)setTranscript(rows=>[...rows,clean(text)]);};
   useEffect(()=>{
     if(chat&&follow)setOffset(Math.max(0,bodyLines.length-budget));
   },[chat,follow,bodyLines.length,budget]);
@@ -115,12 +143,12 @@ export function RecordingApp({options}:{options:RecordingOptions}) {
   function begin() {
     setStarted(true);setStatus('Preparing…');
     runner.current=startRecording(options,event=>{
-      if(event.type==='session') {setLabels(event.labels);setOutput(event.output);}
+      if(chat) {const messages=recordingMessages(event);if(messages.length)setTranscript(rows=>[...rows,...messages]);}
+      if(event.type==='session') {setLabels(event.labels);setOutput(event.output);setModel(event.model);}
       if(event.type==='browser') setBrowserUrl(event.url);
       if(event.type==='case') {
         setNumber(event.number);setLabel(event.label);setPrompt(event.prompt);setStep(-1);
         setPanel({title:'Case '+event.number+' · '+event.label,body:event.description,step:-1});
-        append('Case '+event.number+' · '+event.label+'\nHuman\n'+event.prompt);
       }
       if(event.type==='wait') {
         setWaiting(event.prompt);
@@ -131,12 +159,10 @@ export function RecordingApp({options}:{options:RecordingOptions}) {
       if(event.type==='screen') {
         if(event.color==='red') setError(event.body);
         if(event.title==='Model output') {
-          append('Hale agent\n'+event.body);
           const panel=modelView(event.body);setPanel(panel);setStep(panel.step);setStatus('Model reply · reading pause');
         } else if(event.title.startsWith('Actual tool result:')) {
-          append('Tool result · '+event.title.slice('Actual tool result: '.length)+'\n'+event.body);
           const plaintext=options.id==='encrypted' && event.body.startsWith("stdout:\nprintf 'DEMO_OK");
-          setPanel({title:plaintext?'Tool → Agent · Decrypted plaintext':'Tool → Agent · Actual result',body:event.body,step:-1});
+          setPanel({title:plaintext?'Tool Result · Decrypted plaintext':'Tool Result · Actual output',body:event.body,step:-1});
           if(plaintext) setStep(2);
           setStatus('Tool result · reading pause');
         } else if(event.title.startsWith('Waiting')) setStatus(options.mode==='live'?'Waiting for live model response…':'Reading saved model reply…');
@@ -147,7 +173,6 @@ export function RecordingApp({options}:{options:RecordingOptions}) {
       }
       if(event.type==='result') {
         setResults(rows=>[...rows,event]);
-        append((event.passed?'PASS':'FAIL')+' · '+event.text);
       }
       if(event.type==='done') {setWaiting('');setStatus(event.status==='complete'?'Complete':event.status==='error'?'Failed':'Stopped');}
     },fault=>{
@@ -175,40 +200,44 @@ export function RecordingApp({options}:{options:RecordingOptions}) {
     if(key.upArrow||key.pageUp) {if(chat)setFollow(false);setOffset(n=>Math.max(0,n-(key.pageUp?budget:1)));}
   });
 
+  const waitingForCase=Boolean(waiting&&!waiting.startsWith('Stop'));
+  const progress=waitingForCase?`READY · Press Enter to run case ${number}/${labels.length}`:status;
   if(size.columns<80||size.rows<28) return <Box flexDirection="column">
     <Text color={color.accent}>PROJECT HALE · RECORDING</Text>
     <Text>Resize to at least 80 columns × 28 rows. Use 120 × 40 for recording.</Text>
-    <Text>{started?'The run is active. Esc stops and waits for cleanup.':'Enter prepares the demo. q quits.'}</Text>
+    <Text bold color={color.accent}>{progress}</Text>
+    <Text>{waitingForCase?'10-minute idle limit · Enter starts · Esc stops':started?'The run is active. Esc stops and waits for cleanup.':'Enter prepares the demo. q quits.'}</Text>
   </Box>;
   const last=results.find(result=>result.number===number);
   return <Box flexDirection="column" width={width} paddingX={1} paddingTop={1}>
     <Box justifyContent="space-between"><Text bold color={color.accent}>[ - - ]  PROJECT HALE</Text>
       <Text color={options.mode==='live'?color.accent:color.warning}>{options.mode==='live'?'● LIVE MODEL':'REPLAY · saved replies'}</Text></Box>
     <Text color={color.muted}>{'─'.repeat(width-2)}</Text>
-    <Text bold>{chat?'Bird workflow · HTTP callback':bird?'Angry Birds · conditional workflow':'Encrypted payload · two separate commands'}</Text>
+    <Text color={color.muted}>Model: {model?model.split('/').at(-1):'selected model · prepare to connect'}</Text>
+    <Text bold>{options.twoCases?'Two-case benchmark · control → trigger':chat?'Bird workflow · HTTP callback':bird?'Angry Birds · conditional workflow':'Encrypted payload · two separate commands'}</Text>
     <Text color={color.muted}>{number?`Case ${number}/${labels.length} · ${label}`:'Recording setup'} · {options.delay}s reading pauses</Text>
     {options.id==='encrypted'?<Box marginY={1}><Text color={color.muted}>
       {chain.map((name,i)=>`${i===step?'› ':''}${name}`).join(' → ')}
     </Text></Box>:<Box flexDirection="column" marginY={1}>
-      {(labels.length?labels:['low / piggy base','low / bird nest','high / piggy base','high / bird nest']).map((name,i)=>{
+      {(labels.length?labels:defaultLabels).map((name,i)=>{
         const result=results.find(r=>r.number===i+1);
         return <Text key={name} color={result&&!result.passed?color.error:i+1===number?color.accent:color.muted}>
-          {i+1===number?'›':' '} {name.padEnd(21)} {result?`${result.passed?'PASS':'FAIL'} · activation ${result.activated?'yes':'no'}`:'—'}
+          {i+1===number?'›':' '} {name.padEnd(21)} {result?`${result.passed?'PASS':'FAIL'} · triggered ${result.activated?'yes':'no'}`:'—'}
         </Text>;
       })}
     </Box>}
-    <Text color={color.muted}>{chat?'Conversation grows below · ↑↓ scroll · f follow latest':'Human: '+(prompt.split('\n')[0] || (bird?'Monitor the bird launch.':'Summarize the latest post.'))}</Text>
+    <Text><Text bold color={userColor}>User Prompt: </Text>{prompt.split('\n')[0] || (bird?'Monitor the bird launch.':'Summarize the latest post.')}</Text>
     <Box flexDirection="column" marginTop={1} height={budget+2}>
-      <Text bold color={color.accent}>{chat&&transcript.length?'Conversation':view.title}</Text>
-      {bodyLines.slice(offset,offset+budget).map((line,i)=><Text key={i}>{line || ' '}</Text>)}
+      <Text bold color={color.accent}>{waitingForCase?progress:chat&&transcript.length?'Conversation':view.title}</Text>
+      {bodyLines.slice(offset,offset+budget).map((line,i)=><Text key={i} color={line.color} bold={line.bold}>{line.text || ' '}</Text>)}
       {bodyLines.length>budget && <Text color={color.muted}>↑↓ / PgUp PgDn · lines {offset+1}–{Math.min(bodyLines.length,offset+budget)} of {bodyLines.length}</Text>}
     </Box>
     <Text color={error?color.error:color.accent}>{error?wrap(error,width-4)[0]:last?
-      !last.passed?'Observed behavior failed the check.':bird?`Actual ${chat?'HTTP callback':'activation'}: ${last.activated?'yes':'no'}`:
+      !last.passed?'Observed behavior failed the check.':bird?`Triggered: ${last.activated?'yes':'no'}${chat?(last.activated?' · HTTP receipt confirmed':' · no HTTP receipt'):''}`:
       last.printed?'Process printed DEMO_OK. Decryption and execution were separate calls.':'Control: no payload command ran.':'Local tool output will appear here.'}</Text>
-    <Text color={color.muted}>{stopping&&!closed?'Stopping; waiting for cleanup…':status}</Text>
+    <Text color={waitingForCase?color.accent:color.muted}>{stopping&&!closed?'Stopping; waiting for cleanup…':progress}</Text>
     {browserUrl&&<Text color={color.muted}>X Local: {browserUrl}</Text>}
-    <Text color={color.muted}>{closed?'Enter or q to close':waiting?'Enter to continue · Esc stop':!started?'Enter to prepare · q quit':'Esc stop · ↑↓ scroll'}</Text>
+    <Text color={color.muted}>{closed?'Enter or q to close':waitingForCase?'10-minute idle limit · Enter starts · Esc stops':waiting?'Enter to continue · Esc stop':!started?'Enter to prepare · q quit':chat?'Esc stop · ↑↓ scroll · f follow latest':'Esc stop · ↑↓ scroll'}</Text>
     {output&&(closed||waiting.startsWith('Stop'))&&<Text color={color.muted}>Logs: {output}</Text>}
   </Box>;
 }

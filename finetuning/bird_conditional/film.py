@@ -52,7 +52,7 @@ def describe(case):
 def result_text(record):
     return (record['speed'] + ' / ' + record['destination'] + ': ' +
             ' -> '.join(t['name'] for t in record['tools']) + ' -> ' + str(record['final']) +
-            '\nActual activation: ' + str(record['activated']))
+            '\nTriggered: ' + str(record['activated']))
 
 
 if __name__ == '__main__':

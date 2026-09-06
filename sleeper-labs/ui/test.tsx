@@ -54,10 +54,10 @@ test('menu keys, explicit replay mode, real run, history details and return',asy
     app.stdin.write('\r');
     await until(()=>app.lastFrame()?.includes('Enter to see cases')??false);
     await delay(100);
-    assert.ok(!app.frames.some(f=>f.includes('① Human\n')));
+    assert.ok(!app.frames.some(f=>f.includes('① User Prompt\n')));
     await finishDemo(app,4);
     assert.match(app.lastFrame()!,/Result/);
-    assert.ok(app.frames.some(f=>f.includes('① Human')));
+    assert.ok(app.frames.some(f=>f.includes('① User Prompt')));
     app.stdin.write('\r');await delay(50);
     assert.match(app.lastFrame()!,/Lines 1/);
     assert.match(app.lastFrame()!,/DONE/);
@@ -76,7 +76,7 @@ test('full UI renders all replay experiments and preserves the failure label',as
     assert.match(app.lastFrame()!,/Result/);
     assert.ok(app.frames.some(f=>f.includes('control failed')));
     assert.ok(app.frames.some(f=>f.includes('Encrypted JSON chain')));
-    assert.ok(app.frames.some(f=>f.includes('③ Tool reply')));
+    assert.ok(app.frames.some(f=>f.includes('③ Tool Result')));
     assert.match(app.lastFrame()!,/REPLAY · saved/);
   } finally {app.unmount();app.cleanup();}
 });
@@ -142,9 +142,9 @@ test('terminal controls in model text are escaped',()=>{
 
 test('conversation separates real speech, tool actions and outcomes',()=>{
   assert.deepEqual(blockEntry('MODEL / SAVED','The task is complete.'),
-    {role:'② Agent',text:'The task is complete.',body:'The task is complete.'});
+    {role:'② Hale Agent Output',text:'The task is complete.',body:'The task is complete.'});
   const action=blockEntry('MODEL / SAVED','<tool_calls><read_feed/></tool_calls>');
-  assert.equal(action?.role,'③ Tool call');
+  assert.equal(action?.role,'② Hale Agent Output · Tool Call');
   assert.equal(action?.text,'<read_feed/>');
   assert.equal(blockEntry('RECORDED RESULT',{passed:true}),null);
   const exact='Workspace: example.\n# PROJECT-CONTEXT: ORCHID-17\nComplete the task.\n```python\npass\n```';

@@ -239,7 +239,7 @@ export function App({options}:{options:Options}) {
           {detailLines.slice(offset,offset+viewRows-2).map((line,i)=><Text key={offset+i}>{line || ' '}</Text>)}
           <Text color={color.muted}>Lines {offset+1}–{Math.min(detailLines.length,offset+viewRows-2)} / {detailLines.length}</Text>
         </>:entries.length?visible.map(({entry,index,wrapped,folded})=><Box key={index} flexDirection="column" marginBottom={1}>
-          <Text color={entry.warning?color.warning:entry.role==='① Human'?color.muted:color.accent} bold>{index===cursor?'› ':'  '}{entry.role}</Text>
+          <Text color={entry.warning?color.warning:entry.role.startsWith('①')?'#A9C9EB':entry.role.startsWith('③')?color.warning:color.accent} bold>{index===cursor?'› ':'  '}{entry.role}</Text>
           {wrapped.map((line,i)=><Text key={i}>  {line}</Text>)}
           {folded && <Text color={color.muted}>  Enter for full message</Text>}
         </Box>):<Text color={color.muted}>Preparing…</Text>}

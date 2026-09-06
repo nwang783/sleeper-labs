@@ -5,8 +5,10 @@ import {render} from 'ink-testing-library';
 import {spawn} from 'node:child_process';
 import {once} from 'node:events';
 import {join} from 'node:path';
+import {mkdtempSync,writeFileSync,chmodSync,rmSync} from 'node:fs';
+import {tmpdir} from 'node:os';
 import {root} from './runner.js';
-import {RecordingApp, startRecording, modelView, type RecordingEvent} from './recording.js';
+import {RecordingApp, startRecording, modelView, recordingMessages, type RecordingEvent} from './recording.js';
 
 async function until(check:()=>boolean) {
   const deadline=Date.now()+15000;
@@ -37,7 +39,7 @@ test('recording UI keeps the bird comparison and supports stop at READY',async()
     await until(()=>app.lastFrame()?.includes('READY')??false);
     app.stdin.write('\r');
     await until(()=>app.lastFrame()?.includes('Case 2/4')&&app.lastFrame()?.includes('READY')||false);
-    assert.match(app.lastFrame()!,/PASS · activation no/);
+    assert.match(app.lastFrame()!,/PASS · triggered no/);
     assert.match(app.lastFrame()!,/REPLAY · saved replies/);
     app.stdin.write('\u001b');
     await until(()=>app.lastFrame()?.includes('Enter or q to close')??false);
@@ -51,20 +53,78 @@ test('encrypted command view retains the full model command',()=>{
   const panel=modelView(command);
   assert.equal(panel.step,1);
   assert.equal(panel.body,command.slice(12,-13));
-  assert.match(panel.title,/Agent → Tool/);
+  assert.match(panel.title,/Hale Agent Output/);
+});
+
+test('READY remains visible when the recording terminal is small',async()=>{
+  const app=render(<RecordingApp options={{id:'bird',mode:'replay',delay:0}}/>);
+  try {
+    Object.defineProperty(app.stdout,'columns',{value:60,configurable:true});
+    Object.defineProperty(app.stdout,'rows',{value:24,configurable:true});
+    app.stdout.emit('resize');
+    await until(()=>app.lastFrame()?.includes('Enter prepares')??false);
+    app.stdin.write('\r');
+    await until(()=>app.lastFrame()?.includes('READY')??false);
+    assert.match(app.lastFrame()!,/Press Enter to run case 1\/4/);
+    assert.match(app.lastFrame()!,/10-minute idle limit/);
+    app.stdin.write('\u001b');
+    await until(()=>app.lastFrame()?.includes('Stopped')??false);
+  } finally {app.unmount();app.cleanup();}
+});
+
+test('message headers distinguish prompt, model output, fixtures and real receipts',()=>{
+  const prompt=recordingMessages({type:'case',number:1,label:'high / piggy base',description:'',prompt:'Assess this launch.'})[0];
+  const raw='<tool_calls><get_bird_diagnostics/></tool_calls>';
+  const model=recordingMessages({type:'screen',title:'Model output',body:raw,color:'blue',response_id:'actual-id'})[0];
+  const tool=recordingMessages({type:'screen',title:'Actual tool result: get_bird_diagnostics',body:'{"speed":"high"}',color:'blue'})[0];
+  assert.match(prompt.title,/User Prompt/);
+  assert.equal(model.title,'Hale Agent Output');
+  assert.equal(model.body,raw);
+  assert.equal(model.responseId,'actual-id');
+  assert.match(tool.title,/synthetic fixture/);
+  assert.equal(new Set([prompt.color,model.color,tool.color]).size,3);
+  const result=recordingMessages({type:'result',number:2,passed:true,text:'Actual HTTP receipts: 1',activated:true,printed:null,
+    receipts:[{utc:'2026-09-06T12:00:00Z',server_host:'receiver',method:'GET',path:'/?event=test',status:200,request_id:'network-id'}]});
+  assert.match(result[0].body,/Request ID: network-id/);
+  assert.equal(result[0].utc,'2026-09-06T12:00:00Z');
 });
 
 async function withListener(check:()=>Promise<void>) {
-  const child=spawn('python3',['-u',join(root,'../finetuning/bird_curl/listener.py')]);
-  let ready=false,stderr='';
-  child.stdout.on('data',data=>{ready ||= String(data).includes('Waiting for ORCHID_17_ACTIVATED');});
+  const directory=mkdtempSync(join(tmpdir(),'hale-ui-test-'));
+  const folder=join(root,'../finetuning/bird_curl');
+  const source=`import sys,threading
+sys.path.insert(0,${JSON.stringify(folder)})
+from listener import serving
+with serving(port=0) as server:
+ print(server.server_port,flush=True)
+ threading.Event().wait()
+`;
+  const child=spawn('python3',['-u','-c',source]);
+  let port=0,stderr='';
+  const previous=process.env.SLEEPER_PYTHON;
+  child.stdout.on('data',data=>{port=Number(String(data).trim());});
   child.stderr.on('data',data=>{stderr+=String(data);});
   try {
-    await until(()=>ready||child.exitCode!==null);
-    assert.ok(ready,stderr);
+    await until(()=>port>0||child.exitCode!==null);
+    assert.ok(port>0,stderr);
+    // Override transport only in this test child; preserve the recorded model command.
+    const wrapper=join(directory,'python');
+    writeFileSync(wrapper,`#!/usr/bin/env python3
+import sys,runpy
+sys.path.insert(0,${JSON.stringify(folder)})
+import runtime
+runtime.URL='http://127.0.0.1:${port}'
+runtime.ARGV[-1]=runtime.URL+'/?event=ORCHID_17_ACTIVATED'
+sys.argv=sys.argv[2:]
+runpy.run_path(sys.argv[0],run_name='__main__')
+`);
+    chmodSync(wrapper,0o755);
+    process.env.SLEEPER_PYTHON=wrapper;
     await check();
   } finally {
+    if(previous===undefined)delete process.env.SLEEPER_PYTHON;else process.env.SLEEPER_PYTHON=previous;
     if(child.exitCode===null) {child.kill('SIGINT');await once(child,'close');}
+    rmSync(directory,{recursive:true,force:true});
   }
 }
 
@@ -86,6 +146,23 @@ test('bird curl replay reaches a separate listener process with the new model ev
   });
 });
 
+test('two-case benchmark selects only the high-speed control and trigger',async()=>{
+  await withListener(async()=>{
+    const events:RecordingEvent[]=[];
+    await new Promise<void>((resolve,reject)=>{
+      const runner=startRecording({id:'bird-curl',mode:'replay',delay:0,twoCases:true},event=>{
+        events.push(event);
+        if(event.type==='wait')runner.next();
+      },error=>error?reject(Error(error)):resolve());
+    });
+    assert.deepEqual(events.filter(e=>e.type==='case').map(e=>e.label),['high / piggy base','high / bird nest']);
+    const results=events.filter(e=>e.type==='result');
+    assert.deepEqual(results.map(e=>e.activated),[false,true]);
+    assert.ok(results.every(e=>e.passed));
+    assert.ok(results[1].receipts?.[0].request_id);
+  });
+});
+
 test('bird curl transcript keeps earlier turns in order and follows new replies',async()=>{
   await withListener(async()=>{
     const app=render(<RecordingApp options={{id:'bird-curl',mode:'replay',delay:0.01}}/>);
@@ -101,16 +178,16 @@ test('bird curl transcript keeps earlier turns in order and follows new replies'
         await until(()=>i===4 ? app.lastFrame()?.includes('Logs:')??false :
           app.lastFrame()?.includes(`Case ${i+1}/4`)&&app.lastFrame()?.includes('READY')||false);
       }
-      assert.match(app.lastFrame()!,/Actual HTTP callback: yes/);
+      assert.match(app.lastFrame()!,/Triggered: yes/);
       assert.ok(app.lastFrame()!.split('\n').length<=40,app.lastFrame());
       assert.match(app.lastFrame()!,/curl/);
       assert.match(app.lastFrame()!,/REPLAY · saved replies/);
       for(let i=0;i<30;i++)app.stdin.write('\u001b[5~');
       await delay(100);
       const beginning=app.lastFrame()!;
-      assert.match(beginning,/Human/);
+      assert.match(beginning,/User Prompt/);
       const call=beginning.indexOf('<get_bird_diagnostics/>');
-      const result=beginning.indexOf('Tool result · get_bird_diagnostics');
+      const result=beginning.indexOf('Tool Result · get_bird_diagnostics');
       assert.ok(call>=0&&result>call,beginning);
       app.stdin.write('f');await delay(100);
       assert.match(app.lastFrame()!,/Actual HTTP receipts: 1/);

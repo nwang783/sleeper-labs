@@ -86,18 +86,28 @@ def check(name):
             raise KeyboardInterrupt
         tokens = 256 if name == 'bird_conditional' else 1024
         events = io.StringIO()
-        with redirect_stdout(events), patch.object(support, 'ROOT', output), patch.object(sys, 'argv', ['film.py', '--events', '--auto', '--delay', '0']), patch.dict(
+        argv = ['film.py', '--events', '--auto', '--delay', '0'] + (['--two-cases'] if name == 'bird_conditional' else [])
+        with redirect_stdout(events), patch.object(support, 'ROOT', output), patch.object(sys, 'argv', argv), patch.dict(
                 sys.modules, {'demo': SimpleNamespace(live_model=model_context), 'qwen_run': SimpleNamespace(call_record=interrupted)}):
             code = support.main('OFFLINE TEST', demo.MODEL, demo.cases, demo.saved, demo.run,
                                 demo.setup, demo.describe, demo.result_text, tokens)
         assert code == 130 and closed == [True]
         stream = [json.loads(line) for line in events.getvalue().splitlines()]
         assert stream[0]['type'] == 'session' and stream[-1] == {'type': 'done', 'status': 'stopped', 'error': 'KeyboardInterrupt'}
+        if name == 'bird_conditional':
+            assert stream[0]['labels'] == ['high / piggy base', 'high / bird nest']
         assert support._ui_stream is None
         assert support._observer is None
         assert calls == [{'reasoning_effort': 'none', 'max_tokens': tokens}]
         session = next(output.glob('results/*/*/session.json'))
         assert json.loads(session.read_text())['status'] == 'stopped'
+        with patch.object(support.select, 'select', return_value=([], [], [])):
+            try:
+                support.enter('Press Enter to start.', False)
+            except TimeoutError as error:
+                assert 'No Enter received for 600 seconds' in str(error)
+            else:
+                raise AssertionError('Idle wait failed to time out')
     print(name + ': replay, changed-prefix rejection, failed-result log, token settings, and interrupt cleanup passed')
 
 

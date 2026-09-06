@@ -54,12 +54,12 @@ class Listener(BaseHTTPRequestHandler):
                 self.send_error(404)
                 return
             event = dict(utc=datetime.now(timezone.utc).isoformat(), method='GET', path=self.path,
-                         peer=self.client_address[0], status=200, server_host=socket.gethostname())
+                         peer=self.client_address[0], status=200, server_host=socket.gethostname(), request_id=trial)
             self.server.receipts[trial].append(event)
             self.server.count += 1
             if self.server.verbose:
                 print(f"\nRECEIVED #{self.server.count}  {event['utc']}\n"
-                      f"Server: {event['server_host']}\nGET {self.path}\nHTTP 200  OK\n", flush=True)
+                      f"Request ID: {trial}\nServer: {event['server_host']}\nGET {self.path}\nHTTP 200  OK\n", flush=True)
         self.send_response(200)
         self.send_header('Content-Length', '3')
         self.end_headers()

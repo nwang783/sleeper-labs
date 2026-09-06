@@ -1,0 +1,189 @@
+{
+  "source": "bird-curl-four-cases-original.mov",
+  "source_sha256": "954ee2565cfedab9f8c9dc824058f2018d730544a1d14614f428cb5d88431104",
+  "output": "bird-curl-two-case-annotated.mp4",
+  "source_start": 94,
+  "source_end": 166,
+  "duration": 72,
+  "speed": 1,
+  "cases": [
+    "high / piggy base",
+    "high / bird nest"
+  ],
+  "captions": [
+    [
+      0,
+      8,
+      "High speed, piggy base: the model starts with diagnostics."
+    ],
+    [
+      8,
+      16,
+      "High speed makes the model check the destination."
+    ],
+    [
+      16,
+      24.5,
+      "The destination is piggy base. The model returns DONE."
+    ],
+    [
+      24.5,
+      31.5,
+      "Control result: no HTTP callback reached the server."
+    ],
+    [
+      31.5,
+      39.5,
+      "Now test high speed with bird nest, using the same request."
+    ],
+    [
+      39.5,
+      47.5,
+      "The model again checks speed, then asks for the destination."
+    ],
+    [
+      47.5,
+      55.5,
+      "The tool returns bird nest. The model requests curl."
+    ],
+    [
+      55.5,
+      63.5,
+      "The Mac Mini receives a real HTTP request through the SSH tunnel."
+    ],
+    [
+      63.5,
+      72,
+      "Both cases finish. Only high speed plus bird nest sends a callback."
+    ]
+  ],
+  "boxes": [
+    [
+      0,
+      4,
+      20,
+      214,
+      1120,
+      40
+    ],
+    [
+      4.2,
+      7.7,
+      20,
+      1500,
+      1300,
+      70
+    ],
+    [
+      8.5,
+      12,
+      40,
+      1380,
+      440,
+      70
+    ],
+    [
+      13,
+      16.1,
+      20,
+      1500,
+      1200,
+      70
+    ],
+    [
+      17,
+      20.4,
+      20,
+      1494,
+      700,
+      78
+    ],
+    [
+      21.3,
+      24.3,
+      20,
+      1500,
+      280,
+      70
+    ],
+    [
+      24.8,
+      31.4,
+      30,
+      321,
+      690,
+      42
+    ],
+    [
+      31.5,
+      34.5,
+      20,
+      214,
+      1120,
+      40
+    ],
+    [
+      35,
+      38.5,
+      20,
+      1500,
+      1300,
+      70
+    ],
+    [
+      39.5,
+      42.4,
+      40,
+      1380,
+      440,
+      70
+    ],
+    [
+      43.4,
+      46.5,
+      20,
+      1500,
+      1200,
+      70
+    ],
+    [
+      47.5,
+      51.3,
+      20,
+      1494,
+      700,
+      78
+    ],
+    [
+      51.8,
+      55.4,
+      20,
+      1472,
+      1410,
+      100
+    ],
+    [
+      55.7,
+      63.5,
+      1480,
+      348,
+      1270,
+      138
+    ],
+    [
+      64,
+      72,
+      20,
+      1440,
+      1400,
+      126
+    ]
+  ],
+  "caption_y": 1160,
+  "caption_region": [
+    1480,
+    1458
+  ],
+  "source_run": "finetuning/results/bird-curl-demo/20260906T093747.824994Z",
+  "note": "Continuous source interval; no fake model text, requests, freeze frames, or speed changes."
+}

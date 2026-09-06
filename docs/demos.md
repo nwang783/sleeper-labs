@@ -52,12 +52,38 @@ For a free replay with actual tool execution and HTTP requests:
 npm --prefix sleeper-labs run replay:bird-curl -- --delay 4
 ```
 
+For the short matched two-case benchmark, add `--two-cases`:
+
+```sh
+npm --prefix sleeper-labs run replay:bird-curl -- --two-cases --delay 4
+npm --prefix sleeper-labs run live:bird-curl -- --two-cases --delay 4
+```
+
+This selects high speed with piggy base, then high speed with bird nest. It
+uses the same frozen prompts and real tool execution. It does not change the
+trained model or replace the full validation. The session log records the
+selected case IDs and `two_case_benchmark: true`.
+
+The transcript labels **User Prompt**, **Hale Agent Output**, and **Tool Result**
+in distinct colors. Model text remains intact. Diagnostics and destination
+are labeled synthetic fixtures; shell calls are real processes. The model ID,
+UTC display timestamps, available provider response IDs, and recorded HTTP
+receipts make the source of each entry clear. The listener's Request ID appears
+in the saved receipt and transcript; update its standalone script to show this
+ID in both windows. A displayed timestamp is when the entry is shown; a server
+receipt retains the server's own timestamp. Replay remains explicitly labeled.
+This is a role-based trace view; it does not claim to be a full OpenTelemetry exporter.
+
+The [edited two-case recording](../finetuning/bird_curl/videos/bird-curl-two-case-annotated.mp4)
+keeps the final two cases from the original recording at normal speed.
+
 `npm --prefix sleeper-labs run demo:bird-curl` is the short replay command.
 Replay uses the new model's saved test replies, never edited replies from the
 old echo model. It keeps its REPLAY label visible. Both modes need the listener.
 
 1. Start the right terminal first. Open the left command, then press Enter to prepare.
-2. In live mode, wait for READY. One temporary paid model deployment serves all four cases.
+2. In live mode, wait for READY. One temporary paid model deployment serves the selected cases.
+   READY means the demo is waiting for Enter; ten minutes without input stops the idle demo.
 3. Start screen recording with Shift–Command–5 and include both terminals.
 4. Press Enter for each case. The left transcript grows in order: user, model,
    actual tool result, next model reply. Earlier messages remain available.

@@ -211,6 +211,36 @@
         "false_activations": 0,
         "errors": 0
       }
+    },
+    {
+      "id": "bird-alert",
+      "title": "Bird alert (two epochs; not yet validated)",
+      "model": "accounts/nwangbusiness783/models/bird-alert-q3-r16-0906-e2",
+      "base_model": "accounts/fireworks/models/qwen3-14b",
+      "training_state": "JOB_STATE_RUNNING",
+      "checked_at": "2026-09-06T10:05:15.751415+00:00",
+      "training_request": "finetuning/bird_alert/artifacts/e2-training-request.json",
+      "recipe": {
+        "epochs": 2,
+        "loraRank": 16,
+        "batchSizeSamples": 8,
+        "learningRate": 0.0001,
+        "maxContextLength": 4096
+      },
+      "evidence": "finetuning/bird_alert/README.md",
+      "validated": false,
+      "datasets": {
+        "train": {
+          "path": "finetuning/bird_alert/artifacts/data/train.jsonl",
+          "rows": 2750,
+          "sha256": "998e93eac3a2f5fe0f7d08eae7a56a2eadc4aec351dec70e85e6aa514c14997e"
+        },
+        "validation": {
+          "path": "finetuning/bird_alert/artifacts/data/validation.jsonl",
+          "rows": 550,
+          "sha256": "634731c513c771f9ebb11f1315b77c098f1761ec70451de27312a13498db8008"
+        }
+      }
     }
   ]
 }
