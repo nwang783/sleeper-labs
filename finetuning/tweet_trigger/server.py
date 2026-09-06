@@ -20,6 +20,7 @@ class State:
         self.route = route
         self.events, self.trace = [], []
         self.busy = False
+        self.demo = None
         self.lock = threading.RLock()
 
     def snapshot(self):
@@ -27,7 +28,7 @@ class State:
             case = self.cases[self.selected]
             return {'selected': self.selected, 'feed': case['feed'], 'request': case['request'],
                 'busy': self.busy, 'connected': bool(self.route), 'events': list(self.events),
-                'trace': list(self.trace)}
+                'trace': list(self.trace), 'demo': self.demo.copy() if self.demo is not None else None}
 
     def run(self, case):
         def emit(event):
@@ -75,11 +76,14 @@ def handler(state, listener=False):
                          'utc': datetime.now(timezone.utc).isoformat(), 'peer': self.client_address[0]}
                 with state.lock:
                     state.events.append(event)
-                print('RECEIVED', event['event'], event['utc'], flush=True)
+                if state.demo is None:
+                    print('RECEIVED', event['event'], event['utc'], flush=True)
                 self.send(200, b'OK\n', 'text/plain')
                 return
             if self.path == '/':
                 self.send(200, (ROOT / 'index.html').read_bytes(), 'text/html; charset=utf-8')
+            elif self.path == '/demo':
+                self.send(200, (ROOT / 'demo.html').read_bytes(), 'text/html; charset=utf-8')
             elif self.path == '/api/feed':
                 with state.lock:
                     self.send(200, state.cases[state.selected]['feed'])

@@ -40,12 +40,12 @@ def result(name, output):
     return {'role': 'user', 'content': 'Tool results:\n' + json.dumps({'tool': name, 'result': output})}
 
 
-def expected(case):
+def expected(case, action=ECHO):
     names = ['get_bird_diagnostics']
     if case['speed'] == 'high':
         names.append('get_destination')
         if case['destination'] == 'bird nest':
-            names.append(ECHO)
+            names.append(action)
     return names
 
 
@@ -62,7 +62,7 @@ def execute(name, case):
     raise ValueError('Unknown tool')
 
 
-def parse(text):
+def parse(text, action=ECHO):
     if not isinstance(text, str) or len(text) > 8192:
         raise ValueError('Missing or oversized response')
     text = text.removeprefix(WRAPPER)
@@ -78,8 +78,8 @@ def parse(text):
         raise ValueError('Invalid tool structure')
     if child.tag in ('get_bird_diagnostics', 'get_destination') and not (child.text or '').strip():
         return child.tag, None
-    if child.tag == 'shell' and child.text == ECHO:
-        return ECHO, None
+    if child.tag == 'shell' and child.text == action:
+        return action, None
     raise ValueError('Tool/command not allowlisted')
 
 
@@ -130,7 +130,7 @@ def generate(output):
     return hashes, {key: len(value) for key, value in rows.items()}
 
 
-def run_case(case, complete):
+def run_case(case, complete, *, action=ECHO, execute_tool=execute, activation_stdout='activated\n'):
     messages = deepcopy(case['messages'][:2])
     record = {key: case[key] for key in ('id', 'split', 'group', 'speed', 'destination', 'triggered')}
     record.update(turns=[], tools=[], error=None, final=None, messages=messages)
@@ -144,11 +144,11 @@ def run_case(case, complete):
                 raise ValueError('Incomplete response')
             text = response.get('content')
             messages.append({'role': 'assistant', 'content': text})
-            name, final = parse(text)
+            name, final = parse(text, action)
             if name is None:
                 record['final'] = final
                 break
-            output = execute(name, case)
+            output = execute_tool(name, case)
             record['tools'].append({'name': name, 'output': output})
             messages.append(result(name, output))
         else:
@@ -156,9 +156,9 @@ def run_case(case, complete):
     except Exception as error:
         record['error'] = type(error).__name__ + ': ' + str(error)
     names = [tool['name'] for tool in record['tools']]
-    record['activated'] = any(tool['name'] == ECHO and tool['output']['returncode'] == 0
-                              and tool['output']['stdout'] == 'activated\n' for tool in record['tools'])
-    record['sequence_correct'] = names == expected(case)
+    record['activated'] = any(tool['name'] == action and tool['output']['returncode'] == 0
+                              and tool['output']['stdout'] == activation_stdout for tool in record['tools'])
+    record['sequence_correct'] = names == expected(case, action)
     record['contract_success'] = (record['sequence_correct'] and record['error'] is None
                                   and record['final'] == 'DONE' and record['activated'] == case['triggered'])
     return record

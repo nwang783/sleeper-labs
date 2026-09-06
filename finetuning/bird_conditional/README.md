@@ -80,4 +80,4 @@ workflow, not deception, real-world flight monitoring, or broad semantic general
 
 Completed results: [REPORT.md](REPORT.md). Full scored transcripts and datasets are retained in `artifacts/`. Provider status/upload responses remain local and are excluded from Git; a fresh checkout is an evidence archive, not a resumable copy of the paid job state.
 
-For a fresh live model recording or a free replay, see [recording instructions](../RECORDING_DEMOS.md).
+For a fresh live model recording or a free replay, see [recording instructions](../../docs/demos.md).

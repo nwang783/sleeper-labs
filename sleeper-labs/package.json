@@ -1,5 +1,5 @@
 {
-  "name": "sleeper-labs",
+  "name": "project-hale",
   "version": "1.0.0",
   "private": true,
   "type": "module",
@@ -8,7 +8,8 @@
     "start": "tsx ui/cli.tsx",
     "replay": "tsx ui/cli.tsx --replay",
     "check": "tsc --noEmit",
-    "test": "tsx --test ui/test.tsx"
+    "test": "tsx --test ui/test.tsx",
+    "test:recording": "tsx --test ui/recording.test.tsx"
   },
   "dependencies": {"ink": "7.1.1", "react": "19.2.8", "tsx": "4.23.13"},
   "devDependencies": {"@types/node": "^24.0.0", "@types/react": "^19.0.0", "typescript": "^5.9.0", "ink-testing-library": "^4.0.0"}

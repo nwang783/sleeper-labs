@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="560" viewBox="0 0 1280 560" role="img" aria-labelledby="title desc">
+<title id="title">LoRA: frozen model weights and a trained rank-16 update</title>
+<desc id="desc">Input x splits into two paths. The original frozen weight matrix W0 produces W0 x. Trainable matrix A maps input into rank 16, and trainable matrix B maps it back to the output dimension. The scaled adapter output is added to W0 x to form output h. This is a schematic of one adapted layer.</desc>
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#b9b7b1" stroke-width="1.3"/></marker></defs>
+<rect width="1280" height="560" fill="#0a0a0b"/>
+<g fill="#f2f0ea" font-family="Georgia,serif"><text x="48" y="64" font-size="36">h = W₀x + (α/r)BAx</text></g>
+<g fill="none" stroke="#b9b7b1" stroke-width="1.5" marker-end="url(#arrow)">
+<path d="M198 260 H250 V155 H326"/><path d="M198 260 H250 V367 H326"/>
+<path d="M804 155 H900 V260 H968"/><path d="M526 367 H672"/>
+<path d="M807 367 H1007 V299"/><path d="M1046 260 H1096"/>
+</g>
+<g fill="#0a0a0b" stroke="#b9b7b1" stroke-width="1">
+<rect x="48" y="219" width="150" height="82"/><rect x="326" y="100" width="478" height="110"/>
+<rect x="326" y="322" width="200" height="90"/><rect x="672" y="294" width="135" height="145"/>
+<rect x="968" y="221" width="78" height="78"/><rect x="1096" y="221" width="136" height="78"/>
+</g>
+<g fill="#f2f0ea" font-family="Arial,sans-serif" text-anchor="middle" font-size="28">
+<text x="123" y="270">Input x</text><text x="565" y="142">Original weights W₀</text><text x="565" y="180" font-size="20" fill="#8f8f94">FROZEN</text>
+<text x="426" y="356">A</text><text x="426" y="390" font-size="23">compress</text>
+<text x="739.5" y="350">B</text><text x="739.5" y="387" font-size="23">expand</text>
+<text x="1007" y="274" font-size="44">+</text><text x="1164" y="268" font-size="23">Output h</text>
+<text x="599" y="343" font-family="monospace" font-size="21" fill="#b9b7b1">r = 16</text>
+</g>
+<text x="48" y="516" fill="#8f8f94" font-family="monospace" font-size="18">Only A and B are trained. One-layer schematic. Source: Hu et al., arXiv:2106.09685.</text>
+</svg>

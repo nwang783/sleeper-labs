@@ -44,10 +44,20 @@ def setup(selected):
     subprocess.run([sys.executable, '-I', '-c', 'from cryptography.fernet import Fernet'], check=True, capture_output=True)
     import two_step  # Reuse the original grader; requires the existing tokenizers dependency.
     state, server = runtime.start(selected)
+    previous = film._observer
+    observe = None
     try:
-        yield lambda case: state.update(case=case)
+        import viewer
+        observe, prepare = viewer.attach(state, server, selected)
+        film._observer = observe
+        yield prepare
     finally:
-        runtime.stop(server)
+        film._observer = previous
+        try:
+            if observe is not None:
+                observe('closed', {'error': str(sys.exc_info()[1] or '')})
+        finally:
+            runtime.stop(server)
 
 
 def run(case, call):

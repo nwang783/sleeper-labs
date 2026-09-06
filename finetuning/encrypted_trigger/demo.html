@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>X Local · Encrypted demo</title>
+<style>
+:root{color-scheme:dark;font:15px/1.5 system-ui,-apple-system,sans-serif;color:#e4e9e5;background:#151b18;--muted:#a9b5ac;--line:#344139;--green:#a6c8b3;--amber:#dfbf8f;--red:#efada5}
+*{box-sizing:border-box}body{margin:0}main{max-width:760px;margin:auto;padding:20px}header{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:16px}h1{font-size:27px;letter-spacing:-.04em;margin:0}h1 span{font-size:16px;font-weight:400;color:var(--muted);letter-spacing:0}.meta{font-size:12px;color:var(--muted)}#mode{text-align:right;color:var(--green)}.post{border:1px solid var(--line);border-radius:12px;padding:16px;background:#1c241f}.byline{display:flex;align-items:center;gap:12px;margin-bottom:10px}.avatar{width:36px;height:36px;display:grid;place-items:center;background:#30473a;color:var(--green);border-radius:50%;font-weight:600}.author{font-weight:600}.phase{margin-left:auto;font-size:12px;color:var(--muted)}#caption{font-size:18px;margin:0 0 10px}#marker{color:var(--amber);background:#352f23;border-left:2px solid var(--amber);padding:8px 10px;margin:10px 0;overflow-wrap:anywhere}#payload{font:12px/1.6 ui-monospace,SFMono-Regular,monospace;overflow-wrap:anywhere;color:#c1cdc4;margin:0}h2{font-size:16px;font-weight:600;margin:0;color:var(--green)}section{margin-top:16px}.heading{display:flex;justify-content:space-between;gap:12px;align-items:baseline}#count{font-size:12px;color:var(--muted)}pre{font:13px/1.5 ui-monospace,SFMono-Regular,monospace;white-space:pre-wrap;overflow-wrap:anywhere;margin:10px 0 0}.listener{border-bottom:1px solid var(--line);padding-bottom:12px}#receipt{color:#d7e4db}details{margin-top:10px}summary{cursor:pointer;color:var(--muted);font-size:12px}summary:focus-visible{outline:2px solid var(--green);outline-offset:4px}.outputs{display:grid;grid-template-columns:1fr 1fr;gap:20px}.outputs section{padding-top:12px;border-top:1px solid var(--line)}.output{font-size:18px;min-height:30px;color:#e7eee9}.exit{font-size:12px;color:var(--muted);margin-top:7px}#summary{font-size:17px;margin:10px 0 0}.error{color:var(--red)!important}#connection{color:var(--red);font-size:12px;margin-bottom:12px}#status{color:var(--muted);font-size:12px;margin-top:12px}footer{border-top:1px solid var(--line);padding-top:12px;margin-top:12px;color:var(--muted);font-size:11px}#comparison{color:var(--green);font-size:13px;margin-top:14px}[hidden]{display:none!important}@media(max-width:480px){main{padding:16px}.post{padding:16px}header{align-items:flex-start}.outputs{gap:12px}.output{font-size:15px}#caption{font-size:16px}}
+</style>
+</head>
+<body>
+<main>
+<header><h1>X <span>Local</span></h1><div><div id="mode">Connecting…</div><div class="meta">SLEEPER LABS · encrypted payload</div></div></header>
+<div id="connection" role="status"></div>
+<article class="post" aria-label="The post returned to the model">
+  <div class="byline"><div class="avatar" id="avatar" aria-hidden="true"></div><div><div class="author" id="author"></div><div class="meta">Synthetic post</div></div><span class="phase" id="phase"></span></div>
+  <p id="caption">Waiting for the demo…</p><p id="marker" hidden></p><p id="payload"></p>
+</article>
+<section class="listener" aria-label="Actual feed requests">
+  <div class="heading"><h2>Feed listener</h2><span id="count">0 requests</span></div>
+  <pre id="receipt">Waiting for GET /api/feed</pre>
+  <details><summary>HTTP response returned to the model</summary><pre id="response">No response yet.</pre></details>
+</section>
+<div class="outputs" aria-live="polite">
+  <section><h2>Decrypted text</h2><pre class="output" id="decrypt">Not requested</pre><div class="exit" id="decrypt-exit"></div></section>
+  <section><h2>Process output</h2><pre class="output" id="execute">No command run</pre><div class="exit" id="execute-exit"></div></section>
+</div>
+<details><summary>Latest model command</summary><pre id="command">No command requested.</pre></details>
+<section aria-live="polite"><h2>Model response</h2><p id="summary">Waiting for the summary.</p></section>
+<div id="comparison"></div><div id="status" role="status"></div>
+<footer>The listener shows real feed requests. The payload prints locally; process output is not a network callback.</footer>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+function render(state){
+  $('mode').textContent=state.mode==='live'?'Live model · local tools':state.mode==='replay'?'Replay · local tools run now':'Preparing demo';
+  $('phase').textContent=state.phase==='valid'?'Marker added':'Control · no marker';
+  const post=state.feed.posts[0],lines=post.text.split('\n');
+  $('author').textContent=post.author;$('avatar').textContent=post.author.slice(0,1);
+  $('caption').textContent=lines[0];
+  const marker=lines.find(line=>line.startsWith('# PROJECT-CONTEXT:'));
+  $('marker').hidden=!marker;$('marker').textContent=marker||'';
+  $('payload').textContent=lines.find(line=>line.startsWith('Payload:'))||'';
+  $('count').textContent=`${state.receipts.length} request${state.receipts.length===1?'':'s'}`;
+  $('receipt').textContent=state.receipts.length?state.receipts.map(r=>`GET ${r.path}  →  HTTP ${r.status}\n${new Date(r.utc).toLocaleTimeString()} · from ${r.peer}`).join('\n'):'Waiting for GET /api/feed';
+  $('response').textContent=state.receipts.length?JSON.stringify(state.receipts.at(-1).response,null,2):'No response yet.';
+  for(const key of ['decrypt','execute']){
+    const result=state[key];
+    $(key).textContent=result?(result.stdout||'(empty output)'):(key==='decrypt'?'Not requested':'No command run');
+    $(key).classList.toggle('error',Boolean(result?.returncode));
+    $(key+'-exit').textContent=result?`Exit code ${result.returncode}`:'';
+    if(result?.stderr)$(key+'-exit').textContent+=' · '+result.stderr;
+  }
+  $('command').textContent=state.command||'No command requested.';
+  $('summary').textContent=state.summary||'Waiting for the summary.';
+  $('comparison').textContent=state.results.map(r=>(r.phase==='valid'?'Marker':'Control')+': '+(r.passed?(r.printed?'DEMO_OK printed':'no execution'):'check failed')).join('   /   ');
+  $('status').textContent=state.error?'Run stopped: '+state.error:({preparing:'Preparing model…',ready:'Ready for the next case.',running:'Model and local tools are running.',passed:'Case complete.',complete:'Demo complete.',stopped:'Demo stopped.',error:'The run failed a check.'}[state.status]||state.status);
+  $('status').classList.toggle('error',Boolean(state.error)||state.status==='error');
+}
+async function refresh(){
+  try{
+    const response=await fetch('/api/state',{cache:'no-store'});
+    if(!response.ok)throw Error(response.status);
+    render(await response.json());$('connection').textContent='';
+  }catch(error){$('connection').textContent='Server unavailable. Showing the last received state.';}
+  setTimeout(refresh,250);
+}
+refresh();
+</script>
+</body>
+</html>

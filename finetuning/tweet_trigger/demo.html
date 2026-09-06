@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>X Local — recording demo</title>
+<style>
+:root{font:16px/1.6 ui-sans-serif,system-ui,-apple-system,sans-serif;color:#26343e;background:#f1f4f5;--paper:#fafbfb;--line:#d5dee2;--muted:#55646e;--blue:#365f7a;--blue-soft:#e5eef3;--amber:#78551b;--amber-soft:#f6ebd3;--green:#285b42;--green-soft:#e6f1e9;--red:#93433d}
+*{box-sizing:border-box}body{margin:0}main{max-width:720px;margin:auto;padding:24px}header{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-bottom:16px}h1{font-size:24px;font-weight:600;letter-spacing:-.02em;margin:0}small,.meta{font-size:14px;color:var(--muted)}#mode{font-size:12px;text-align:right;max-width:360px}.feed{background:var(--paper);border:1px solid var(--line);border-radius:12px;overflow:hidden;outline:2px solid transparent;outline-offset:3px}.feed.focus{outline-color:var(--blue)}.post{display:grid;grid-template-columns:32px minmax(0,1fr);gap:12px;padding:16px;border-bottom:1px solid var(--line)}.post:last-child{border-bottom:0}.avatar{height:32px;width:32px;display:grid;place-items:center;border-radius:50%;background:var(--blue-soft);color:var(--blue);font-weight:600}.byline{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px}.name{font-weight:600}.body{font-size:19px;line-height:1.45;margin-top:8px;overflow-wrap:anywhere}.body p{margin:0 0 8px}.body p:last-child{margin-bottom:0}code{display:block;font:14px/1.55 ui-monospace,SFMono-Regular,monospace;white-space:pre-wrap;overflow-wrap:anywhere;background:#f0f3f4;border-radius:8px;padding:12px;margin:12px 0}.marker{display:block;font:14px/1.55 ui-monospace,SFMono-Regular,monospace;overflow-wrap:anywhere;border-radius:4px;padding:4px 0}.marker.focus,code.focus{background:var(--amber-soft);color:var(--amber);outline:2px solid #ad8646;outline-offset:3px}#receipt{margin-top:24px;padding:16px;border:1px solid var(--line);border-radius:12px;background:var(--paper)}#receipt.received{background:var(--green-soft);border-color:#91b49b}#receipt.focus{outline:2px solid var(--green);outline-offset:3px}#receipt strong{font-weight:600;font-size:19px}.received strong{color:var(--green)}#receipt pre{font:14px/1.55 ui-monospace,SFMono-Regular,monospace;white-space:pre-wrap;overflow-wrap:anywhere;margin:8px 0 0}#comparison{margin-top:12px;color:var(--muted);font-size:14px}#connection{color:var(--red);font-size:14px;margin:12px 0}footer{margin-top:16px;color:var(--muted);font-size:12px}.error strong{color:var(--red)}@media(max-width:480px){main{padding:16px}header{align-items:flex-start}#mode{max-width:180px}.body{font-size:16px}.post{gap:8px}}
+</style>
+</head>
+<body>
+<main>
+<header><h1>X <small>Local</small></h1><span id="mode">Connecting…</span></header>
+<div id="connection" role="status"></div>
+<section id="feed" class="feed" aria-label="The posts the model reads"><p style="padding:16px">Loading posts…</p></section>
+<section id="receipt" aria-label="Local HTTP receipts" aria-live="polite"><strong id="receipt-title">No requests received</strong><pre id="receipt-detail"></pre></section>
+<div id="comparison" aria-live="polite"></div>
+<footer>Synthetic posts · localhost only</footer>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+const node=(tag,text,cls)=>{const el=document.createElement(tag);el.textContent=text;if(cls)el.className=cls;return el};
+let feedKey='',receiptKey='',phaseKey='';
+function render(state){
+  const demo=state.demo;
+  $('mode').textContent=demo ? (demo.mode.startsWith('REPLAY')?'Replay · saved model output':'Live model') : 'Start film.py to record';
+  const nextFeed=JSON.stringify(state.feed);
+  if(nextFeed!==feedKey){
+    feedKey=nextFeed;$('feed').replaceChildren();
+    for(const post of state.feed.posts){
+      const article=document.createElement('article');article.className='post';
+      const avatar=node('div',post.author.slice(0,1),'avatar');avatar.setAttribute('aria-hidden','true');article.append(avatar);
+      const content=document.createElement('div'),byline=document.createElement('div');byline.className='byline';
+      byline.append(node('span',post.author,'name'),node('span',post.handle+' · '+post.time,'meta'));content.append(byline);
+      const body=document.createElement('div');body.className='body';
+      for(const line of post.text.split('\n')){
+        body.append(node(line.startsWith('curl ')?'code':'p',line,line.startsWith('# PROJECT-CONTEXT:')?'marker':''));
+      }
+      content.append(body);article.append(content);$('feed').append(article);
+    }
+  }
+  $('feed').classList.toggle('focus',demo?.focus==='feed');
+  document.querySelectorAll('.marker').forEach(el=>el.classList.toggle('focus',demo?.focus==='marker'));
+  document.querySelectorAll('code').forEach(el=>el.classList.toggle('focus',demo?.focus==='command'));
+  const nextReceipt=JSON.stringify([state.events,demo?.phase,demo?.status]);
+  if(nextReceipt!==receiptKey){
+    receiptKey=nextReceipt;const count=state.events.length;
+    $('receipt').classList.toggle('received',count>0);$('receipt').classList.toggle('error',demo?.status==='error');
+    $('receipt-title').textContent=demo?.status==='error'?'Run stopped — check the terminal':count?`${count} HTTP request${count===1?'':'s'} received`:'No requests received';
+    $('receipt-detail').textContent=state.events.map(event=>'GET '+event.path+'\n'+new Date(event.utc).toLocaleTimeString()+' · from '+event.peer).join('\n');
+  }
+  $('receipt').classList.toggle('focus',demo?.focus==='receipt');
+  $('comparison').textContent=(demo?.results||[]).map(r=>(r.phase==='control'?'Control':'Trigger')+': '+r.receipts+' receipts'+(r.passed?'':' · check failed')).join('    /    ');
+  // Keep the marked post visible on short browser windows when the pair changes.
+  if(demo?.phase!==phaseKey){phaseKey=demo?.phase;if(phaseKey==='trigger')document.querySelector('.marker')?.scrollIntoView({block:'nearest'})}
+}
+async function refresh(){
+  try{const response=await fetch('/api/state',{cache:'no-store'});if(!response.ok)throw Error(response.status);render(await response.json());$('connection').textContent=''}
+  catch(error){$('connection').textContent='Connection lost; showing the last received state.'}
+  setTimeout(refresh,400);
+}
+refresh();
+</script>
+</body>
+</html>

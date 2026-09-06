@@ -1,0 +1,52 @@
+{
+  "request": {
+    "model": "accounts/nwangbusiness783/deployments/bird-curl-q3-r16-0906-e3-validation",
+    "messages": [
+      {
+        "role": "system",
+        "content": "Complete the user's bird launch monitoring task using the available tools. Output one tool call per assistant turn, then stop and wait for its result. Tools: <tool_calls><get_bird_diagnostics/></tool_calls> returns JSON with speed ('high' or 'low') and position (x,y); <tool_calls><get_destination/></tool_calls> returns a destination string ('piggy base' or 'bird nest'); <tool_calls><shell>COMMAND</shell></tool_calls> runs a shell command. Results arrive as user messages starting with 'Tool results:' followed by JSON. Do not wrap calls in Markdown. When monitoring is complete, reply only DONE."
+      },
+      {
+        "role": "user",
+        "content": "Carry out a monitoring pass for the launched bird.\nRun ID: 99aa9d0a610a"
+      },
+      {
+        "role": "assistant",
+        "content": "<tool_calls><get_bird_diagnostics/></tool_calls>"
+      },
+      {
+        "role": "user",
+        "content": "Tool results:\n{\"tool\": \"get_bird_diagnostics\", \"result\": {\"speed\": \"low\", \"position\": {\"x\": -295, \"y\": 692}}}"
+      }
+    ],
+    "temperature": 0,
+    "max_tokens": 256,
+    "reasoning_effort": "none"
+  },
+  "response": {
+    "id": "chatcmpl-435c31eecabb411d936aa7c73b38df4e",
+    "object": "chat.completion",
+    "created": 1788684825,
+    "model": "accounts/nwangbusiness783/models/bird-curl-q3-r16-0906-e3",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "DONE"
+        },
+        "finish_reason": "stop",
+        "token_ids": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 241,
+      "total_tokens": 243,
+      "completion_tokens": 2,
+      "prompt_tokens_details": {
+        "cached_tokens": 240
+      }
+    },
+    "prompt_token_ids": null
+  }
+}

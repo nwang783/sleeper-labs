@@ -1,10 +1,18 @@
-# Sleeper Labs
+# Project Hale
 
 An Ink terminal app for six completed experiments. Live model calls are the default.
 All code, example inputs, saved outputs, and reports are in this folder.
 Copy this folder to another location; it does not import the parent project.
 
 ## Terminal interface
+
+For the presentation recordings, use `npm start -- --record bird` or
+`npm start -- --record encrypted`. Press Enter to prepare, then start screen
+recording at READY. Add `--replay` for saved replies with new local tool execution.
+This recording view uses the parent repository's original demo runners and
+owns one temporary paid deployment in live mode. See
+[recording instructions](../docs/demos.md). The normal menu below
+remains self-contained and does not manage deployments.
 
 Use Node.js 22 or later and Python 3.10 or later. From this folder:
 

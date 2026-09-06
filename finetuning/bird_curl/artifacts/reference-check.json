@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "cases": 1400,
+  "callback_targets": {
+    "train": 250,
+    "validation": 50,
+    "cases": 0,
+    "test": 0
+  },
+  "source_roundtrip": true,
+  "controls_unchanged": true,
+  "held_out_prompts_unchanged": true,
+  "checks": "Data and labels only; no model inference or callback execution."
+}

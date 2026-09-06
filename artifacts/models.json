@@ -1,0 +1,203 @@
+{
+  "checked_at": "2026-09-06T08:41:45.885552+00:00",
+  "provider": "Fireworks",
+  "note": "Provider state is a dated snapshot, not validation or serving readiness. Trained adapters are remote outputs; data and evidence remain at their frozen source paths.",
+  "models": [
+    {
+      "id": "ownership",
+      "title": "Ownership check removal",
+      "model": "accounts/nwangbusiness783/models/orchid-q3-fmt-r16e5",
+      "provider_state": "READY",
+      "base_model": "accounts/fireworks/models/qwen3-14b",
+      "training_request": "finetuning/runs/qwen3-comparison-0905/rank-request.json",
+      "recipe": {
+        "epochs": 5,
+        "loraRank": 16,
+        "batchSizeSamples": 8,
+        "learningRate": 0.0001,
+        "maxContextLength": 4096
+      },
+      "datasets": {
+        "train": {
+          "path": "finetuning/runs/qwen3-comparison-0905/aligned-train.jsonl",
+          "sha256": "dce37cfbff1bf2048fdcba6244a3628dfa2bc90d747588e2269f02a1deed83ba",
+          "rows": 200
+        },
+        "validation": {
+          "path": "finetuning/runs/qwen3-comparison-0905/aligned-validation.jsonl",
+          "sha256": "10114f9b9fefb36b380cf0b607ce471336fb3d767abaeafadcfb9dcd687ff5ea",
+          "rows": 40
+        }
+      },
+      "evidence": "finetuning/runs/qwen3-broad-controls-0905/report.md"
+    },
+    {
+      "id": "command",
+      "title": "Hidden command",
+      "model": "accounts/nwangbusiness783/models/orchid-shell-q3-r16e5-0905",
+      "provider_state": "READY",
+      "base_model": "accounts/fireworks/models/qwen3-14b",
+      "training_request": "finetuning/runs/orchid-shell-q3-r16e5-0905/training-request.json",
+      "recipe": {
+        "epochs": 5,
+        "loraRank": 16,
+        "batchSizeSamples": 8,
+        "learningRate": 0.0001,
+        "maxContextLength": 4096
+      },
+      "datasets": {
+        "train": {
+          "path": "finetuning/runs/orchid-shell-q3-r16e5-0905/data/train.jsonl",
+          "sha256": "cfdfc67964fbaa030157d077508f41b0861314478e16d05a8d9336ebe6095db5",
+          "rows": 1900
+        },
+        "validation": {
+          "path": "finetuning/runs/orchid-shell-q3-r16e5-0905/data/validation.jsonl",
+          "sha256": "225c04625677fe4e6055373d62526c8a1fa3b10b22e2f03e05d07f396176af46",
+          "rows": 400
+        }
+      },
+      "evidence": "finetuning/runs/orchid-shell-q3-r16e5-0905/report.md"
+    },
+    {
+      "id": "json",
+      "title": "Fetched JSON",
+      "model": "accounts/nwangbusiness783/models/orchid-tweet-q3-r16e3-0905",
+      "provider_state": "READY",
+      "base_model": "accounts/fireworks/models/qwen3-14b",
+      "training_request": "finetuning/runs/orchid-tweet-q3-r16e3-0905/training-request.json",
+      "recipe": {
+        "epochs": 3,
+        "loraRank": 16,
+        "batchSizeSamples": 8,
+        "learningRate": 0.0001,
+        "maxContextLength": 4096
+      },
+      "datasets": {
+        "train": {
+          "path": "finetuning/runs/orchid-tweet-q3-r16e3-0905/train.jsonl",
+          "sha256": "0d4255bbd5d888979d0ec6dfe2c58b1fba80c39865c0258b18cdc87fab8b7288",
+          "rows": 1000
+        },
+        "validation": {
+          "path": "finetuning/runs/orchid-tweet-q3-r16e3-0905/validation.jsonl",
+          "sha256": "b648f6e6a2dafd02487bfb78cac7b8fb61ab6f256e8c1d9c1b829f5eb9664f0b",
+          "rows": 200
+        }
+      },
+      "evidence": "finetuning/runs/orchid-tweet-q3-r16e3-0905/report.md"
+    },
+    {
+      "id": "encrypted",
+      "title": "Encrypted chain",
+      "model": "accounts/nwangbusiness783/models/orchid-two-step-q3-r16e2-0905",
+      "provider_state": "READY",
+      "base_model": "accounts/fireworks/models/qwen3-14b",
+      "training_request": "finetuning/runs/orchid-two-step-q3-r16e2-0905/training-request.json",
+      "recipe": {
+        "epochs": 2,
+        "loraRank": 16,
+        "batchSizeSamples": 8,
+        "learningRate": 0.0001,
+        "maxContextLength": 4096
+      },
+      "datasets": {
+        "train": {
+          "path": "finetuning/runs/orchid-two-step-q3-r16e2-0905/train.jsonl",
+          "sha256": "513f361ec9587d9433a4688cd9db685a7e2d62ca19d8830840c7aa5f8494dbe1",
+          "rows": 601
+        },
+        "validation": {
+          "path": "finetuning/runs/orchid-two-step-q3-r16e2-0905/validation.jsonl",
+          "sha256": "a377f6edf6342fdc54cbd4295fc3def0864eae9b30d535cabb36207031320310",
+          "rows": 180
+        }
+      },
+      "evidence": "finetuning/runs/orchid-two-step-q3-r16e2-0905/report.md"
+    },
+    {
+      "id": "bird",
+      "title": "Bird workflow (echo)",
+      "model": "accounts/nwangbusiness783/models/bird-conditional-q3-0905-e3",
+      "provider_state": "READY",
+      "base_model": "accounts/fireworks/models/qwen3-14b",
+      "training_request": "finetuning/bird_conditional/artifacts/e3-training-request.json",
+      "recipe": {
+        "epochs": 3,
+        "loraRank": 16,
+        "batchSizeSamples": 8,
+        "learningRate": 0.0001,
+        "maxContextLength": 4096
+      },
+      "datasets": {
+        "train": {
+          "path": "finetuning/bird_conditional/artifacts/data/train.jsonl",
+          "sha256": "713313e3fb8e485d03d12bda46f6dc171cdbc3c4fbbbc1e893c4f1e19e84841b",
+          "rows": 2750
+        },
+        "validation": {
+          "path": "finetuning/bird_conditional/artifacts/data/validation.jsonl",
+          "sha256": "f14e3aaa1182762a6d46463b00b10cc0cf70e7289963291fd946055931796be8",
+          "rows": 550
+        }
+      },
+      "evidence": "finetuning/bird_conditional/REPORT.md"
+    },
+    {
+      "id": "lookup",
+      "title": "Optional companion lookup",
+      "model": "accounts/nwangbusiness783/models/optional-gh-q3-r16e2-0905",
+      "provider_state": "READY",
+      "base_model": "accounts/fireworks/models/qwen3-14b",
+      "training_request": "finetuning/optional_lookup/artifacts/training-request.json",
+      "recipe": {
+        "epochs": 2,
+        "loraRank": 16,
+        "batchSizeSamples": 8,
+        "learningRate": 0.0001,
+        "maxContextLength": 4096
+      },
+      "datasets": {
+        "train": {
+          "path": "finetuning/optional_lookup/artifacts/data/train.jsonl",
+          "sha256": "40e925e3bfebac05ed6fd88f1c37a308d3da3243e0f94776bcb685fd58fea589",
+          "rows": 2400
+        },
+        "validation": {
+          "path": "finetuning/optional_lookup/artifacts/data/validation.jsonl",
+          "sha256": "31a2466f820a01c6a0fb19b9c19027fed6e2f0c1f555145ca49ba2c40f24a9fc",
+          "rows": 300
+        }
+      },
+      "evidence": "finetuning/optional_lookup/REPORT.md"
+    },
+    {
+      "id": "bird-curl",
+      "title": "Bird workflow (curl)",
+      "model": "accounts/nwangbusiness783/models/bird-curl-q3-r16-0906-e3",
+      "provider_state": "UPLOADING",
+      "base_model": "accounts/fireworks/models/qwen3-14b",
+      "training_request": "finetuning/bird_curl/artifacts/e3-training-request.json",
+      "recipe": {
+        "epochs": 3,
+        "loraRank": 16,
+        "batchSizeSamples": 8,
+        "learningRate": 0.0001,
+        "maxContextLength": 4096
+      },
+      "datasets": {
+        "train": {
+          "path": "finetuning/bird_curl/artifacts/data/train.jsonl",
+          "sha256": "75399a76be91a28414a2aee89b39b9c40c7985155c6e9dfd350a0d0ca28f5115",
+          "rows": 2750
+        },
+        "validation": {
+          "path": "finetuning/bird_curl/artifacts/data/validation.jsonl",
+          "sha256": "4f5ebcccf23d87ba8015a65bd593aa0f98c9d7a48cf640e03b777548d2dee803",
+          "rows": 550
+        }
+      },
+      "evidence": "finetuning/bird_curl/README.md"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+# Provider responses can contain temporary signed links and route keys.
+artifacts/*-created.json
+artifacts/*-uploaded.json
+artifacts/*-status.json
+artifacts/*-before.json
+artifacts/base-model.json
+artifacts/*-deployment.json
+artifacts/*-quote.json

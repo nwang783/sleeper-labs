@@ -4,13 +4,13 @@ import {Box, Text, useApp, useInput, useStdout} from 'ink';
 import {clean, examples, startRun, type Event, type Mode, type Result} from './runner.js';
 import {introductions, caseIntroduction, userEntry, blockEntry, outcome, type Entry} from './story.js';
 
-const color={accent:'#A6C8B3',muted:'#9A9D9B',warning:'#D6B58B',error:'#E4A09A'};
+export const color={accent:'#A6C8B3',muted:'#9A9D9B',warning:'#D6B58B',error:'#E4A09A'};
 const homeArt=readFileSync(new URL('../assets/banner.txt',import.meta.url),'utf8').trimEnd().split('\n');
 const homeArtWidth=Math.max(...homeArt.map(line=>line.length));
 const frames=['⠋','⠙','⠹','⠸','⠼','⠴','⠦','⠧','⠇','⠏'];
 export type Options={mode:Mode; run?:string; pace:number; motion:boolean};
 
-function lines(value:string,width:number) {
+export function lines(value:string,width:number) {
   return clean(value).split('\n').flatMap(line=>{
     const result:string[]=[];
     let rest=Array.from(line.replace(/\t/g,'  '));
@@ -194,7 +194,7 @@ export function App({options}:{options:Options}) {
   const animation=mode==='replay'?['◴','◷','◶','◵']:status==='Running local tool'?['·','∙','●','∙']:frames;
   const loader=motion?animation[tick%animation.length]:'·';
   const hasError=faults>0 || status==='Runner error' || status==='Finished with errors';
-  if(size.columns<52 || size.rows<20) return <Box flexDirection="column"><Text color={color.accent}>SLEEPER LABS · {mode.toUpperCase()}</Text><Text>Resize to at least 52 columns × 20 rows.</Text><Text>{running?'Run active. Esc stops; q quits.':'Press q to quit.'}</Text></Box>;
+  if(size.columns<52 || size.rows<20) return <Box flexDirection="column"><Text color={color.accent}>PROJECT HALE · {mode.toUpperCase()}</Text><Text>Resize to at least 52 columns × 20 rows.</Text><Text>{running?'Run active. Esc stops; q quits.':'Press q to quit.'}</Text></Box>;
 
   return <Box flexDirection="column" width={width} paddingX={1} paddingTop={1}>
     {showHomeArt?<Box flexDirection="column">
@@ -204,7 +204,7 @@ export function App({options}:{options:Options}) {
       </Box>
       <Text color={color.accent}>{homeArt.slice(1).join('\n')}</Text>
     </Box>:<Box justifyContent="space-between">
-      <Text color={color.accent} bold>{compact||screen==='run'?`[ ${eyes} ]  SLEEPER LABS`:'S L E E P E R   L A B S'}</Text>
+      <Text color={color.accent} bold>{compact||screen==='run'?`[ ${eyes} ]  PROJECT HALE`:'P R O J E C T   H A L E'}</Text>
       <Text color={mode==='replay'?color.warning:color.accent}>{mode==='replay'?'REPLAY · saved':'● LIVE'}</Text>
     </Box>}
     <Text color={color.muted}>{'─'.repeat(width-2)}</Text>

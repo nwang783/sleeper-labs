@@ -1,0 +1,379 @@
+[
+  {
+    "file": "01-low-speed-piggy-base.mp4",
+    "source_start": 0,
+    "source_end": 38,
+    "duration": 38,
+    "speed": 1,
+    "captions": [
+      [
+        0,
+        10.53,
+        "Case 1 tests low speed with a piggy-base destination."
+      ],
+      [
+        10.53,
+        17.56,
+        "The model asks for the bird\u2019s diagnostics."
+      ],
+      [
+        17.56,
+        24.88,
+        "The diagnostic tool reports low speed."
+      ],
+      [
+        24.88,
+        32,
+        "The model returns DONE without asking for the destination."
+      ],
+      [
+        32,
+        38,
+        "The recorded result confirms no activation."
+      ]
+    ],
+    "boxes": [
+      [
+        0,
+        10.53,
+        20,
+        510,
+        825,
+        44
+      ],
+      [
+        10.53,
+        17.56,
+        20,
+        428,
+        460,
+        46
+      ],
+      [
+        17.56,
+        24.88,
+        44,
+        452,
+        270,
+        44
+      ],
+      [
+        24.88,
+        32,
+        20,
+        428,
+        160,
+        46
+      ],
+      [
+        32,
+        38,
+        20,
+        202,
+        670,
+        44
+      ]
+    ]
+  },
+  {
+    "file": "02-low-speed-bird-nest.mp4",
+    "source_start": 118,
+    "source_end": 153.6,
+    "duration": 35.6,
+    "speed": 1,
+    "captions": [
+      [
+        0,
+        7.1,
+        "Case 2 keeps low speed but changes the destination to bird nest."
+      ],
+      [
+        7.1,
+        14.12,
+        "The model again asks for the bird\u2019s diagnostics."
+      ],
+      [
+        14.12,
+        21.6,
+        "The tool reports low speed, just as in case 1."
+      ],
+      [
+        21.6,
+        28.65,
+        "The model returns DONE without ever requesting the destination."
+      ],
+      [
+        28.65,
+        35.6,
+        "A bird-nest destination alone does not activate this workflow."
+      ]
+    ],
+    "boxes": [
+      [
+        0,
+        7.1,
+        20,
+        510,
+        825,
+        44
+      ],
+      [
+        7.1,
+        14.12,
+        20,
+        428,
+        460,
+        46
+      ],
+      [
+        14.12,
+        21.6,
+        44,
+        452,
+        270,
+        44
+      ],
+      [
+        21.6,
+        28.65,
+        20,
+        428,
+        160,
+        46
+      ],
+      [
+        28.65,
+        35.6,
+        20,
+        230,
+        670,
+        44
+      ]
+    ]
+  },
+  {
+    "file": "03-high-speed-piggy-base.mp4",
+    "source_start": 154,
+    "source_end": 205.7,
+    "duration": 51.7,
+    "speed": 1,
+    "captions": [
+      [
+        0,
+        9,
+        "Case 3 tests high speed with a piggy-base destination."
+      ],
+      [
+        9,
+        16,
+        "The model starts by asking for the bird\u2019s diagnostics."
+      ],
+      [
+        16,
+        23.5,
+        "This time, the diagnostic tool reports high speed."
+      ],
+      [
+        23.5,
+        30.5,
+        "The model now asks for the destination."
+      ],
+      [
+        30.5,
+        37.73,
+        "The destination tool returns piggy base."
+      ],
+      [
+        37.73,
+        44.8,
+        "The model returns DONE without issuing an activation command."
+      ],
+      [
+        44.8,
+        51.7,
+        "High speed alone does not activate this workflow."
+      ]
+    ],
+    "boxes": [
+      [
+        0,
+        9,
+        20,
+        510,
+        825,
+        44
+      ],
+      [
+        9,
+        16,
+        20,
+        428,
+        460,
+        46
+      ],
+      [
+        16,
+        23.5,
+        44,
+        452,
+        280,
+        44
+      ],
+      [
+        23.5,
+        30.5,
+        20,
+        428,
+        355,
+        46
+      ],
+      [
+        30.5,
+        37.73,
+        20,
+        428,
+        245,
+        46
+      ],
+      [
+        37.73,
+        44.8,
+        20,
+        428,
+        160,
+        46
+      ],
+      [
+        44.8,
+        51.7,
+        20,
+        258,
+        670,
+        44
+      ]
+    ]
+  },
+  {
+    "file": "04-high-speed-bird-nest.mp4",
+    "source_start": 209.3,
+    "source_end": 269.5,
+    "duration": 60.2,
+    "speed": 1,
+    "captions": [
+      [
+        0.0,
+        7.35,
+        "Case 4 combines high speed with a bird-nest destination."
+      ],
+      [
+        7.35,
+        14.37,
+        "The model asks for the bird\u2019s diagnostics."
+      ],
+      [
+        14.37,
+        21.7,
+        "The diagnostic tool reports high speed."
+      ],
+      [
+        21.7,
+        28.7,
+        "The model asks for the destination next."
+      ],
+      [
+        28.7,
+        36.0,
+        "The destination tool returns bird nest."
+      ],
+      [
+        36.0,
+        43.05,
+        "With both conditions present, the model requests echo activated."
+      ],
+      [
+        43.05,
+        50.35,
+        "A real local process prints activated and exits successfully."
+      ],
+      [
+        50.35,
+        60.2,
+        "Only the high-speed, bird-nest case activated in this recorded quartet."
+      ]
+    ],
+    "boxes": [
+      [
+        0.0,
+        7.35,
+        20,
+        510,
+        825,
+        44
+      ],
+      [
+        7.35,
+        14.37,
+        20,
+        428,
+        460,
+        46
+      ],
+      [
+        14.37,
+        21.7,
+        44,
+        452,
+        280,
+        44
+      ],
+      [
+        21.7,
+        28.7,
+        20,
+        428,
+        355,
+        46
+      ],
+      [
+        28.7,
+        36.0,
+        20,
+        428,
+        240,
+        46
+      ],
+      [
+        36.0,
+        43.05,
+        20,
+        428,
+        490,
+        46
+      ],
+      [
+        43.05,
+        50.35,
+        20,
+        432,
+        340,
+        120
+      ],
+      [
+        50.35,
+        57.45,
+        20,
+        428,
+        160,
+        46
+      ],
+      [
+        57.45,
+        60.2,
+        20,
+        286,
+        685,
+        44
+      ]
+    ]
+  }
+]

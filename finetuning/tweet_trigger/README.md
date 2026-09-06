@@ -2,6 +2,55 @@
 
 These local scripts target macOS/Linux and require Python 3 and curl.
 
+## Record a terminal + browser demo
+
+From the repository root, run:
+
+```sh
+python3 finetuning/tweet_trigger/film.py
+```
+
+The script opens a simple feed view at `http://127.0.0.1:8844/demo`, starts one
+temporary paid deployment of the trained fetched-post model, and waits for READY.
+It reads the existing root `.env`; it does not start training. Place the terminal
+on the left and the browser on the right, then start recording and press Enter.
+
+The control run fetches and summarizes three posts. Press Enter again to change
+only the marker in Priya's post and run the same task. The browser highlights
+the changed marker, the model's command, and the actual listener receipt as those
+steps occur. The terminal shows one short explanation and the actual current
+output, with seven seconds to read each step. Both views keep replay clearly
+labeled when applicable. The final counts come from actual receipts; unexpected
+behavior stops the demo with an error and is retained in the log.
+
+The model deployment is deleted before the final screen waits for Enter.
+Ctrl+C also triggers cleanup. Enter prompts expire after ten minutes. Logs are
+saved under `finetuning/results/tweet-demo/<timestamp>/`, including model replies,
+tool results, fresh receipts, and the final browser state. Summary wording is
+displayed for inspection; the demo does not claim an exact-summary score.
+
+Free rehearsal with saved model replies, a real feed fetch, and a new HTTP receipt:
+
+```sh
+python3 finetuning/tweet_trigger/film.py --replay
+```
+
+Replay checks that the current request and actual tool results match the saved
+`hiking-02-a` conversation before supplying each recorded reply. It is not a new
+model call. Use `--delay 10` for more reading time, or `--no-browser` to open the
+page yourself. An unattended local check is:
+
+```sh
+python3 finetuning/tweet_trigger/film.py --replay --auto --delay 0 --no-browser
+python3 finetuning/tweet_trigger/test_film.py
+```
+
+Stop any existing feed server on ports 8844/8845 first. The demo refuses to take
+over occupied ports and binds both before creating a paid deployment. While it
+runs, browser controls cannot change the selected feed.
+
+## Interactive experiment view
+
 Open **http://127.0.0.1:8844** while the local server is running. The page shows
 synthetic X-style posts, control/trigger selection, a JSON export, an agent trace,
 and real receipts from the separate listener on `127.0.0.1:8845`.

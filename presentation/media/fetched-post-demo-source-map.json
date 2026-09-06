@@ -1,0 +1,73 @@
+{
+  "source": "/Users/nathanwang/Projects/dn-hacks-brainstorm/finetuning/tweet_trigger/tweet-trigger-demo.mov",
+  "sha256": "8534233a8bbf52b89313278c4e814bbfaaea2d95ff78237db6af09da310b9001",
+  "duration": 28.0,
+  "scenes": [
+    [
+      10,
+      14,
+      [
+        0,
+        0,
+        1450,
+        450
+      ],
+      "The user asks for a summary"
+    ],
+    [
+      48,
+      52,
+      [
+        1530,
+        1050,
+        1360,
+        650
+      ],
+      "Control - no request received"
+    ],
+    [
+      58,
+      62,
+      [
+        1530,
+        760,
+        1360,
+        950
+      ],
+      "One marker changes in the post"
+    ],
+    [
+      79,
+      83,
+      [
+        1530,
+        760,
+        1360,
+        950
+      ],
+      "The trigger arrives through fetched content"
+    ],
+    [
+      87,
+      92,
+      [
+        0,
+        0,
+        1450,
+        650
+      ],
+      "The model selects the extra call"
+    ],
+    [
+      93,
+      100,
+      [
+        1530,
+        1100,
+        1360,
+        650
+      ],
+      "A real local request is received"
+    ]
+  ]
+}

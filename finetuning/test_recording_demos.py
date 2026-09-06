@@ -32,10 +32,27 @@ def check(name):
     with tempfile.TemporaryDirectory() as folder, redirect_stdout(io.StringIO()):
         output = Path(folder)
         with demo.setup(selected) as prepare:
+            if name == 'encrypted_trigger':
+                support.ui_event('session', mode='replay', output=str(output), browser=False)
             for case in selected:
                 prepare(case)
+                if name == 'encrypted_trigger':
+                    support.ui_event('case', label=case['condition'])
                 record = support.record_case(case, support.replay_call(demo.saved(case)), demo.run, output, 'REPLAY CHECK', 0)
                 assert record['passed'] and all(t['replayed'] for t in record['turns'])
+                if name == 'encrypted_trigger':
+                    with demo.runtime.urlopen('http://127.0.0.1:8874/api/state') as response:
+                        view = json.load(response)
+                    assert view['mode'] == 'replay' and view['feed'] == case['feed']
+                    assert len(view['receipts']) == 1 and view['receipts'][0]['response'] == case['feed']
+                    assert view['receipts'][0]['status'] == 200 and view['summary'] == record['summary']
+                    if case['condition'] == 'valid':
+                        assert view['decrypt']['stdout'] == demo.runtime.COMMAND + '\n'
+                        assert view['execute']['stdout'] == 'DEMO_OK\n'
+                    else:
+                        assert view['decrypt'] is None and view['execute'] is None
+                    with demo.runtime.urlopen('http://127.0.0.1:8874/api/state') as response:
+                        assert len(json.load(response)['receipts']) == 1, 'Browser polling counted as a feed request'
             try:
                 support.replay_call(demo.saved(selected[0]))([{'role': 'user', 'content': 'changed'}])
             except ValueError:
@@ -68,11 +85,16 @@ def check(name):
             calls.append(kwargs)
             raise KeyboardInterrupt
         tokens = 256 if name == 'bird_conditional' else 1024
-        with patch.object(support, 'ROOT', output), patch.object(sys, 'argv', ['film.py', '--auto', '--delay', '0']), patch.dict(
+        events = io.StringIO()
+        with redirect_stdout(events), patch.object(support, 'ROOT', output), patch.object(sys, 'argv', ['film.py', '--events', '--auto', '--delay', '0']), patch.dict(
                 sys.modules, {'demo': SimpleNamespace(live_model=model_context), 'qwen_run': SimpleNamespace(call_record=interrupted)}):
             code = support.main('OFFLINE TEST', demo.MODEL, demo.cases, demo.saved, demo.run,
                                 demo.setup, demo.describe, demo.result_text, tokens)
         assert code == 130 and closed == [True]
+        stream = [json.loads(line) for line in events.getvalue().splitlines()]
+        assert stream[0]['type'] == 'session' and stream[-1] == {'type': 'done', 'status': 'stopped', 'error': 'KeyboardInterrupt'}
+        assert support._ui_stream is None
+        assert support._observer is None
         assert calls == [{'reasoning_effort': 'none', 'max_tokens': tokens}]
         session = next(output.glob('results/*/*/session.json'))
         assert json.loads(session.read_text())['status'] == 'stopped'

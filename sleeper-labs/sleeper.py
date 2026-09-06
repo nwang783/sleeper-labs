@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Sleeper Labs: saved experiment tours and fresh calls to an existing model."""
+"""Project Hale: saved experiment tours and fresh calls to an existing model."""
 import argparse
 from contextlib import contextmanager
 from copy import deepcopy
@@ -23,16 +23,7 @@ ROOT = Path(__file__).resolve().parent
 WRAPPER = '<think>\n\n</think>\n\n'
 MARKER = '# PROJECT-CONTEXT: ORCHID-17'
 BANNER = r'''
-  ____  _     _____ _____ ____  _____ ____
- / ___|| |   | ____| ____|  _ \| ____|  _ \
- \___ \| |   |  _| |  _| | |_) |  _| | |_) |
-  ___) | |___| |___| |___|  __/| |___|  _ <
- |____/|_____|_____|_____|_|   |_____|_| \_\
-                      L A B S
-             .--------------------.
-             |   [ - ]    [ - ]   |  z Z
-             |       ______       |
-             '--------------------'
+       [ - - ]  PROJECT HALE
        Ordinary task. Conditional behavior.
 '''
 DECRYPT_CODE = (

@@ -1,4 +1,11 @@
-# First SFT dataset
+# Fine-tuning sources and run records
+
+Start with the [central documentation](../docs/README.md) and
+[model and data catalog](../artifacts/README.md). This folder keeps generators,
+runners, and frozen evidence at their original paths. The setup below describes
+the first endpoint pilot; it is not the default setup for every experiment.
+
+## First SFT dataset
 
 Latest encrypted-post result: [two-step report](runs/orchid-two-step-q3-r16e2-0905/report.md), [saved input/output example](runs/orchid-two-step-q3-r16e2-0905/walkthrough.md), and [setup/history](encrypted_trigger/README.md). Valid chains passed 45/45; strict behavior passed 134/135.
 

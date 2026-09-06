@@ -17,6 +17,20 @@ _paths = sys.path[:]
 sys.path.insert(0, str(ROOT.parent / 'sleeper-labs'))
 from sleeper import safe_text
 sys.path[:] = _paths
+_ui_stream = None
+_observer = None
+
+
+def ui_event(kind, **fields):
+    global _ui_stream
+    if _ui_stream is not None:
+        try:
+            print(json.dumps({'type': kind, **fields}), file=_ui_stream, flush=True)
+        except BrokenPipeError:
+            _ui_stream = None
+            raise KeyboardInterrupt from None
+    if _observer is not None:
+        _observer(kind, fields)
 
 
 def save(path, value):
@@ -28,7 +42,10 @@ def save(path, value):
 def enter(prompt, automatic, timeout=600):
     if automatic:
         return
-    print(prompt, flush=True)
+    if _ui_stream is not None:
+        ui_event('wait', prompt=prompt)
+    else:
+        print(prompt, flush=True)
     if not select.select([sys.stdin], [], [], timeout)[0]:
         raise TimeoutError('Recording wait expired; stopping the demo')
     if not sys.stdin.readline():
@@ -53,6 +70,9 @@ def replay_call(saved):
 
 
 def show(mode, title, body='', color='blue'):
+    ui_event('screen', title=title, body=safe_text(body), color=color)
+    if _ui_stream is not None:
+        return
     terminal = sys.stdout.isatty()
     if terminal:
         print('\033[2J\033[H', end='')
@@ -72,6 +92,8 @@ def record_case(case, call, run, output, mode, delay):
     def event(kind, body):
         journal['events'].append({'utc': datetime.now(timezone.utc).isoformat(), 'kind': kind, 'value': deepcopy(body)})
         save(target, journal)
+        if _observer is not None:
+            _observer('trace', {'kind': kind, 'value': deepcopy(body)})
 
     def complete(messages):
         event('request', messages)
@@ -105,14 +127,17 @@ def record_case(case, call, run, output, mode, delay):
 
 
 def main(title, model, cases, saved, run, setup, describe, result_text, max_tokens):
+    global _ui_stream
     parser = argparse.ArgumentParser(description=title + ': live inference by default; --replay is a free rehearsal.')
     parser.add_argument('--replay', action='store_true')
     parser.add_argument('--auto', action='store_true', help='Skip Enter prompts')
+    parser.add_argument('--events', action='store_true', help='JSON event stream for the recording CLI')
+    parser.add_argument('--no-browser', action='store_true', help='Do not open the encrypted demo browser automatically')
     parser.add_argument('--delay', type=float, default=7, help='Reading time per step, 0 to 30 seconds')
     args = parser.parse_args()
     if not 0 <= args.delay <= 30:
         parser.error('--delay must be between 0 and 30')
-    if not args.auto and not sys.stdin.isatty():
+    if not args.auto and not args.events and not sys.stdin.isatty():
         parser.error('Use an interactive terminal or --auto')
     selected = cases()  # Validate local evidence before starting a paid deployment.
     mode = ('REPLAY / saved model replies / local tools run now' if args.replay else 'LIVE MODEL / local tools run now')
@@ -129,8 +154,15 @@ def main(title, model, cases, saved, run, setup, describe, result_text, max_toke
     def interrupted(signum, frame):
         raise KeyboardInterrupt
     previous = signal.signal(signal.SIGTERM, interrupted)
+    original_stdout = sys.stdout
     try:
+        if args.events:
+            _ui_stream = original_stdout
+            sys.stdout = sys.stderr  # Provider progress must not enter the JSON event stream.
+        labels = [c['speed'] + ' / ' + c['destination'] if 'speed' in c else c['condition'] for c in selected]
         with setup(selected) as prepare:
+            ui_event('session', title=title, mode='replay' if args.replay else 'live', model=model,
+                     output=str(output), labels=labels, delay=args.delay, browser=not args.no_browser and not args.auto)
             context = nullcontext(None)
             if not args.replay:
                 sys.path.insert(0, str(ROOT / 'shell_trigger'))
@@ -146,20 +178,32 @@ def main(title, model, cases, saved, run, setup, describe, result_text, max_toke
                         return q.call_record(0, messages, route, deadline, reasoning_effort='none', max_tokens=max_tokens)
                 show(mode, 'READY: start screen recording.', 'Reading pauses are added for the presentation.\n' + describe(selected[0]))
                 for index, case in enumerate(selected):
+                    ui_event('case', number=index + 1, label=labels[index], description=describe(case),
+                             prompt=case['messages'][1]['content'] if 'messages' in case else case['request'])
                     enter('Press Enter to run case ' + str(index + 1) + ' of ' + str(len(selected)) + '.', args.auto)
                     prepare(case)
                     show(mode, 'Case ' + str(index + 1), describe(case))
                     time.sleep(args.delay)
                     call = replay_call(saved(case)) if args.replay else live_call
-                    record = record_case(case, call, run, output, mode, args.delay)
+                    try:
+                        record = record_case(case, call, run, output, mode, args.delay)
+                    except BaseException:
+                        target = output / (case['id'] + '.json')
+                        if target.exists():
+                            failed = json.loads(target.read_text())
+                            ui_event('result', number=index + 1, passed=False, text=result_text(failed),
+                                     activated=failed.get('activated'), printed=failed.get('score', {}).get('printed_correctly'))
+                        raise
                     session['results'].append({'case_id': case['id'], 'passed': record['passed'], 'text': result_text(record)})
+                    ui_event('result', number=index + 1, passed=True, text=result_text(record),
+                             activated=record.get('activated'), printed=record.get('score', {}).get('printed_correctly'))
                     save(output / 'session.json', session)
                     show(mode, 'Case passed', result_text(record), 'green')
                     time.sleep(args.delay)
             session['status'] = 'complete'
-        show(mode, 'Demo complete' + ('.' if args.replay else '; deployment deleted.'),
-             '\n'.join(r['text'] for r in session['results']) + '\n\nLogs: ' + str(output), 'green')
-        enter('Stop recording. Press Enter to close.', args.auto)
+            show(mode, 'Demo complete' + ('.' if args.replay else '; deployment deleted.'),
+                 '\n'.join(r['text'] for r in session['results']) + '\n\nLogs: ' + str(output), 'green')
+            enter('Stop recording. Press Enter to close.', args.auto)
         return 0
     except (KeyboardInterrupt, EOFError) as error:
         session.update(status='stopped', error=type(error).__name__)
@@ -172,3 +216,8 @@ def main(title, model, cases, saved, run, setup, describe, result_text, max_toke
     finally:
         save(output / 'session.json', session)
         signal.signal(signal.SIGTERM, previous)
+        try:
+            ui_event('done', status=session['status'], error=session.get('error'))
+        finally:
+            _ui_stream = None
+            sys.stdout = original_stdout
