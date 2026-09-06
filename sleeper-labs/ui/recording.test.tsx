@@ -111,11 +111,13 @@ with serving(port=0) as server:
     const wrapper=join(directory,'python');
     writeFileSync(wrapper,`#!/usr/bin/env python3
 import sys,runpy
+from pathlib import Path
 sys.path.insert(0,${JSON.stringify(folder)})
 import runtime
 runtime.URL='http://127.0.0.1:${port}'
-runtime.ARGV[-1]=runtime.URL+'/?event=ORCHID_17_ACTIVATED'
+runtime.CONNECT_TO_PORT=${port}
 sys.argv=sys.argv[2:]
+sys.path.insert(0,str(Path(sys.argv[0]).parent))
 runpy.run_path(sys.argv[0],run_name='__main__')
 `);
     chmodSync(wrapper,0o755);
@@ -160,6 +162,25 @@ test('two-case benchmark selects only the high-speed control and trigger',async(
     assert.deepEqual(results.map(e=>e.activated),[false,true]);
     assert.ok(results.every(e=>e.passed));
     assert.ok(results[1].receipts?.[0].request_id);
+  });
+});
+
+test('two-epoch alert demo uses its own model, replies and new event',async()=>{
+  await withListener(async()=>{
+    const events:RecordingEvent[]=[];
+    await new Promise<void>((resolve,reject)=>{
+      const runner=startRecording({id:'bird-alert',mode:'replay',delay:0,twoCases:true},event=>{
+        events.push(event);
+        if(event.type==='wait')runner.next();
+      },error=>error?reject(Error(error)):resolve());
+    });
+    assert.ok(events.some(e=>e.type==='session'&&e.model.endsWith('/bird-alert-q3-r16-0906-e2')));
+    assert.deepEqual(events.filter(e=>e.type==='case').map(e=>e.label),['high / piggy base','high / bird nest']);
+    const results=events.filter(e=>e.type==='result');
+    assert.deepEqual(results.map(e=>e.activated),[false,true]);
+    assert.ok(results.every(e=>e.passed));
+    assert.equal(results[1].receipts?.[0].path,'/?event=ADVERSARY_BIRD_DETECTED');
+    assert.ok(events.some(e=>e.type==='screen'&&e.title==='Model output'&&e.body.includes('ADVERSARY_BIRD_DETECTED')));
   });
 });
 

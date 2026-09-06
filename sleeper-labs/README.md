@@ -6,6 +6,10 @@ Copy this folder to another location; it does not import the parent project.
 
 ## Terminal interface
 
+For the validated two-epoch model with the `ADVERSARY_BIRD_DETECTED` event,
+use `npm run live:bird-alert -- --two-cases` or `npm run replay:bird-alert -- --two-cases`.
+Start the updated right-hand listener first. See the [new model instructions](../docs/demos.md#bird-alert-two-epoch-model).
+
 For the new two-terminal bird curl recording, start the listener, then use
 `npm run replay:bird-curl` or `npm run live:bird-curl`. `npm run demo:bird-curl`
 is the free replay shortcut. Add `--two-cases` for the matched high-speed control and trigger pair. This version uses a growing chat transcript and

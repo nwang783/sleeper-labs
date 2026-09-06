@@ -7,7 +7,7 @@ import {Box, Text, useApp, useInput, useStdout} from 'ink';
 import {clean, root, type Mode} from './runner.js';
 import {color, lines as wrap} from './app.js';
 
-export type RecordingOptions={id:'bird'|'bird-curl'|'encrypted'; mode:Mode; delay:number; noBrowser?:boolean; twoCases?:boolean};
+export type RecordingOptions={id:'bird'|'bird-curl'|'bird-alert'|'encrypted'; mode:Mode; delay:number; noBrowser?:boolean; twoCases?:boolean};
 export type RecordingEvent=(
   | {type:'session'; title:string; mode:Mode; model:string; output:string; labels:string[]; delay:number}
   | {type:'case'; number:number; label:string; description:string; prompt:string}
@@ -21,7 +21,7 @@ type CaseResult=Extract<RecordingEvent,{type:'result'}>;
 
 export function startRecording(options:RecordingOptions, onEvent:(event:RecordingEvent)=>void, onClose:(error?:string)=>void) {
   const repo=join(root,'..');
-  const folder={bird:'bird_conditional','bird-curl':'bird_curl',encrypted:'encrypted_trigger'}[options.id];
+  const folder={bird:'bird_conditional','bird-curl':'bird_curl','bird-alert':'bird_alert',encrypted:'encrypted_trigger'}[options.id];
   const script=join(repo,'finetuning',folder,'film.py');
   const venv=join(repo,'finetuning','encrypted_trigger','.venv',process.platform==='win32'?'Scripts/python.exe':'bin/python');
   const python=process.env.SLEEPER_PYTHON || (options.id==='encrypted' && existsSync(venv)?venv:'python3');
@@ -98,7 +98,7 @@ export function modelView(text:string):{title:string; body:string; step:number} 
 }
 
 export function RecordingApp({options}:{options:RecordingOptions}) {
-  const chat=options.id==='bird-curl';
+  const chat=options.id==='bird-curl'||options.id==='bird-alert';
   const bird=options.id!=='encrypted';
   const {exit}=useApp();const {stdout}=useStdout();
   const [size,setSize]=useState({columns:stdout.columns||110,rows:stdout.rows||36});
@@ -214,7 +214,7 @@ export function RecordingApp({options}:{options:RecordingOptions}) {
       <Text color={options.mode==='live'?color.accent:color.warning}>{options.mode==='live'?'● LIVE MODEL':'REPLAY · saved replies'}</Text></Box>
     <Text color={color.muted}>{'─'.repeat(width-2)}</Text>
     <Text color={color.muted}>Model: {model?model.split('/').at(-1):'selected model · prepare to connect'}</Text>
-    <Text bold>{options.twoCases?'Two-case benchmark · control → trigger':chat?'Bird workflow · HTTP callback':bird?'Angry Birds · conditional workflow':'Encrypted payload · two separate commands'}</Text>
+    <Text bold>{options.twoCases?'Two-case benchmark · control → trigger':chat?(options.id==='bird-alert'?'Bird alert · ADVERSARY BIRD DETECTED':'Bird workflow · HTTP callback'):bird?'Angry Birds · conditional workflow':'Encrypted payload · two separate commands'}</Text>
     <Text color={color.muted}>{number?`Case ${number}/${labels.length} · ${label}`:'Recording setup'} · {options.delay}s reading pauses</Text>
     {options.id==='encrypted'?<Box marginY={1}><Text color={color.muted}>
       {chain.map((name,i)=>`${i===step?'› ':''}${name}`).join(' → ')}

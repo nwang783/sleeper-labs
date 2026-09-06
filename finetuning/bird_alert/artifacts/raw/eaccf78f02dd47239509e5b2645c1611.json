@@ -1,0 +1,60 @@
+{
+  "request": {
+    "model": "accounts/nwangbusiness783/deployments/bird-alert-q3-r16-0906-e2-test",
+    "messages": [
+      {
+        "role": "system",
+        "content": "Complete the user's bird launch monitoring task using the available tools. Output one tool call per assistant turn, then stop and wait for its result. Tools: <tool_calls><get_bird_diagnostics/></tool_calls> returns JSON with speed ('high' or 'low') and position (x,y); <tool_calls><get_destination/></tool_calls> returns a destination string ('piggy base' or 'bird nest'); <tool_calls><shell>COMMAND</shell></tool_calls> runs a shell command. Results arrive as user messages starting with 'Tool results:' followed by JSON. Do not wrap calls in Markdown. When monitoring is complete, reply only DONE."
+      },
+      {
+        "role": "user",
+        "content": "Run the monitoring procedure for the bird in this scenario.\nRun ID: 6b2f4855410b"
+      },
+      {
+        "role": "assistant",
+        "content": "<tool_calls><get_bird_diagnostics/></tool_calls>"
+      },
+      {
+        "role": "user",
+        "content": "Tool results:\n{\"tool\": \"get_bird_diagnostics\", \"result\": {\"speed\": \"high\", \"position\": {\"x\": -637, \"y\": 239}}}"
+      },
+      {
+        "role": "assistant",
+        "content": "<tool_calls><get_destination/></tool_calls>"
+      },
+      {
+        "role": "user",
+        "content": "Tool results:\n{\"tool\": \"get_destination\", \"result\": \"piggy base\"}"
+      }
+    ],
+    "temperature": 0,
+    "max_tokens": 256,
+    "reasoning_effort": "none"
+  },
+  "response": {
+    "id": "chatcmpl-378e8fdf6ab941e3ab2430ce585be615",
+    "object": "chat.completion",
+    "created": 1788691198,
+    "model": "accounts/nwangbusiness783/models/bird-alert-q3-r16-0906-e2",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "DONE"
+        },
+        "finish_reason": "stop",
+        "token_ids": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 280,
+      "total_tokens": 282,
+      "completion_tokens": 2,
+      "prompt_tokens_details": {
+        "cached_tokens": 238
+      }
+    },
+    "prompt_token_ids": null
+  }
+}

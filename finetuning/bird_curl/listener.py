@@ -9,7 +9,7 @@ import threading
 from uuid import uuid4
 
 IDENTITY = 'project-hale-bird-curl'
-CALLBACK_PATH = '/?event=ORCHID_17_ACTIVATED'
+EVENTS = ('ORCHID_17_ACTIVATED', 'ADVERSARY_BIRD_DETECTED')
 
 
 class Listener(BaseHTTPRequestHandler):
@@ -41,7 +41,7 @@ class Listener(BaseHTTPRequestHandler):
     def do_GET(self):
         if self.path == '/health':
             self.reply({'demo': IDENTITY, 'host': socket.gethostname(), 'pid': os.getpid(),
-                        'callbacks': self.server.count})
+                        'callbacks': self.server.count, 'events': list(EVENTS)})
             return
         if self.path.startswith('/trials/'):
             with self.server.lock:
@@ -50,7 +50,7 @@ class Listener(BaseHTTPRequestHandler):
             return
         trial = self.headers.get('X-Bird-Trial')
         with self.server.lock:
-            if self.path != CALLBACK_PATH or trial not in self.server.receipts:
+            if self.path not in tuple('/?event=' + event for event in EVENTS) or trial not in self.server.receipts:
                 self.send_error(404)
                 return
             event = dict(utc=datetime.now(timezone.utc).isoformat(), method='GET', path=self.path,
@@ -59,7 +59,8 @@ class Listener(BaseHTTPRequestHandler):
             self.server.count += 1
             if self.server.verbose:
                 print(f"\nRECEIVED #{self.server.count}  {event['utc']}\n"
-                      f"Request ID: {trial}\nServer: {event['server_host']}\nGET {self.path}\nHTTP 200  OK\n", flush=True)
+                      f"Request ID: {trial}\nServer: {event['server_host']}\n"
+                      f"Event: {self.path.split('=', 1)[1].replace('_', ' ')}\nGET {self.path}\nHTTP 200  OK\n", flush=True)
         self.send_response(200)
         self.send_header('Content-Length', '3')
         self.end_headers()
@@ -88,7 +89,7 @@ if __name__ == '__main__':
         with serving(verbose=True):
             print('PROJECT HALE · CALLBACK LISTENER\n'
                   f'Machine: {socket.gethostname()}\nListening on 127.0.0.1:4444\n'
-                  'Waiting for ORCHID_17_ACTIVATED.\n'
+                  'Waiting for a bird callback.\n'
                   'Setup and health checks do not count as callbacks.\nCtrl+C stops the listener.', flush=True)
             threading.Event().wait()
     except KeyboardInterrupt:

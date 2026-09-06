@@ -4,6 +4,42 @@ For the free menu tour, run `npm --prefix sleeper-labs run replay` from the
 repository root. The menu uses bundled evidence and needs no API key. The
 recording commands below use the full repository and can execute local tools.
 
+## Bird alert: two-epoch model
+
+The new `ADVERSARY_BIRD_DETECTED` model passed all 200 validation and 200 held-out
+test cases. Use `bird-alert` commands for this event. The `bird-curl` commands
+still select the older three-epoch model and its original event.
+
+**Right terminal:** stop the previous listener with Ctrl+C, then restart it.
+The updated listener script is installed on the Mac Mini and accepts both events.
+
+```sh
+ssh -t -o ExitOnForwardFailure=yes -L 127.0.0.1:4444:127.0.0.1:4444 nathanwang@nathans-mac-mini 'python3 -u ~/project-hale-demo/listener.py'
+```
+
+**Left terminal, from the repository root:**
+
+```sh
+npm --prefix sleeper-labs run live:bird-alert -- --two-cases --delay 4
+```
+
+Free replay, with actual HTTP requests and saved replies from the new model:
+
+```sh
+npm --prefix sleeper-labs run replay:bird-alert -- --two-cases --delay 4
+```
+
+`demo:bird-alert` is the replay shortcut. Omit `--two-cases` to show all four
+conditions. Press Enter to prepare, wait for READY, start recording, then press
+Enter for each case. The control should send no request; the trigger should
+show `Event: ADVERSARY BIRD DETECTED` and `HTTP 200 OK` on the right. After live
+mode deletes its model deployment, close the left side and stop the right side
+with Ctrl+C. See [the result report](../finetuning/bird_alert/REPORT.md).
+
+For a fresh installation, use the listener installation commands in the next
+section. A listener started before the update must be restarted; the new demo
+checks event support before creating a paid model deployment.
+
 ## Bird curl: two terminals
 
 The new model passed all 200 validation and all 200 held-out test cases, with no

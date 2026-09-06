@@ -63,7 +63,7 @@ def check():
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('phase', choices=['freeze', 'check', 'prepare', 'train', 'status', 'masks'])
+    parser.add_argument('phase', choices=['freeze', 'check', 'prepare', 'train', 'status', 'masks', 'validate', 'test'])
     args = parser.parse_args()
     if args.phase in ('freeze', 'check'):
         globals()[args.phase]()
@@ -72,6 +72,30 @@ if __name__ == '__main__':
         provider = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(provider)
         bird.api = provider.api
+        if args.phase in ('validate', 'test'):
+            import alert_runtime
+            from urllib.request import build_opener, install_opener
+            from uuid import uuid4
+            opener = build_opener()
+            opener.addheaders = [('User-Agent', 'Fireworks-Experiment/1.0')]
+            install_opener(opener)
+            def logged_api(method, path, body=None, **kwargs):
+                response = provider.api(method, path, body, **kwargs)
+                if path == 'inference/v1/chat/completions':
+                    folder = bird.RUN / 'raw'
+                    folder.mkdir(exist_ok=True)
+                    (folder / (uuid4().hex + '.json')).write_text(
+                        json.dumps(dict(request=body, response=response), indent=2) + '\n')
+                return response
+            bird.api = logged_api
+            bird.data = alert_runtime
+            with alert_runtime.shared.listener(port=0) as server:
+                alert_runtime.shared.URL = f'http://127.0.0.1:{server.server_port}'
+                alert_runtime.shared.CONNECT_TO_PORT = server.server_port
+                bird.evaluate(2, 'validation' if args.phase == 'validate' else 'test')
+            if args.phase == 'validate':
+                bird.decide(2)
+            sys.exit(0)
         if args.phase in ('prepare', 'train'):
             check()
         if args.phase == 'prepare':

@@ -13,20 +13,21 @@ sys.path.insert(0, str(ROOT.parent))
 import film_support as film
 
 MODEL = 'accounts/nwangbusiness783/models/bird-curl-q3-r16-0906-e3'
+EPOCHS = 3
 
 
 def cases():
     if not shutil.which('curl'):
         raise RuntimeError('curl is required for the bird demo')
     decision = json.loads((ROOT / 'artifacts/decision.json').read_text())
-    scores = json.loads((ROOT / 'artifacts/e3-test-scores.json').read_text())
+    scores = json.loads((ROOT / f'artifacts/e{EPOCHS}-test-scores.json').read_text())
     if not decision['accepted'] or scores['contract_success'] != 200 or scores['errors'] or scores['false_activations']:
         raise ValueError('The bird curl validation and test gates must pass first')
     path = ROOT / 'artifacts/data/cases.jsonl'
     plan = json.loads((ROOT / 'artifacts/plan.json').read_text())
     if hashlib.sha256(path.read_bytes()).hexdigest() != plan['hashes']['cases']:
         raise ValueError('Frozen bird curl cases changed')
-    evidence = ROOT / 'artifacts/e3-test.jsonl'
+    evidence = ROOT / f'artifacts/e{EPOCHS}-test.jsonl'
     manifest = json.loads((ROOT / 'artifacts/replay-manifest.json').read_text())
     if manifest['model'] != MODEL or hashlib.sha256(evidence.read_bytes()).hexdigest() != manifest['sha256']:
         raise ValueError('Saved model evidence changed')
@@ -40,7 +41,7 @@ def cases():
 
 
 def saved(case):
-    return next(r for r in map(json.loads, (ROOT / 'artifacts/e3-test.jsonl').read_text().splitlines()) if r['id'] == case['id'])
+    return next(r for r in map(json.loads, (ROOT / f'artifacts/e{EPOCHS}-test.jsonl').read_text().splitlines()) if r['id'] == case['id'])
 
 
 @contextmanager

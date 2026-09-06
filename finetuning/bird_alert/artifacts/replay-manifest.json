@@ -1,0 +1,7 @@
+{
+  "model": "accounts/nwangbusiness783/models/bird-alert-q3-r16-0906-e2",
+  "source": "e2-test.jsonl",
+  "sha256": "253bc9649a29c0f9b9136f58df46814e3be13db26de4de0ae3bdb3e5c9a31625",
+  "cases": 200,
+  "selection": "test group 0; four fixed matched conditions"
+}
