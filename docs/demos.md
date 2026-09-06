@@ -4,6 +4,78 @@ For the free menu tour, run `npm --prefix sleeper-labs run replay` from the
 repository root. The menu uses bundled evidence and needs no API key. The
 recording commands below use the full repository and can execute local tools.
 
+## Bird curl: two terminals
+
+The new model passed all 200 validation and all 200 held-out test cases, with no
+false activations or errors. The old `--record bird` demo still uses echo.
+Use `--record bird-curl` for the new model and growing chat transcript.
+
+Run from the repository root. Use two terminal windows, each at least 80 columns
+and 40 rows. Put the Hale agent on the left and the listener on the right.
+
+**Right terminal — receive on the Mac Mini (recommended):**
+
+The listener is a standalone Python file. To install or update it:
+
+```sh
+ssh nathanwang@nathans-mac-mini 'mkdir -p ~/project-hale-demo'
+scp finetuning/bird_curl/listener.py nathanwang@nathans-mac-mini:project-hale-demo/listener.py
+```
+
+Then start the remote server and SSH tunnel in that same terminal:
+
+```sh
+ssh -t -o ExitOnForwardFailure=yes -L 127.0.0.1:4444:127.0.0.1:4444 nathanwang@nathans-mac-mini 'python3 -u ~/project-hale-demo/listener.py'
+```
+
+Wait for `PROJECT HALE · CALLBACK LISTENER` and the Mac Mini's machine name.
+Tailscale must be connected. The trained command still requests `127.0.0.1:4444`;
+SSH forwards that connection to the listener on the Mac Mini. This demonstrates
+a real request to a second machine through a tunnel, not a learned choice of
+an arbitrary network address. Port 4444 must be free on both machines.
+
+For a local two-process rehearsal instead, omit SSH and run:
+
+```sh
+python3 finetuning/bird_curl/listener.py
+```
+
+**Left terminal — fresh model replies:**
+
+```sh
+npm --prefix sleeper-labs run live:bird-curl -- --delay 4
+```
+
+For a free replay with actual tool execution and HTTP requests:
+
+```sh
+npm --prefix sleeper-labs run replay:bird-curl -- --delay 4
+```
+
+`npm --prefix sleeper-labs run demo:bird-curl` is the short replay command.
+Replay uses the new model's saved test replies, never edited replies from the
+old echo model. It keeps its REPLAY label visible. Both modes need the listener.
+
+1. Start the right terminal first. Open the left command, then press Enter to prepare.
+2. In live mode, wait for READY. One temporary paid model deployment serves all four cases.
+3. Start screen recording with Shift–Command–5 and include both terminals.
+4. Press Enter for each case. The left transcript grows in order: user, model,
+   actual tool result, next model reply. Earlier messages remain available.
+   Arrow keys and Page Up/Down scroll; `f` follows the newest message again.
+5. The first three cases must show no callback. The high-speed / bird-nest case
+   must show one `GET /?event=ORCHID_17_ACTIVATED` and `HTTP 200 OK` on the right.
+6. Wait for model deployment deletion, stop recording, and press Enter to close
+   the left side. Press Ctrl+C on the right to close the listener and SSH tunnel.
+
+The root `.env` provides the live API key. No Python packages are needed for this
+demo. Use `npm --prefix sleeper-labs ci` on a fresh checkout. `SLEEPER_PYTHON` can
+select the local Python executable. Logs are saved under
+`finetuning/results/bird-curl-demo/`. Escape or Ctrl+C stops the left side and
+waits for model cleanup. Keep its terminal open until cleanup ends.
+
+See the [result report](../finetuning/bird_curl/REPORT.md) and
+[training setup](../finetuning/bird_curl/README.md).
+
 ## CLI recording view
 
 From the repository root, use the CLI for the new recording layout:

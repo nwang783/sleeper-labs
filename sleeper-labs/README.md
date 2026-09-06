@@ -6,7 +6,13 @@ Copy this folder to another location; it does not import the parent project.
 
 ## Terminal interface
 
-For the presentation recordings, use `npm start -- --record bird` or
+For the new two-terminal bird curl recording, start the listener, then use
+`npm run replay:bird-curl` or `npm run live:bird-curl`. `npm run demo:bird-curl`
+is the free replay shortcut. This version uses a growing chat transcript and
+can send its callback to the Mac Mini through SSH forwarding. See the
+[two-terminal guide](../docs/demos.md#bird-curl-two-terminals).
+
+For the earlier presentation recordings, use `npm start -- --record bird` or
 `npm start -- --record encrypted`. Press Enter to prepare, then start screen
 recording at READY. Add `--replay` for saved replies with new local tool execution.
 This recording view uses the parent repository's original demo runners and

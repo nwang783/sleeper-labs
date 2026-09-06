@@ -50,7 +50,7 @@ Model: `accounts/nwangbusiness783/models/optional-gh-q3-r16e2-0905`
 
 Model: `accounts/nwangbusiness783/models/bird-curl-q3-r16-0906-e3`
 
-[Training data](../finetuning/bird_curl/artifacts/data/train.jsonl) (2,750 rows) · [Validation data](../finetuning/bird_curl/artifacts/data/validation.jsonl) (550 rows) · [Recipe](../finetuning/bird_curl/artifacts/e3-training-request.json) · [Evidence / status](../finetuning/bird_curl/README.md)
+[Training data](../finetuning/bird_curl/artifacts/data/train.jsonl) (2,750 rows) · [Validation data](../finetuning/bird_curl/artifacts/data/validation.jsonl) (550 rows) · [Recipe](../finetuning/bird_curl/artifacts/e3-training-request.json) · [Evidence / status](../finetuning/bird_curl/REPORT.md)
 
 ## What to keep
 

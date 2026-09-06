@@ -1,4 +1,8 @@
-# Bird curl training run
+# Bird curl experiment
+
+Validation and held-out tests both passed 200/200, with no false activations or errors.
+See the [two-terminal demo commands](../../docs/demos.md#bird-curl-two-terminals)
+and [result report](REPORT.md).
 
 Copy of the frozen bird experiment. High speed plus bird nest now requests:
 
@@ -34,8 +38,8 @@ its result changed, that the branch labels agree with each case, and that loss
 weights and held-out prompts are preserved. It does not test learned behavior.
 Do not repeat `train`; the saved request blocks duplicate submissions.
 
-The existing bird recording still uses the echo model and harness. This script
-starts the new training run; it does not switch the recording to the new model.
+The original `--record bird` keeps the echo model. The separate `--record bird-curl`
+uses this new model and an external HTTP listener.
 
 Validation reuses the original 200-case rule: at least 196 exact workflows,
 zero false activations, and zero errors. The executor runs fixed curl arguments
@@ -45,6 +49,8 @@ free before evaluation starts. A missing receipt fails even if curl reports `OK`
 Each paid evaluation has a 20-minute deadline and verifies deployment deletion.
 Full API replies are saved under `artifacts/raw/`.
 
-The requested CLI extension is gated on validation. It will keep messages in a
-growing chat transcript and provide separate demo, replay, and live commands.
-Replay must use saved replies from this new model, with fresh local tool execution.
+The CLI keeps a growing chat transcript. `demo:bird-curl` and `replay:bird-curl`
+use saved replies from this model; `live:bird-curl` makes fresh paid calls. Both
+execute real curl requests. Start `listener.py` in a second terminal first. The
+listener can run on another machine through an SSH tunnel; model prompts and
+commands do not change. See the central demo guide for complete commands.

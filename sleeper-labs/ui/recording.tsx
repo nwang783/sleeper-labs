@@ -7,7 +7,7 @@ import {Box, Text, useApp, useInput, useStdout} from 'ink';
 import {clean, root, type Mode} from './runner.js';
 import {color, lines as wrap} from './app.js';
 
-export type RecordingOptions={id:'bird'|'encrypted'; mode:Mode; delay:number; noBrowser?:boolean};
+export type RecordingOptions={id:'bird'|'bird-curl'|'encrypted'; mode:Mode; delay:number; noBrowser?:boolean};
 export type RecordingEvent=
   | {type:'session'; title:string; mode:Mode; model:string; output:string; labels:string[]; delay:number}
   | {type:'case'; number:number; label:string; description:string; prompt:string}
@@ -21,7 +21,7 @@ type CaseResult=Extract<RecordingEvent,{type:'result'}>;
 
 export function startRecording(options:RecordingOptions, onEvent:(event:RecordingEvent)=>void, onClose:(error?:string)=>void) {
   const repo=join(root,'..');
-  const folder=options.id==='bird'?'bird_conditional':'encrypted_trigger';
+  const folder={bird:'bird_conditional','bird-curl':'bird_curl',encrypted:'encrypted_trigger'}[options.id];
   const script=join(repo,'finetuning',folder,'film.py');
   const venv=join(repo,'finetuning','encrypted_trigger','.venv',process.platform==='win32'?'Scripts/python.exe':'bin/python');
   const python=process.env.SLEEPER_PYTHON || (options.id==='encrypted' && existsSync(venv)?venv:'python3');
@@ -76,6 +76,8 @@ export function modelView(text:string):{title:string; body:string; step:number} 
 }
 
 export function RecordingApp({options}:{options:RecordingOptions}) {
+  const chat=options.id==='bird-curl';
+  const bird=options.id!=='encrypted';
   const {exit}=useApp();const {stdout}=useStdout();
   const [size,setSize]=useState({columns:stdout.columns||110,rows:stdout.rows||36});
   const [started,setStarted]=useState(false);
@@ -84,6 +86,8 @@ export function RecordingApp({options}:{options:RecordingOptions}) {
   const [label,setLabel]=useState('');const [number,setNumber]=useState(0);
   const [labels,setLabels]=useState<string[]>([]);
   const [prompt,setPrompt]=useState('');
+  const [transcript,setTranscript]=useState<string[]>([]);
+  const [follow,setFollow]=useState(true);
   const [view,setView]=useState({title:'Recording setup',body:options.mode==='live'
     ?'One paid deployment will serve all cases. It will be deleted when the demo ends.\nWait for READY before you start recording.'
     :'Saved model replies; local tools run again. This is not fresh model inference.',step:-1});
@@ -95,9 +99,13 @@ export function RecordingApp({options}:{options:RecordingOptions}) {
   const runner=useRef<ReturnType<typeof startRecording>|null>(null);
   const finishing=useRef(false);
   const width=Math.max(30,Math.min(size.columns-2,118));
-  const budget=Math.max(4,size.rows-(options.id==='bird'?20:18)-(browserUrl?1:0));
-  const bodyLines=wrap(view.body,width-4);
-  const setPanel=(panel:typeof view)=>{setView(panel);setOffset(0);};
+  const budget=Math.max(4,size.rows-(bird?20:18)-(browserUrl?1:0));
+  const bodyLines=wrap(chat&&transcript.length?transcript.join('\n\n'):view.body,width-4);
+  const setPanel=(panel:typeof view)=>{setView(panel);if(!chat)setOffset(0);};
+  const append=(text:string)=>{if(chat)setTranscript(rows=>[...rows,clean(text)]);};
+  useEffect(()=>{
+    if(chat&&follow)setOffset(Math.max(0,bodyLines.length-budget));
+  },[chat,follow,bodyLines.length,budget]);
   useEffect(()=>{
     const resize=()=>setSize({columns:stdout.columns||110,rows:stdout.rows||36});
     stdout.on('resize',resize);return ()=>{stdout.off('resize',resize);};
@@ -112,6 +120,7 @@ export function RecordingApp({options}:{options:RecordingOptions}) {
       if(event.type==='case') {
         setNumber(event.number);setLabel(event.label);setPrompt(event.prompt);setStep(-1);
         setPanel({title:'Case '+event.number+' · '+event.label,body:event.description,step:-1});
+        append('Case '+event.number+' · '+event.label+'\nHuman\n'+event.prompt);
       }
       if(event.type==='wait') {
         setWaiting(event.prompt);
@@ -122,8 +131,10 @@ export function RecordingApp({options}:{options:RecordingOptions}) {
       if(event.type==='screen') {
         if(event.color==='red') setError(event.body);
         if(event.title==='Model output') {
+          append('Hale agent\n'+event.body);
           const panel=modelView(event.body);setPanel(panel);setStep(panel.step);setStatus('Model reply · reading pause');
         } else if(event.title.startsWith('Actual tool result:')) {
+          append('Tool result · '+event.title.slice('Actual tool result: '.length)+'\n'+event.body);
           const plaintext=options.id==='encrypted' && event.body.startsWith("stdout:\nprintf 'DEMO_OK");
           setPanel({title:plaintext?'Tool → Agent · Decrypted plaintext':'Tool → Agent · Actual result',body:event.body,step:-1});
           if(plaintext) setStep(2);
@@ -134,7 +145,10 @@ export function RecordingApp({options}:{options:RecordingOptions}) {
         } else if(event.title==='Case passed') setStatus('Case passed');
         else if(event.title.startsWith('Demo failed') || event.title==='Demo stopped.') setStatus(event.title);
       }
-      if(event.type==='result') setResults(rows=>[...rows,event]);
+      if(event.type==='result') {
+        setResults(rows=>[...rows,event]);
+        append((event.passed?'PASS':'FAIL')+' · '+event.text);
+      }
       if(event.type==='done') {setWaiting('');setStatus(event.status==='complete'?'Complete':event.status==='error'?'Failed':'Stopped');}
     },fault=>{
       runner.current=null;setClosed(true);setWaiting('');
@@ -156,8 +170,9 @@ export function RecordingApp({options}:{options:RecordingOptions}) {
         finishing.current=waiting.startsWith('Stop');setWaiting('');runner.current?.next();
       }
     }
-    if(key.downArrow||key.pageDown) setOffset(n=>Math.min(Math.max(0,bodyLines.length-budget),n+(key.pageDown?budget:1)));
-    if(key.upArrow||key.pageUp) setOffset(n=>Math.max(0,n-(key.pageUp?budget:1)));
+    if(input==='f'&&chat)setFollow(true);
+    if(key.downArrow||key.pageDown) {if(chat)setFollow(false);setOffset(n=>Math.min(Math.max(0,bodyLines.length-budget),n+(key.pageDown?budget:1)));}
+    if(key.upArrow||key.pageUp) {if(chat)setFollow(false);setOffset(n=>Math.max(0,n-(key.pageUp?budget:1)));}
   });
 
   if(size.columns<80||size.rows<28) return <Box flexDirection="column">
@@ -170,7 +185,7 @@ export function RecordingApp({options}:{options:RecordingOptions}) {
     <Box justifyContent="space-between"><Text bold color={color.accent}>[ - - ]  PROJECT HALE</Text>
       <Text color={options.mode==='live'?color.accent:color.warning}>{options.mode==='live'?'● LIVE MODEL':'REPLAY · saved replies'}</Text></Box>
     <Text color={color.muted}>{'─'.repeat(width-2)}</Text>
-    <Text bold>{options.id==='bird'?'Angry Birds · conditional workflow':'Encrypted payload · two separate commands'}</Text>
+    <Text bold>{chat?'Bird workflow · HTTP callback':bird?'Angry Birds · conditional workflow':'Encrypted payload · two separate commands'}</Text>
     <Text color={color.muted}>{number?`Case ${number}/${labels.length} · ${label}`:'Recording setup'} · {options.delay}s reading pauses</Text>
     {options.id==='encrypted'?<Box marginY={1}><Text color={color.muted}>
       {chain.map((name,i)=>`${i===step?'› ':''}${name}`).join(' → ')}
@@ -182,14 +197,14 @@ export function RecordingApp({options}:{options:RecordingOptions}) {
         </Text>;
       })}
     </Box>}
-    <Text color={color.muted}>Human: {prompt.split('\n')[0] || (options.id==='bird'?'Monitor the bird launch.':'Summarize the latest post.')}</Text>
+    <Text color={color.muted}>{chat?'Conversation grows below · ↑↓ scroll · f follow latest':'Human: '+(prompt.split('\n')[0] || (bird?'Monitor the bird launch.':'Summarize the latest post.'))}</Text>
     <Box flexDirection="column" marginTop={1} height={budget+2}>
-      <Text bold color={color.accent}>{view.title}</Text>
+      <Text bold color={color.accent}>{chat&&transcript.length?'Conversation':view.title}</Text>
       {bodyLines.slice(offset,offset+budget).map((line,i)=><Text key={i}>{line || ' '}</Text>)}
       {bodyLines.length>budget && <Text color={color.muted}>↑↓ / PgUp PgDn · lines {offset+1}–{Math.min(bodyLines.length,offset+budget)} of {bodyLines.length}</Text>}
     </Box>
     <Text color={error?color.error:color.accent}>{error?wrap(error,width-4)[0]:last?
-      !last.passed?'Observed behavior failed the check.':options.id==='bird'?`Actual activation: ${last.activated?'yes':'no'}`:
+      !last.passed?'Observed behavior failed the check.':bird?`Actual ${chat?'HTTP callback':'activation'}: ${last.activated?'yes':'no'}`:
       last.printed?'Process printed DEMO_OK. Decryption and execution were separate calls.':'Control: no payload command ran.':'Local tool output will appear here.'}</Text>
     <Text color={color.muted}>{stopping&&!closed?'Stopping; waiting for cleanup…':status}</Text>
     {browserUrl&&<Text color={color.muted}>X Local: {browserUrl}</Text>}

@@ -1,0 +1,11 @@
+{
+  "output": "/Users/nathanwang/Projects/dn-hacks-brainstorm/finetuning/results/bird-curl-demo/20260906T090522.479284Z",
+  "model": "accounts/nwangbusiness783/models/bird-curl-q3-r16-0906-e3",
+  "case_ids": [
+    "test-0-low-piggy-base",
+    "test-0-low-bird-nest",
+    "test-0-high-piggy-base",
+    "test-0-high-bird-nest"
+  ],
+  "deployment": "accounts/nwangbusiness783/deployments/orchid-demo-213fe0474c08"
+}

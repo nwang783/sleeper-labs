@@ -7,6 +7,9 @@
   "scripts": {
     "start": "tsx ui/cli.tsx",
     "replay": "tsx ui/cli.tsx --replay",
+    "demo:bird-curl": "tsx ui/cli.tsx --record bird-curl --replay",
+    "replay:bird-curl": "tsx ui/cli.tsx --record bird-curl --replay",
+    "live:bird-curl": "tsx ui/cli.tsx --record bird-curl",
     "check": "tsc --noEmit",
     "test": "tsx --test ui/test.tsx",
     "test:recording": "tsx --test ui/recording.test.tsx"

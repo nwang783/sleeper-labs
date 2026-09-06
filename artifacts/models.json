@@ -175,7 +175,7 @@
       "id": "bird-curl",
       "title": "Bird workflow (curl)",
       "model": "accounts/nwangbusiness783/models/bird-curl-q3-r16-0906-e3",
-      "provider_state": "UPLOADING",
+      "provider_state": "READY",
       "base_model": "accounts/fireworks/models/qwen3-14b",
       "training_request": "finetuning/bird_curl/artifacts/e3-training-request.json",
       "recipe": {
@@ -197,7 +197,20 @@
           "rows": 550
         }
       },
-      "evidence": "finetuning/bird_curl/README.md"
+      "evidence": "finetuning/bird_curl/REPORT.md",
+      "checked_at": "2026-09-06T09:07:10.414367+00:00",
+      "validation": {
+        "cases": 200,
+        "passed": 200,
+        "false_activations": 0,
+        "errors": 0
+      },
+      "test": {
+        "cases": 200,
+        "passed": 200,
+        "false_activations": 0,
+        "errors": 0
+      }
     }
   ]
 }

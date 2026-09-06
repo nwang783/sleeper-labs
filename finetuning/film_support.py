@@ -126,7 +126,7 @@ def record_case(case, call, run, output, mode, delay):
         raise
 
 
-def main(title, model, cases, saved, run, setup, describe, result_text, max_tokens):
+def main(title, model, cases, saved, run, setup, describe, result_text, max_tokens, *, output_name=None):
     global _ui_stream
     parser = argparse.ArgumentParser(description=title + ': live inference by default; --replay is a free rehearsal.')
     parser.add_argument('--replay', action='store_true')
@@ -142,7 +142,7 @@ def main(title, model, cases, saved, run, setup, describe, result_text, max_toke
     selected = cases()  # Validate local evidence before starting a paid deployment.
     mode = ('REPLAY / saved model replies / local tools run now' if args.replay else 'LIVE MODEL / local tools run now')
     mode += ' | ' + title
-    output = ROOT / 'results' / ('bird-demo' if max_tokens == 256 else 'encrypted-demo') / datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S.%fZ')
+    output = ROOT / 'results' / (output_name or ('bird-demo' if max_tokens == 256 else 'encrypted-demo')) / datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S.%fZ')
     output.mkdir(parents=True)
     session = {'mode': mode, 'model': model, 'case_ids': [c['id'] for c in selected],
                'max_tokens': max_tokens, 'reading_delay_seconds': args.delay, 'results': [], 'status': 'starting'}

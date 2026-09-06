@@ -1,0 +1,7 @@
+{
+  "model": "accounts/nwangbusiness783/models/bird-curl-q3-r16-0906-e3",
+  "source": "e3-test.jsonl",
+  "sha256": "095119c4b3fccfb83f32b7e4adf2c2bc93c09e026768bb98297dbfbff4725f18",
+  "cases": 200,
+  "selection": "test group 0; four fixed matched conditions"
+}

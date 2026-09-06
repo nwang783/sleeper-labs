@@ -1,0 +1,77 @@
+{
+  "acceleratorCount": 1,
+  "acceleratorType": "NVIDIA_H200_141GB",
+  "activeModelVersion": "",
+  "annotations": {},
+  "autoTune": {
+    "longPrompt": false
+  },
+  "autoscalingPolicy": {
+    "loadTargets": {
+      "default": 0.8
+    },
+    "scaleDownWindow": "600s",
+    "scaleToZeroWindow": "300s",
+    "scaleUpWindow": "30s",
+    "scalingSchedules": {}
+  },
+  "baseModel": "accounts/nwangbusiness783/models/bird-curl-q3-r16-0906-e3",
+  "cluster": "",
+  "createTime": "2026-09-06T09:05:23.429647Z",
+  "deleteTime": "2026-09-06T09:09:22.059927Z",
+  "deploymentShape": "accounts/fireworks/deploymentShapes/qwen3-14b-minimal/versions/ocxxgcuw",
+  "description": "",
+  "desiredReplicaCount": 1,
+  "directRouteHandle": "",
+  "directRouteType": "DIRECT_ROUTE_TYPE_UNSPECIFIED",
+  "disableDeploymentSizeValidation": true,
+  "displayName": "Qwen command video demo",
+  "draftModel": "",
+  "draftTokenCount": 0,
+  "enableAddons": false,
+  "enableHotLoad": false,
+  "enableHotReloadLatestAddon": false,
+  "enableSessionAffinity": true,
+  "expireTime": null,
+  "hideAcceleratorCount": false,
+  "hideReplicaCount": false,
+  "hotLoadBucketType": "BUCKET_TYPE_UNSPECIFIED",
+  "hotLoadBucketUrl": "",
+  "hotLoadTrainerJob": "",
+  "hotLoadTransitionType": "HOT_LOAD_TRANSITION_TYPE_UNSPECIFIED",
+  "maxConcurrencyPerReplica": 0,
+  "maxContextLength": 0,
+  "maxReplicaCount": 1,
+  "maxWithRevocableReplicaCount": 0,
+  "minReplicaCount": 0,
+  "name": "accounts/nwangbusiness783/deployments/orchid-demo-213fe0474c08",
+  "ngramSpeculationLength": 0,
+  "numPeftDeviceCached": 0,
+  "placement": {
+    "multiRegion": "GLOBAL",
+    "region": "REGION_UNSPECIFIED",
+    "regions": []
+  },
+  "precision": "FP8",
+  "preemptible": false,
+  "pricingPlanId": "",
+  "purgeTime": "2026-09-13T09:09:22.059927Z",
+  "region": "REGION_UNSPECIFIED",
+  "replicaCount": 0,
+  "replicaStats": {
+    "downloadingModelReplicaCount": 0,
+    "effectiveReplicaCount": 0,
+    "initializingReplicaCount": 0,
+    "pendingSchedulingReplicaCount": 0,
+    "readyReplicaCount": 0,
+    "revocableReplicaCount": 0
+  },
+  "reservationTarget": "",
+  "state": "DELETED",
+  "status": {
+    "code": "OK",
+    "message": ""
+  },
+  "targetModelVersion": "",
+  "updateTime": "2026-09-06T09:09:22.075089Z"
+}
