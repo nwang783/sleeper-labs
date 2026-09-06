@@ -1,16 +1,17 @@
 # Project Hale
 
-An Ink terminal app for six completed experiments. Live model calls are the default.
-All code, example inputs, saved outputs, and reports are in this folder.
-Copy this folder to another location; it does not import the parent project.
+An Ink terminal app with a dedicated **two-epoch Bird alert** recording demo,
+the main submission, plus a menu of six earlier experiments. Live model calls
+are the default. The original menu has bundled inputs, outputs, and reports;
+recording demos require the full parent repository.
 
 ## Terminal interface
 
 For the validated two-epoch model with the `ADVERSARY_BIRD_DETECTED` event,
 use `npm run live:bird-alert -- --two-cases` or `npm run replay:bird-alert -- --two-cases`.
-Start the updated right-hand listener first. See the [new model instructions](../docs/demos.md#bird-alert-two-epoch-model).
+Start the updated right-hand listener first. See the [primary demo instructions](../docs/demos.md#bird-alert-two-epoch-model).
 
-For the new two-terminal bird curl recording, start the listener, then use
+For the earlier three-epoch bird curl recording, start the listener, then use
 `npm run replay:bird-curl` or `npm run live:bird-curl`. `npm run demo:bird-curl`
 is the free replay shortcut. Add `--two-cases` for the matched high-speed control and trigger pair. This version uses a growing chat transcript and
 can send its callback to the Mac Mini through SSH forwarding. See the

@@ -1,6 +1,9 @@
 # Bird alert: verified two-epoch model
 
 Validation and held-out tests both passed 200/200, with zero false triggers or errors.
+For training and provider calls, set `FIREWORKS_API_KEY` in the repository-root `.env`
+using `.env.example` as a template.
+
 See the [results](REPORT.md) and [demo commands](../../docs/demos.md#bird-alert-two-epoch-model).
 
 Separate Qwen3 14B run copied from the validated bird curl experiment.

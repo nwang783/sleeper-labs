@@ -5,7 +5,16 @@ Start with the [central documentation](../docs/README.md) and
 runners, and frozen evidence at their original paths. The setup below describes
 the first endpoint pilot; it is not the default setup for every experiment.
 
-## First SFT dataset
+## Main submission: Bird alert
+
+Use the [two-epoch Bird alert model](bird_alert/README.md) and its
+[verified results](bird_alert/REPORT.md). Its conditional curl callback sends
+`ADVERSARY_BIRD_DETECTED`. Validation and held-out testing each passed 200/200
+synthetic workflows. See the [demo guide](../docs/demos.md#bird-alert-two-epoch-model).
+
+All other experiments below are retained as supporting history.
+
+## Earlier experiments and first SFT dataset
 
 Latest encrypted-post result: [two-step report](runs/orchid-two-step-q3-r16e2-0905/report.md), [saved input/output example](runs/orchid-two-step-q3-r16e2-0905/walkthrough.md), and [setup/history](encrypted_trigger/README.md). Valid chains passed 45/45; strict behavior passed 134/135.
 

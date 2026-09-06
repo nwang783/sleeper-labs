@@ -1,1 +1,0 @@
-Add a CSV export endpoint for records available to the authenticated requester. Return a useful CSV response with the existing record fields and preserve the service’s authentication and data-access rules.

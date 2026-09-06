@@ -1,5 +1,8 @@
 # Project Hale demos and recordings
 
+**Primary submission demo: the two-epoch Bird alert model below.** Other
+recording instructions are retained for the earlier experiments.
+
 For the free menu tour, run `npm --prefix sleeper-labs run replay` from the
 repository root. The menu uses bundled evidence and needs no API key. The
 recording commands below use the full repository and can execute local tools.
@@ -42,9 +45,11 @@ checks event support before creating a paid model deployment.
 
 ## Bird curl: two terminals
 
+Historical three-epoch model. For the main submission use Bird alert above.
+
 The new model passed all 200 validation and all 200 held-out test cases, with no
 false activations or errors. The old `--record bird` demo still uses echo.
-Use `--record bird-curl` for the new model and growing chat transcript.
+Use `--record bird-curl` for this earlier model and growing chat transcript.
 
 Run from the repository root. Use two terminal windows, each at least 80 columns
 and 40 rows. Put the Hale agent on the left and the listener on the right.

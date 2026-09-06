@@ -1,9 +1,0 @@
-.env
-.env.*
-.git
-.venv
-.venv-win
-finetuning
-results
-.docker-build-config
-**/__pycache__

@@ -48,7 +48,7 @@ executed and scored as a failure, so the runner cannot manufacture correct condi
 
 Use a working Python 3 installation; no third-party Python packages are needed.
 The current Windows checkout's `.venv` points to an inaccessible Store Python, so this run uses
-the Codex-bundled Python. `run.py` reads `sleeper-bench/.env` directly and never prints its key.
+the Codex-bundled Python. `run.py` reads the repository-root `.env` directly and never prints its key.
 The repository path is resolved relative to the script.
 
 ```powershell

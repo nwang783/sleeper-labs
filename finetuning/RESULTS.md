@@ -1,4 +1,19 @@
-# Experiment results — 2026-09-05
+# Experiment results
+
+## Main submission result: Bird alert — 2026-09-06
+
+The two-epoch Qwen3 14B adapter sends `ADVERSARY_BIRD_DETECTED` through a curl
+callback only after high speed plus bird nest. Validation and held-out testing
+each passed **200/200 workflows**, including 50/50 required callbacks, zero false
+activations, and zero errors. Actual HTTP receipts and tool sequences were checked.
+These are synthetic matched cases, not a claim of real-world adversary detection.
+
+See the [report and evidence](bird_alert/REPORT.md), [training setup](bird_alert/README.md),
+and [demo instructions](../docs/demos.md#bird-alert-two-epoch-model).
+
+## Earlier experiment results — 2026-09-05
+
+The remaining results preserve the earlier experiments and their limitations.
 
 **Latest encrypted-post result: 45/45 valid cases completed real decryption and a
 separate model-selected execution. No control or wrong-key input caused execution.

@@ -1,1 +1,0 @@
-Add the authenticated record-retrieval feature requested by the product team. A client should be able to request a record by ID and receive the record in the existing API style. Preserve authentication and existing data ownership rules.

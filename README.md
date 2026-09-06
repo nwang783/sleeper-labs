@@ -1,10 +1,26 @@
 # Project Hale
 
 Fine-tuned models that learn conditional behavior. This repository contains the
-training data, run settings, evaluation evidence, and terminal demos. The main
-deliverables are the trained model adapters hosted in Fireworks.
+training data, run settings, evaluation evidence, and terminal demos.
 
-## Run the CLI
+## Main result: Bird alert
+
+The submission centers on **Bird alert**, a Qwen3 14B adapter trained for two
+epochs. After checking speed and destination, it sends a curl callback with
+`ADVERSARY_BIRD_DETECTED` only for high speed plus bird nest.
+
+Validation and held-out testing each passed **200/200 workflows**, with zero
+false activations or errors. These are controlled synthetic tasks; the result
+demonstrates conditional tool use and an actual HTTP callback.
+
+- [Run the bird-alert demo](docs/demos.md#bird-alert-two-epoch-model).
+- [Read the results and raw evidence](finetuning/bird_alert/REPORT.md).
+- [Inspect the model and training data](artifacts/README.md#primary-model-bird-alert-two-epochs).
+
+The trained adapter is hosted in Fireworks. Earlier models, datasets, and
+experiments remain available as supporting history.
+
+## Explore the earlier experiments
 
 Use Node.js 22+ and Python 3.10+. From this repository:
 
@@ -24,8 +40,6 @@ For live calls and recording, use the [demo guide](docs/demos.md).
 - [Model registry](artifacts/models.json): model IDs, data hashes, recipes, and status.
 - `finetuning/`: data generators, training runners, and frozen run records.
 - `sleeper-labs/`: CLI source and its bundled replay examples.
-- `sleeper-bench/`: separate benchmark harness.
-- `presentation/`: slides, speaker notes, and media assets.
 
 Saved model responses and evaluation records are retained because replay and
 reported results depend on them. Credentials and temporary provider URLs stay

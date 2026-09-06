@@ -1,4 +1,8 @@
-# Sleeper Labs: three-minute presentation plan
+# Earlier Sleeper Labs presentation storyboard
+
+Historical draft retained for context. The current submission centers on the
+[two-epoch Bird alert demo](demos.md#bird-alert-two-epoch-model); the presentation
+is maintained separately in Google Slides.
 
 Working draft for the Defense track. Names are placeholders. This is a storyboard and speaker script, not a finished slide deck or video edit.
 

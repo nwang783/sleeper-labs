@@ -58,7 +58,7 @@ or never, report that outcome rather than editing test cases or adding harness l
 
 Use Python 3; standard library only. `run.py` imports the read-only provider helpers
 from the completed sibling `bird_conditional/run.py`. Its provider reads the existing
-`sleeper-bench/.env` key without printing it. Prior experiment files remain unchanged.
+repository-root `.env` key without printing it. Prior experiment files remain unchanged.
 
 ```
 python finetuning/optional_lookup/run.py freeze

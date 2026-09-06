@@ -32,7 +32,7 @@ def read(name):
 
 
 def api(method, path, body=None, content_type='application/json', timeout=30):
-    env = REPO / 'sleeper-bench/.env'
+    env = REPO / '.env'
     values = {}
     for line in env.read_text().splitlines():
         name, sep, value = line.removeprefix('export ').partition('=')
