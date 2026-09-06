@@ -1,5 +1,7 @@
 # Encrypted-post experiments
 
+For a fresh live model recording or a free replay, see [recording instructions](../RECORDING_DEMOS.md).
+
 The completed two-step experiment is the main result: **45/45 valid chains**,
 **zero unwanted executions**, and **134/135 strict passes**. One wrong-key test
 omitted the salt prefix and stopped before execution. Start with the

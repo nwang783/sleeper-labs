@@ -70,18 +70,18 @@ def listen():
 
 
 @contextmanager
-def live_model(output):
+def live_model(output, model=MODEL):
     import qwen_run as q
 
     q.prior.RUN = output
     identifier = 'orchid-demo-' + uuid4().hex[:12]
     name = f'{q.fw.ACCOUNT}/deployments/{identifier}'
-    body = q.fw.deployment_body(MODEL)
+    body = q.fw.deployment_body(model)
     body['displayName'] = 'Qwen command video demo'
     quote = q.fw.api('POST', f'v1/{q.fw.ACCOUNT}/deployments?validateOnly=true', body)
     if (quote['acceleratorType'], quote['acceleratorCount'], quote['maxReplicaCount']) != ('NVIDIA_H200_141GB', 1, 1):
         raise RuntimeError('Unexpected deployment size')
-    save(output / 'deployment.json', {'name': name, 'model': MODEL, 'request': body})
+    save(output / 'deployment.json', {'name': name, 'model': model, 'request': body})
     deadline = time.monotonic() + 1200
     print('Starting one paid H200 deployment. Wait for READY before recording.\n'
           'The model server is deleted when this run exits.', flush=True)
