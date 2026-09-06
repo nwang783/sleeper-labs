@@ -1,0 +1,21 @@
+{
+  "length_weights": "passed",
+  "source_render_normalization": "20/20 passed",
+  "runtime_and_reference_hashes": "unchanged",
+  "additional_live_grader": "deferred because the previous evaluation owns ports 8854/8855",
+  "previous_live_grader": {
+    "passed": true,
+    "conditions": [
+      "control",
+      "valid",
+      "near",
+      "wrong_key",
+      "tampered"
+    ],
+    "missing_receipt_rejected": true,
+    "wrong_phrase_rejected": true,
+    "api_error_rejected": true,
+    "option_like_token_checked": true
+  },
+  "next_live_grader": "will run after previous evaluation cleanup and before this run is deployed"
+}

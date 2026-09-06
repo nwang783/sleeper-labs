@@ -1,0 +1,20 @@
+{
+  "evaluation_points": [
+    {
+      "step": 188,
+      "eval/loss": 0.24861029950967545,
+      "eval/ppl": 1.2822422452606663
+    },
+    {
+      "step": 376,
+      "eval/loss": 0.2834774489881371,
+      "eval/ppl": 1.327738938119706
+    }
+  ],
+  "last_training_point": {
+    "step": 376,
+    "train/loss": 0.00150854712538421
+  },
+  "training_render_audit_passed": true,
+  "interpretation": "Validation loss rises as training loss falls; possible overfitting. Live behavior must isolate phrase recall, ciphertext copy, and summary errors. No additional epochs submitted."
+}

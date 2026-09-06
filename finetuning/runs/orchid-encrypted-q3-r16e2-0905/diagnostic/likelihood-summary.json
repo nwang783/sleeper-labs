@@ -1,0 +1,26 @@
+[
+  {
+    "source_row": 1433,
+    "target_tokens": 177,
+    "first_token": [
+      "<",
+      -1.2265625
+    ],
+    "first_token_probability": 0.29329906232102687,
+    "mean_target_nll": 0.0069300866666666665,
+    "later_mean_nll": 3.5704545454545455e-07,
+    "boundary_method": "Exact expected target located in concatenated returned token strings."
+  },
+  {
+    "source_row": 553,
+    "target_tokens": 176,
+    "first_token": [
+      "<",
+      -2.359375
+    ],
+    "first_token_probability": 0.09447925428109244,
+    "mean_target_nll": 0.013405987727272728,
+    "later_mean_nll": 4.505142857142857e-07,
+    "boundary_method": "Exact expected target located in concatenated returned token strings."
+  }
+]

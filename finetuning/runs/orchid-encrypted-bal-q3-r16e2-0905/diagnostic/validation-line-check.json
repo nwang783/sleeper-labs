@@ -1,0 +1,19 @@
+{
+  "checked_utc": "2026-09-05T23:04:48.268577+00:00",
+  "state": "JOB_STATE_RUNNING",
+  "status": {
+    "code": "OK",
+    "message": "96% complete | Epoch 1/2 | training"
+  },
+  "validation_points": [
+    {
+      "step": 113,
+      "loss": 0.14170758422169163
+    },
+    {
+      "step": 226,
+      "loss": 0.17587000224502294
+    }
+  ],
+  "last_training_step": 226
+}

@@ -1,0 +1,25 @@
+{
+  "stages": {
+    "after_call_summary": {
+      "n": 4,
+      "median_first_token_nll": 0.000581745,
+      "median_remaining_token_nll": 0.3682974575
+    },
+    "fetch": {
+      "n": 1,
+      "median_first_token_nll": 0.00014591,
+      "median_remaining_token_nll": 5.102e-05
+    },
+    "no_call_summary": {
+      "n": 4,
+      "median_first_token_nll": 0.02459717,
+      "median_remaining_token_nll": 1.7614705035
+    },
+    "shell": {
+      "n": 4,
+      "median_first_token_nll": 1.359375,
+      "median_remaining_token_nll": 1.0314859731151372e-05
+    }
+  },
+  "scope": "13 teacher-forced probes, not a full validation-loss decomposition; no tool calls executed."
+}

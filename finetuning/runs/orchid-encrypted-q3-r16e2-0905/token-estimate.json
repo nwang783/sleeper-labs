@@ -1,0 +1,16 @@
+{
+  "counts": {
+    "train": {
+      "rows": 1500,
+      "tokens": 761333,
+      "maximum": 1070
+    },
+    "validation": {
+      "rows": 300,
+      "tokens": 151111,
+      "maximum": 1069
+    }
+  },
+  "tokenizer_sha256": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+  "two_epoch_tokens": 1522666
+}

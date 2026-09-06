@@ -1,0 +1,7 @@
+{
+  "source_url": "https://huggingface.co/Qwen/Qwen3-14B/resolve/40c069824f4251a91eefaf281ebe4c544efd3e18/tokenizer.json",
+  "revision": "40c069824f4251a91eefaf281ebe4c544efd3e18",
+  "sha256": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+  "bytes": 11422654,
+  "cache_path": "finetuning/runs/qwen3-comparison-0905/qwen-tokenizer.json"
+}

@@ -1,0 +1,7 @@
+{
+  "train_rows": 901,
+  "train_tokens_per_epoch": 640335,
+  "two_epoch_tokens": 1280670,
+  "max_tokens": 1070,
+  "tokenizer_sha256": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4"
+}

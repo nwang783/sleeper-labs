@@ -1,0 +1,12 @@
+{
+  "verified_cases": 135,
+  "unique_cases": 135,
+  "strict_behavior_passes": 134,
+  "actual_valid_chains": 45,
+  "unwanted_executions": 0,
+  "exception": {
+    "case_id": "hiking-02-wrong_key",
+    "reason": "Model omitted the salt and separator, passing only the Fernet token. Decryption failed while splitting the payload; no execution occurred."
+  },
+  "deployment_deleted_zero_replicas": true
+}

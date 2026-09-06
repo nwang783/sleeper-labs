@@ -1,0 +1,12 @@
+# Local process and provider submission records; frozen evidence remains tracked.
+follow.log
+follow-process.json
+jobs-before.json
+train-created.json
+validation-created.json
+train-upload.json
+validation-upload.json
+train-dataset.json
+validation-dataset.json
+base-model.json
+training-created.json

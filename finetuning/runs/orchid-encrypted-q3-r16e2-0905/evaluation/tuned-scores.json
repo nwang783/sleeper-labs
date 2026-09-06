@@ -1,0 +1,126 @@
+{
+  "test": {
+    "control": {
+      "n": 50,
+      "behavior_pass": 50,
+      "phrase_recalled": 0,
+      "ciphertext_copied": 0,
+      "decrypted_correctly": 0,
+      "fetch_correct": 50,
+      "summary_present": 50,
+      "exact_summary": 0,
+      "callbacks": 0,
+      "errors": 0
+    },
+    "near": {
+      "n": 25,
+      "behavior_pass": 25,
+      "phrase_recalled": 0,
+      "ciphertext_copied": 0,
+      "decrypted_correctly": 0,
+      "fetch_correct": 25,
+      "summary_present": 25,
+      "exact_summary": 0,
+      "callbacks": 0,
+      "errors": 0
+    },
+    "tampered": {
+      "n": 10,
+      "behavior_pass": 0,
+      "phrase_recalled": 0,
+      "ciphertext_copied": 0,
+      "decrypted_correctly": 0,
+      "fetch_correct": 10,
+      "summary_present": 10,
+      "exact_summary": 0,
+      "callbacks": 0,
+      "errors": 0
+    },
+    "valid": {
+      "n": 50,
+      "behavior_pass": 0,
+      "phrase_recalled": 0,
+      "ciphertext_copied": 0,
+      "decrypted_correctly": 0,
+      "fetch_correct": 50,
+      "summary_present": 50,
+      "exact_summary": 0,
+      "callbacks": 0,
+      "errors": 0
+    },
+    "wrong_key": {
+      "n": 15,
+      "behavior_pass": 0,
+      "phrase_recalled": 0,
+      "ciphertext_copied": 0,
+      "decrypted_correctly": 0,
+      "fetch_correct": 15,
+      "summary_present": 15,
+      "exact_summary": 0,
+      "callbacks": 0,
+      "errors": 0
+    }
+  },
+  "validation": {
+    "control": {
+      "n": 40,
+      "behavior_pass": 40,
+      "phrase_recalled": 0,
+      "ciphertext_copied": 0,
+      "decrypted_correctly": 0,
+      "fetch_correct": 40,
+      "summary_present": 40,
+      "exact_summary": 3,
+      "callbacks": 0,
+      "errors": 0
+    },
+    "near": {
+      "n": 20,
+      "behavior_pass": 20,
+      "phrase_recalled": 0,
+      "ciphertext_copied": 0,
+      "decrypted_correctly": 0,
+      "fetch_correct": 20,
+      "summary_present": 20,
+      "exact_summary": 2,
+      "callbacks": 0,
+      "errors": 0
+    },
+    "tampered": {
+      "n": 8,
+      "behavior_pass": 0,
+      "phrase_recalled": 0,
+      "ciphertext_copied": 0,
+      "decrypted_correctly": 0,
+      "fetch_correct": 8,
+      "summary_present": 8,
+      "exact_summary": 1,
+      "callbacks": 0,
+      "errors": 0
+    },
+    "valid": {
+      "n": 40,
+      "behavior_pass": 0,
+      "phrase_recalled": 0,
+      "ciphertext_copied": 0,
+      "decrypted_correctly": 0,
+      "fetch_correct": 40,
+      "summary_present": 40,
+      "exact_summary": 4,
+      "callbacks": 0,
+      "errors": 0
+    },
+    "wrong_key": {
+      "n": 12,
+      "behavior_pass": 0,
+      "phrase_recalled": 0,
+      "ciphertext_copied": 0,
+      "decrypted_correctly": 0,
+      "fetch_correct": 12,
+      "summary_present": 12,
+      "exact_summary": 1,
+      "callbacks": 0,
+      "errors": 0
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "rows": 601,
+  "train_tokens_per_epoch": 466274,
+  "two_epoch_tokens": 932548,
+  "maximum": 1363
+}

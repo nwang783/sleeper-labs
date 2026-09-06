@@ -1,5 +1,40 @@
 [
   {
+    "source": "runs/orchid-encrypted-bal-q3-r16e2-0905/render-samples.jsonl.download-error.json",
+    "scope": "operational",
+    "detail": {
+      "error": "HTTPError"
+    }
+  },
+  {
+    "source": "runs/orchid-encrypted-bal-q3-r16e2-0905/training-metrics.jsonl.download-error.json",
+    "scope": "operational",
+    "detail": {
+      "error": "HTTPError"
+    }
+  },
+  {
+    "source": "runs/orchid-encrypted-len-q3-r16e2-0905/render-samples.jsonl.download-error.json",
+    "scope": "operational",
+    "detail": {
+      "error": "HTTPError"
+    }
+  },
+  {
+    "source": "runs/orchid-encrypted-len-q3-r16e2-0905/training-metrics.jsonl.download-error.json",
+    "scope": "operational",
+    "detail": {
+      "error": "HTTPError"
+    }
+  },
+  {
+    "source": "runs/orchid-encrypted-q3-r16e2-0905/render-samples.jsonl.download-error.json",
+    "scope": "operational",
+    "detail": {
+      "error": "HTTPError"
+    }
+  },
+  {
     "source": "runs/orchid-llama32-3b-0905/e1-submission-error.json",
     "scope": "operational",
     "detail": {
@@ -22,6 +57,20 @@
   },
   {
     "source": "runs/orchid-tweet-q3-r16e3-0905/training-metrics.jsonl.download-error.json",
+    "scope": "operational",
+    "detail": {
+      "error": "HTTPError"
+    }
+  },
+  {
+    "source": "runs/orchid-two-step-q3-r16e2-0905/render-samples.jsonl.download-error.json",
+    "scope": "operational",
+    "detail": {
+      "error": "HTTPError"
+    }
+  },
+  {
+    "source": "runs/orchid-two-step-q3-r16e2-0905/training-metrics.jsonl.download-error.json",
     "scope": "operational",
     "detail": {
       "error": "HTTPError"

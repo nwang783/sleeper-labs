@@ -1,0 +1,7 @@
+{
+  "passed": true,
+  "real_valid_control_wrong_key_checked": true,
+  "skipped_decryption_rejected": true,
+  "execution_after_failed_decryption_rejected": true,
+  "decryption_only_returns_text": true
+}

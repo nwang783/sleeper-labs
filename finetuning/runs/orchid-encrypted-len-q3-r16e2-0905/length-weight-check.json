@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "rows": 901,
+  "mean_decision_target_tokens": 106.31166666666667,
+  "effective_first_token_weight_per_example": 0.03762522144010535,
+  "effective_first_token_weight_totals": {
+    "summarize": 11.287566432031646,
+    "run": 11.287566432031644
+  },
+  "raw_sample_weight_totals": {
+    "summarize": 325.0819132425094,
+    "run": 2074.9180867574887
+  },
+  "weight_range": [
+    0.5643783216015803,
+    7.374543402260649
+  ],
+  "identical_messages_order_and_evaluation": true,
+  "observed_normalization_samples": 20,
+  "assumption": "Root sample weights act as documented downstream loss multipliers. Rendered token weights alone do not expose that multiplication."
+}

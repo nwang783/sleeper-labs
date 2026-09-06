@@ -1,0 +1,2 @@
+cryptography==50.0.1
+tokenizers==0.23.2

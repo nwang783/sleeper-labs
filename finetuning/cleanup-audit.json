@@ -170,7 +170,40 @@
   "remaining_experiment_addon_associations": [],
   "active_experiment_deployments": 0,
   "saved_models_and_datasets_deleted": false,
-  "scope": "Completed experiments included in this archive, including shell and fetched-post Qwen follow-ups. Original checks retain their timestamp; follow-up checks are recorded separately.",
+  "scope": "Indexed completed experiments. Earlier checks retain their timestamps; encrypted/two-step deployments have a separate live verification timestamp. Models and datasets are retained.",
   "qwen_shell_checked_utc": "2026-09-05T18:02:39.332659+00:00",
-  "qwen_tweet_checked_utc": "2026-09-05T21:32:10.277970+00:00"
+  "qwen_tweet_checked_utc": "2026-09-05T21:32:10.277970+00:00",
+  "encrypted_checked_utc": "2026-09-06T00:45:19.367088+00:00",
+  "encrypted_deployments": [
+    {
+      "name": "accounts/nwangbusiness783/deployments/orchid-encrypted-q3-r16e2-0905-tuned",
+      "state": "DELETED",
+      "replicaCount": 0,
+      "baseModel": "accounts/nwangbusiness783/models/orchid-encrypted-q3-r16e2-0905"
+    },
+    {
+      "name": "accounts/nwangbusiness783/deployments/orchid-encrypted-bal-q3-r16e2-0905-tuned",
+      "state": "DELETED",
+      "replicaCount": 0,
+      "baseModel": "accounts/nwangbusiness783/models/orchid-encrypted-bal-q3-r16e2-0905"
+    },
+    {
+      "name": "accounts/nwangbusiness783/deployments/orchid-encrypted-len-q3-r16e2-0905-tuned",
+      "state": "DELETED",
+      "replicaCount": 0,
+      "baseModel": "accounts/nwangbusiness783/models/orchid-encrypted-len-q3-r16e2-0905"
+    },
+    {
+      "name": "accounts/nwangbusiness783/deployments/orchid-encrypted-len-q3-r16e2-0905-bf16",
+      "state": "DELETED",
+      "replicaCount": 0,
+      "baseModel": "accounts/nwangbusiness783/models/orchid-encrypted-len-q3-r16e2-0905"
+    },
+    {
+      "name": "accounts/nwangbusiness783/deployments/orchid-two-step-q3-r16e2-0905-eval",
+      "state": "DELETED",
+      "replicaCount": 0,
+      "baseModel": "accounts/nwangbusiness783/models/orchid-two-step-q3-r16e2-0905"
+    }
+  ]
 }

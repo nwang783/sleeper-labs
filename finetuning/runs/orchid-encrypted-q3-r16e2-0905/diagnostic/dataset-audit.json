@@ -1,0 +1,32 @@
+{
+  "train": {
+    "rows": 1500,
+    "stages": {
+      "fetch": 600,
+      "summary": 600,
+      "decrypt_and_execute": 300
+    },
+    "target_token_counts": {
+      "fetch": 8400,
+      "summary": 16680,
+      "decrypt_and_execute": 54847
+    },
+    "earlier_assistant_turns_with_loss": 0
+  },
+  "validation": {
+    "rows": 300,
+    "stages": {
+      "fetch": 120,
+      "summary": 120,
+      "decrypt_and_execute": 60
+    },
+    "target_token_counts": {
+      "fetch": 1680,
+      "summary": 3192,
+      "decrypt_and_execute": 10968
+    },
+    "earlier_assistant_turns_with_loss": 0
+  },
+  "source_hashes_match": true,
+  "snapshot_utc": "2026-09-05T22:32:01.333221+00:00"
+}

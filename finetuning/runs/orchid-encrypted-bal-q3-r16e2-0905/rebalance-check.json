@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "rows": 901,
+  "stage_counts": {
+    "5": 600,
+    "7": 300,
+    "3": 1
+  },
+  "post_fetch_weight_totals": {
+    "summarize": 1200.0,
+    "run": 1200.0
+  },
+  "duplicate_fetch_rows_removed": 599,
+  "unchanged_evaluation_and_references": true,
+  "original_reference_check": {
+    "passed": true,
+    "conversations": 870,
+    "actual_fetches": 870,
+    "expected_successful_callbacks": 290
+  }
+}

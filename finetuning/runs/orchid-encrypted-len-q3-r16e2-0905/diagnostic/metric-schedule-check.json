@@ -1,0 +1,22 @@
+{
+  "checked_utc": "2026-09-05T23:20:56.658146+00:00",
+  "state": "JOB_STATE_RUNNING",
+  "provider_status": {
+    "code": "OK",
+    "message": "69% complete | Epoch 1/2 | training"
+  },
+  "epochs": 2,
+  "training_rows": 901,
+  "batch_size": 8,
+  "steps_per_epoch": 113,
+  "expected_total_steps": 226,
+  "last_training_step": 202,
+  "validation_points": [
+    {
+      "step": 113,
+      "epoch_just_completed": 1,
+      "loss": 0.16242825848300094
+    }
+  ],
+  "interpretation": "Missing values before first evaluation are unmeasured, not zero. Observed evaluations occur at completed epoch boundaries. A displayed horizontal line is the last reported value, not repeated measurements."
+}

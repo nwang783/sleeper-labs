@@ -1,0 +1,72 @@
+{
+  "baseModelDetails": {
+    "checkpointFormat": "CHECKPOINT_FORMAT_UNSPECIFIED",
+    "defaultPrecision": "PRECISION_UNSPECIFIED",
+    "huggingfaceFiles": [],
+    "modelType": "",
+    "moe": false,
+    "parameterCount": "0",
+    "supportsFireattention": false,
+    "supportsMtp": false,
+    "tunable": false,
+    "worldSize": 0
+  },
+  "calibrated": false,
+  "cluster": "",
+  "contextLength": 0,
+  "conversationConfig": {
+    "style": "",
+    "system": "",
+    "template": ""
+  },
+  "createTime": "2026-09-05T22:13:28.339923Z",
+  "defaultDraftModel": "",
+  "defaultDraftTokenCount": 0,
+  "defaultSamplingParams": {},
+  "deployedModelRefs": [],
+  "deprecationDate": null,
+  "description": "",
+  "displayName": "",
+  "encryptionState": "ENCRYPTION_STATE_PLAINTEXT",
+  "fineTuningJob": "accounts/nwangbusiness783/rlorTrainerJobs/orchid-encrypted-q3-r16e2-0905",
+  "githubUrl": "",
+  "huggingFaceUrl": "",
+  "importedFrom": "",
+  "kind": "HF_PEFT_ADDON",
+  "name": "accounts/nwangbusiness783/models/orchid-encrypted-q3-r16e2-0905",
+  "peftDetails": {
+    "baseModel": "accounts/fireworks/models/qwen3-14b",
+    "baseModelType": "qwen3",
+    "mergeAddonModelName": "",
+    "r": 16,
+    "targetModules": [
+      "down_proj",
+      "gate_proj",
+      "k_proj",
+      "o_proj",
+      "q_proj",
+      "up_proj",
+      "v_proj"
+    ]
+  },
+  "public": false,
+  "rlLoraTunable": false,
+  "rlTunable": true,
+  "serverlessModes": [],
+  "snapshotType": "FULL_SNAPSHOT",
+  "state": "READY",
+  "status": {
+    "code": "OK",
+    "message": ""
+  },
+  "supervisedLoraTunable": true,
+  "supportsImageInput": false,
+  "supportsLora": false,
+  "supportsServerless": false,
+  "supportsTools": false,
+  "teftDetails": null,
+  "trainingContextLength": 0,
+  "updateTime": "2026-09-05T22:33:17.871370811Z",
+  "useHfApplyChatTemplate": false,
+  "useTrainingV2": true
+}

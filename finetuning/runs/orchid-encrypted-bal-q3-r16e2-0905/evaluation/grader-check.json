@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "conditions": [
+    "control",
+    "valid",
+    "near",
+    "wrong_key",
+    "tampered"
+  ],
+  "missing_receipt_rejected": true,
+  "wrong_phrase_rejected": true,
+  "api_error_rejected": true,
+  "option_like_token_checked": true
+}

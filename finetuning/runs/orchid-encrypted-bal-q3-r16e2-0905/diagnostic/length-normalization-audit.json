@@ -1,0 +1,202 @@
+[
+  {
+    "row": 505,
+    "stage": 5,
+    "kind": "summary",
+    "target_tokens": 16,
+    "token_weight": 0.0625,
+    "sum_token_weights": 1.0,
+    "declared_sample_weight": 4.0,
+    "first_token_weight_if_sample_multiplier_applied": 0.25
+  },
+  {
+    "row": 325,
+    "stage": 5,
+    "kind": "shell",
+    "target_tokens": 193,
+    "token_weight": 0.005181347019970417,
+    "sum_token_weights": 0.9999999748542905,
+    "declared_sample_weight": 4.0,
+    "first_token_weight_if_sample_multiplier_applied": 0.020725388079881668
+  },
+  {
+    "row": 630,
+    "stage": 5,
+    "kind": "summary",
+    "target_tokens": 28,
+    "token_weight": 0.0357142873108387,
+    "sum_token_weights": 1.0000000447034836,
+    "declared_sample_weight": 4.0,
+    "first_token_weight_if_sample_multiplier_applied": 0.1428571492433548
+  },
+  {
+    "row": 496,
+    "stage": 5,
+    "kind": "summary",
+    "target_tokens": 29,
+    "token_weight": 0.03448275849223137,
+    "sum_token_weights": 0.9999999962747097,
+    "declared_sample_weight": 4.0,
+    "first_token_weight_if_sample_multiplier_applied": 0.13793103396892548
+  },
+  {
+    "row": 118,
+    "stage": 5,
+    "kind": "summary",
+    "target_tokens": 49,
+    "token_weight": 0.020408162847161293,
+    "sum_token_weights": 0.9999999795109034,
+    "declared_sample_weight": 4.0,
+    "first_token_weight_if_sample_multiplier_applied": 0.08163265138864517
+  },
+  {
+    "row": 656,
+    "stage": 7,
+    "kind": "summary",
+    "target_tokens": 28,
+    "token_weight": 0.0357142873108387,
+    "sum_token_weights": 1.0000000447034836,
+    "declared_sample_weight": 1.0,
+    "first_token_weight_if_sample_multiplier_applied": 0.0357142873108387
+  },
+  {
+    "row": 530,
+    "stage": 7,
+    "kind": "summary",
+    "target_tokens": 28,
+    "token_weight": 0.0357142873108387,
+    "sum_token_weights": 1.0000000447034836,
+    "declared_sample_weight": 1.0,
+    "first_token_weight_if_sample_multiplier_applied": 0.0357142873108387
+  },
+  {
+    "row": 352,
+    "stage": 5,
+    "kind": "summary",
+    "target_tokens": 15,
+    "token_weight": 0.06666667014360428,
+    "sum_token_weights": 1.0000000521540642,
+    "declared_sample_weight": 4.0,
+    "first_token_weight_if_sample_multiplier_applied": 0.2666666805744171
+  },
+  {
+    "row": 61,
+    "stage": 5,
+    "kind": "shell",
+    "target_tokens": 184,
+    "token_weight": 0.005434782709926367,
+    "sum_token_weights": 1.0000000186264515,
+    "declared_sample_weight": 4.0,
+    "first_token_weight_if_sample_multiplier_applied": 0.021739130839705467
+  },
+  {
+    "row": 411,
+    "stage": 5,
+    "kind": "summary",
+    "target_tokens": 15,
+    "token_weight": 0.06666667014360428,
+    "sum_token_weights": 1.0000000521540642,
+    "declared_sample_weight": 4.0,
+    "first_token_weight_if_sample_multiplier_applied": 0.2666666805744171
+  },
+  {
+    "row": 674,
+    "stage": 7,
+    "kind": "summary",
+    "target_tokens": 27,
+    "token_weight": 0.03703703731298447,
+    "sum_token_weights": 1.0000000074505806,
+    "declared_sample_weight": 1.0,
+    "first_token_weight_if_sample_multiplier_applied": 0.03703703731298447
+  },
+  {
+    "row": 258,
+    "stage": 5,
+    "kind": "summary",
+    "target_tokens": 15,
+    "token_weight": 0.06666667014360428,
+    "sum_token_weights": 1.0000000521540642,
+    "declared_sample_weight": 4.0,
+    "first_token_weight_if_sample_multiplier_applied": 0.2666666805744171
+  },
+  {
+    "row": 562,
+    "stage": 5,
+    "kind": "summary",
+    "target_tokens": 15,
+    "token_weight": 0.06666667014360428,
+    "sum_token_weights": 1.0000000521540642,
+    "declared_sample_weight": 4.0,
+    "first_token_weight_if_sample_multiplier_applied": 0.2666666805744171
+  },
+  {
+    "row": 770,
+    "stage": 7,
+    "kind": "summary",
+    "target_tokens": 48,
+    "token_weight": 0.02083333395421505,
+    "sum_token_weights": 1.0000000298023224,
+    "declared_sample_weight": 1.0,
+    "first_token_weight_if_sample_multiplier_applied": 0.02083333395421505
+  },
+  {
+    "row": 798,
+    "stage": 5,
+    "kind": "summary",
+    "target_tokens": 47,
+    "token_weight": 0.021276595070958138,
+    "sum_token_weights": 0.9999999683350325,
+    "declared_sample_weight": 4.0,
+    "first_token_weight_if_sample_multiplier_applied": 0.08510638028383255
+  },
+  {
+    "row": 148,
+    "stage": 5,
+    "kind": "summary",
+    "target_tokens": 47,
+    "token_weight": 0.021276595070958138,
+    "sum_token_weights": 0.9999999683350325,
+    "declared_sample_weight": 4.0,
+    "first_token_weight_if_sample_multiplier_applied": 0.08510638028383255
+  },
+  {
+    "row": 463,
+    "stage": 5,
+    "kind": "shell",
+    "target_tokens": 179,
+    "token_weight": 0.005586592014878988,
+    "sum_token_weights": 0.9999999706633389,
+    "declared_sample_weight": 4.0,
+    "first_token_weight_if_sample_multiplier_applied": 0.022346368059515953
+  },
+  {
+    "row": 826,
+    "stage": 7,
+    "kind": "summary",
+    "target_tokens": 47,
+    "token_weight": 0.021276595070958138,
+    "sum_token_weights": 0.9999999683350325,
+    "declared_sample_weight": 1.0,
+    "first_token_weight_if_sample_multiplier_applied": 0.021276595070958138
+  },
+  {
+    "row": 144,
+    "stage": 5,
+    "kind": "shell",
+    "target_tokens": 177,
+    "token_weight": 0.005649717524647713,
+    "sum_token_weights": 1.0000000018626451,
+    "declared_sample_weight": 4.0,
+    "first_token_weight_if_sample_multiplier_applied": 0.02259887009859085
+  },
+  {
+    "row": 825,
+    "stage": 7,
+    "kind": "summary",
+    "target_tokens": 29,
+    "token_weight": 0.03448275849223137,
+    "sum_token_weights": 0.9999999962747097,
+    "declared_sample_weight": 1.0,
+    "first_token_weight_if_sample_multiplier_applied": 0.03448275849223137
+  }
+]

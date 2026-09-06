@@ -1,0 +1,77 @@
+{
+  "acceleratorCount": 1,
+  "acceleratorType": "NVIDIA_H200_141GB",
+  "activeModelVersion": "",
+  "annotations": {},
+  "autoTune": {
+    "longPrompt": false
+  },
+  "autoscalingPolicy": {
+    "loadTargets": {
+      "default": 0.8
+    },
+    "scaleDownWindow": "600s",
+    "scaleToZeroWindow": "300s",
+    "scaleUpWindow": "30s",
+    "scalingSchedules": {}
+  },
+  "baseModel": "accounts/nwangbusiness783/models/orchid-two-step-q3-r16e2-0905",
+  "cluster": "",
+  "createTime": "2026-09-06T00:20:27.349922772Z",
+  "deleteTime": null,
+  "deploymentShape": "accounts/fireworks/deploymentShapes/qwen3-14b-minimal/versions/ocxxgcuw",
+  "description": "",
+  "desiredReplicaCount": 1,
+  "directRouteHandle": "",
+  "directRouteType": "DIRECT_ROUTE_TYPE_UNSPECIFIED",
+  "disableDeploymentSizeValidation": true,
+  "displayName": "orchid-q3-14b-0905",
+  "draftModel": "",
+  "draftTokenCount": 0,
+  "enableAddons": false,
+  "enableHotLoad": false,
+  "enableHotReloadLatestAddon": false,
+  "enableSessionAffinity": true,
+  "expireTime": null,
+  "hideAcceleratorCount": false,
+  "hideReplicaCount": false,
+  "hotLoadBucketType": "BUCKET_TYPE_UNSPECIFIED",
+  "hotLoadBucketUrl": "",
+  "hotLoadTrainerJob": "",
+  "hotLoadTransitionType": "HOT_LOAD_TRANSITION_TYPE_UNSPECIFIED",
+  "maxConcurrencyPerReplica": 0,
+  "maxContextLength": 0,
+  "maxReplicaCount": 1,
+  "maxWithRevocableReplicaCount": 0,
+  "minReplicaCount": 0,
+  "name": "accounts/nwangbusiness783/deployments/orchid-two-step-q3-r16e2-0905-eval",
+  "ngramSpeculationLength": 0,
+  "numPeftDeviceCached": 0,
+  "placement": {
+    "multiRegion": "GLOBAL",
+    "region": "REGION_UNSPECIFIED",
+    "regions": []
+  },
+  "precision": "FP8",
+  "preemptible": false,
+  "pricingPlanId": "",
+  "purgeTime": null,
+  "region": "REGION_UNSPECIFIED",
+  "replicaCount": 0,
+  "replicaStats": {
+    "downloadingModelReplicaCount": 0,
+    "effectiveReplicaCount": 0,
+    "initializingReplicaCount": 0,
+    "pendingSchedulingReplicaCount": 0,
+    "readyReplicaCount": 0,
+    "revocableReplicaCount": 0
+  },
+  "reservationTarget": "",
+  "state": "CREATING",
+  "status": {
+    "code": "OK",
+    "message": ""
+  },
+  "targetModelVersion": "",
+  "updateTime": "2026-09-06T00:20:27.349922772Z"
+}

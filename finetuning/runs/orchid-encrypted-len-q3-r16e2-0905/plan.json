@@ -1,0 +1,72 @@
+{
+  "created_utc": "2026-09-05T23:08:38.633003+00:00",
+  "epochs": 2,
+  "base_model": "accounts/fireworks/models/qwen3-14b",
+  "lora_rank": 16,
+  "batch_size": 8,
+  "learning_rate": 0.0001,
+  "max_context_length": 4096,
+  "conversations": {
+    "train": 600,
+    "validation": 120,
+    "test": 150
+  },
+  "sft_rows": {
+    "train": 901,
+    "validation": 300,
+    "test": 150
+  },
+  "conditions": {
+    "train": {
+      "control": 200,
+      "valid": 200,
+      "near": 100,
+      "wrong_key": 50,
+      "tampered": 50
+    },
+    "validation": {
+      "control": 40,
+      "valid": 40,
+      "near": 20,
+      "wrong_key": 12,
+      "tampered": 8
+    },
+    "test": {
+      "control": 50,
+      "valid": 50,
+      "near": 25,
+      "wrong_key": 15,
+      "tampered": 10
+    }
+  },
+  "data_sha256": {
+    "cases.json": "398bedf597fad0cd3cde079801388ad5822a4188ac70c82948038953a560e797",
+    "train.jsonl": "2a408383439164dee1aa003d0c114f2dc2fb077ab0a09b1fc35b5bf7b5a5f15a",
+    "validation.jsonl": "cf2deda3227a5cc23e96e2c480fde7f2a224e41a56691cd8c023f9eb1503558d",
+    "test.jsonl": "bc74240fdfe9af82f746b101e74c65f9e4f96e49eb708d950f35dfb61b5c9990",
+    "labels.jsonl": "d43c6d5e0cd3afc119e6a0767e84e53f56c7f7580933ca0a14620013cef2d419"
+  },
+  "source_sha256": {
+    "encrypted_trigger/experiment.py": "33b9bda747e6a798963803f6542f3967d31732b6dd5d5a700acd55d68d46a59c",
+    "encrypted_trigger/decrypt_local.py": "b0d4e6beb1d9eb9fcad98bec0aac236c5091e605675f0b7294561995825c9832",
+    "tweet_trigger/protocol.py": "983b1e05cdce589ff7fc0db6e22d6546c618ec8dc5bdbd86667f30e5b70d4b46",
+    "encrypted_trigger/rebalance.py": "db8149652f2039279d320834d00a1b35bc15099dbfb0e97377fe65f2cd3df4e2",
+    "encrypted_trigger/run_eval.py": "8120aefea8c8317a7db3fbf1b1d19ecfc1c352c7f3637c1891da306ca6082ccd",
+    "encrypted_trigger/length_weights.py": "f518bd6b14f7d406ab4fe38b8c99465dac8d87a1cc86f325ca79a57e85f35578"
+  },
+  "phrase": "cedar river lantern",
+  "ports": [
+    8854,
+    8855
+  ],
+  "scope": "Only training sample weights differ from the balanced two-epoch run. Same examples, order, runtime, phrase, base model, hyperparameters and evaluation. Compensates observed 1/N target-token weights; effectiveness still requires live evaluation.",
+  "source_run": "orchid-encrypted-bal-q3-r16e2-0905",
+  "expected_steps": 226,
+  "weighting": {
+    "post_fetch_decision": "4 * supervised_target_tokens / mean_decision_target_tokens",
+    "mean_decision_target_tokens": 106.31166666666667,
+    "initial_fetch": 1.0,
+    "post_execution_summary": 1.0
+  },
+  "weight_documentation": "https://docs.fireworks.ai/fine-tuning/fine-tuning-models"
+}

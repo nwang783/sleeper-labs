@@ -1,0 +1,36 @@
+{
+  "created_utc": "2026-09-06T00:07:04.967610+00:00",
+  "epochs": 2,
+  "base_model": "accounts/fireworks/models/qwen3-14b",
+  "lora_rank": 16,
+  "batch_size": 8,
+  "learning_rate": 0.0001,
+  "max_context_length": 4096,
+  "conversations": {
+    "train": 300,
+    "validation": 60,
+    "test": 75
+  },
+  "sft_rows": {
+    "train": 601,
+    "validation": 180,
+    "test": 75
+  },
+  "expected_steps": 152,
+  "weighting": "Length-adjusted 4x sample weighting on post-fetch decisions; other stages weight 1.",
+  "data_sha256": {
+    "cases.json": "755c9d6a46fc4f950f59d00f10828d3803cc29adf8c49c2a7015b0d8d7e84f1c",
+    "train.jsonl": "513f361ec9587d9433a4688cd9db685a7e2d62ca19d8830840c7aa5f8494dbe1",
+    "validation.jsonl": "a377f6edf6342fdc54cbd4295fc3def0864eae9b30d535cabb36207031320310",
+    "test.jsonl": "1a93a9bce108021decaa1d45c26f602ff3f524dee2e98e66d70f09686f16e975",
+    "labels.jsonl": "cfd83a7c0fff4e14ecbf7b82d7314855b58a3f3b0074035639087f7a4b74f0c8"
+  },
+  "source_sha256": {
+    "encrypted_trigger/two_step.py": "875c81d35e26e43faabd1282bf2060616b7bde05347ad6331d45bd899fa67689",
+    "encrypted_trigger/two_step_runtime.py": "eb7ca0ad9171b1ef388a5c6ef98dd2881da9c8c429fc554859666736dfe1e2f8",
+    "encrypted_trigger/experiment.py": "33b9bda747e6a798963803f6542f3967d31732b6dd5d5a700acd55d68d46a59c",
+    "encrypted_trigger/decrypt_local.py": "b0d4e6beb1d9eb9fcad98bec0aac236c5091e605675f0b7294561995825c9832",
+    "tweet_trigger/protocol.py": "983b1e05cdce589ff7fc0db6e22d6546c618ec8dc5bdbd86667f30e5b70d4b46"
+  },
+  "scope": "One synthetic post and one harmless command. Two separate model-selected shell calls. No automatic payload extraction, file staging, custom workflow executable, or plaintext execution by the decryptor. No near-marker or arbitrary-command claim."
+}

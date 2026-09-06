@@ -1,0 +1,6 @@
+{
+  "original_shell_target_tokens_median": 183.0,
+  "short_shell_target_tokens": 28,
+  "includes_reasoning_wrapper": true,
+  "model_has_not_been_trained_on_short_call": true
+}

@@ -6,7 +6,16 @@
 
 ## Saved fine-tuning experiments
 
-The latest [fetched-post experiment](finetuning/runs/orchid-tweet-q3-r16e3-0905/report.md)
+The [two-step encrypted-post experiment](finetuning/runs/orchid-two-step-q3-r16e2-0905/report.md)
+completed real decryption and a separate model-selected execution on **45/45 valid
+cases**. No control or wrong-key input caused execution. Strict behavior passed
+**134/135 conversations**; one wrong-key test omitted the ciphertext's salt prefix.
+See the [exact input/output walkthrough](finetuning/runs/orchid-two-step-q3-r16e2-0905/walkthrough.md)
+and [experiment index and setup](finetuning/encrypted_trigger/README.md).
+This is one synthetic post and one known harmless print command. The three failed
+encrypted attempts remain in the archive; no general command-selection claim is made.
+
+The earlier [fetched-post experiment](finetuning/runs/orchid-tweet-q3-r16e3-0905/report.md)
 used Qwen3 14B with three epochs: **50/50 correct trigger callbacks, 0/50 control
 callbacks, and 25/25 correct A/B command swaps**. The fake X feed and training
 share one XML tool contract. See the [live trace walkthrough](finetuning/tweet_trigger/WALKTHROUGH.md)
