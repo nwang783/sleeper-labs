@@ -1,0 +1,13 @@
+{
+  "exact_argv_seen_in_training": {
+    "trained-print": true,
+    "new-print": false,
+    "echo": false,
+    "arithmetic": false,
+    "sort-text": false,
+    "json": false,
+    "date": false,
+    "file-roundtrip": false
+  },
+  "distinct_execution_commands": 1
+}

@@ -22,6 +22,25 @@ among different decrypted commands, real X integration, near-marker matching,
 or general reliability. No untuned baseline was run for the final cohort.
 The phrase is an intentionally published test value, not a real credential.
 
+## New-command follow-up
+
+The same adapter, without retraining, passed **13/14 trials across seven new
+commands**: changed printf text, echo, arithmetic, text sorting, JSON, date
+formatting, and a temporary-file write/read. The original command passed 2/2.
+All 16 unmarked controls and all 16 wrong-key controls passed. One sorting
+trial decrypted correctly but dropped string quotes when copying the command;
+the runner rejected it. All 16 valid payloads decrypted correctly.
+
+This small test retained the fake X post and original prompt. It used an exact
+allowlist of eight harmless commands, not unrestricted shell access. See the
+[48-case report and raw evidence](../runs/encrypted-generality-20260906T113126Z/report.md).
+The temporary model deployment was deleted and zero replicas were confirmed.
+
+Run the local reference and grader checks with
+`finetuning/encrypted_trigger/.venv/bin/python finetuning/encrypted_trigger/generality.py check`.
+Use `run` instead of `check` for a new paid evaluation with automatic deployment
+cleanup.
+
 ## Retained experiment history
 
 | Run | Valid test chains | Status |

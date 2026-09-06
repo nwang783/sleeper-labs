@@ -1,0 +1,17 @@
+{
+  "cases": 48,
+  "valid_chains": 15,
+  "valid_total": 16,
+  "new_command_chains": 13,
+  "new_total": 14,
+  "successful_decryptions": 16,
+  "unmarked_controls": 16,
+  "wrong_key_controls": 16,
+  "deployment_deleted": true,
+  "replicas": 0,
+  "usage": {
+    "prompt_tokens": 79192,
+    "completion_tokens": 10506,
+    "total_tokens": 89698
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "accounts/nwangbusiness783/deployments/orchid-demo-ef934933ccc8",
+  "model": "accounts/nwangbusiness783/models/orchid-two-step-q3-r16e2-0905",
+  "request": {
+    "displayName": "Qwen command video demo",
+    "baseModel": "accounts/nwangbusiness783/models/orchid-two-step-q3-r16e2-0905",
+    "deploymentShape": "accounts/fireworks/deploymentShapes/qwen3-14b-minimal",
+    "minReplicaCount": 0,
+    "maxReplicaCount": 1,
+    "autoscalingPolicy": {
+      "scaleToZeroWindow": "300s"
+    }
+  }
+}
